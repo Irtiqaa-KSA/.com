@@ -36,16 +36,19 @@
 </head>
 <body style="margin:0; padding:0; font-family:'Cairo','Tajawal',sans-serif; background:linear-gradient(rgba(5,25,48,0.93),rgba(5,25,48,0.97)),url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&q=85') center/cover fixed; min-height:100vh; color:#172b4d; line-height:1.7; overflow-x:hidden; direction:rtl;">
 
-<!-- ===== Topbar ===== -->
-<div id="topbar" style="position:fixed; top:0; right:0; left:0; z-index:1000; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; background:rgba(8,40,71,0); transition:all 0.4s ease;">
+<!-- ===== Topbar مع الإطار الذهبي ===== -->
+<div id="topbar" style="position:fixed; top:0; right:0; left:0; z-index:1000; padding:10px 16px; display:flex; align-items:center; justify-content:space-between; background:#0e1c30; border-top:3px solid #b98a2e; border-bottom:3px solid #b98a2e; transition:all 0.4s ease; box-sizing:border-box;">
   
-  <!-- Logo -->
-  <a href="https://irtiqaa.com/" target="_blank" style="display:flex; align-items:center; gap:10px; text-decoration:none; color:white;">
-    <div style="width:42px; height:42px; background:linear-gradient(135deg,#d5a73a,#e1b94f); border-radius:11px; display:flex; align-items:center; justify-content:center; font-size:20px; box-shadow:0 4px 14px rgba(213,167,58,0.35);">🏗️</div>
-    <div style="display:flex; flex-direction:column; line-height:1.2;">
-      <span style="font-size:18px; font-weight:800; color:white;">ارتقاء</span>
-      <span style="font-size:10px; color:rgba(255,255,255,0.7); font-weight:500;">الهندسة المدنية</span>
+  <!-- اللوجو المطابق للصورة -->
+  <a href="https://irtiqaa.com/" target="_blank" style="display:flex; align-items:center; gap:14px; text-decoration:none; color:white; flex-shrink:0;">
+    <div style="display:flex; flex-direction:column; line-height:1.25;">
+      <span style="font-size:21px; font-weight:800; color:#ffffff;">ارتقاء</span>
+      <span style="font-size:11px; font-weight:500; color:#aeb9c6;">الهندسة المدنية</span>
     </div>
+    <img class="irtiqaa-logo-img"
+      src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5nl7CCqQ-4HI6rT_ed-XnI5XWXXbRzmBLiPM8axh0vQbcXEB45ALFiPEvtU57a-dzBAeBKT2ARZJmigzXBYNgVG-Q0y_oXFp78Quwo561IksZxYkH_kZ5CPiCDcnOXo3Fh_U2ueMnTw3gv5vfgIPnJ8XXMCRBHwcfLpxJJr5O01w_b24wpT7JqTdteaJi/s845/333087.png"
+      alt="شعار ارتقاء - ASCEND Civil Engineering Platform"
+      style="height:56px; width:auto; max-width:56vw; object-fit:contain; display:block;">
   </a>
 
   <!-- Desktop Links -->
@@ -85,7 +88,7 @@
   <!-- Mobile Menu Logo -->
   <div style="position:absolute; top:22px; right:24px; left:24px; display:flex; align-items:center; justify-content:space-between; padding-bottom:20px; border-bottom:1px solid rgba(255,255,255,0.1);">
     <div style="display:flex; align-items:center; gap:10px; color:white; font-weight:800; font-size:17px;">
-      <div style="width:36px; height:36px; background:linear-gradient(135deg,#d5a73a,#e1b94f); border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:16px;">🏗️</div>
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5nl7CCqQ-4HI6rT_ed-XnI5XWXXbRzmBLiPM8axh0vQbcXEB45ALFiPEvtU57a-dzBAeBKT2ARZJmigzXBYNgVG-Q0y_oXFp78Quwo561IksZxYkH_kZ5CPiCDcnOXo3Fh_U2ueMnTw3gv5vfgIPnJ8XXMCRBHwcfLpxJJr5O01w_b24wpT7JqTdteaJi/s845/333087.png" alt="شعار ارتقاء" style="height:34px; width:auto; object-fit:contain; display:block;">
       <span>ارتقاء</span>
     </div>
     <button onclick="toggleMenu()" aria-label="إغلاق القائمة" style="background:none; border:none; color:white; font-size:24px; cursor:pointer; padding:8px;">✕</button>
@@ -93,35 +96,35 @@
 
   <!-- Mobile Links -->
   <div style="margin-top:20px;">
-    <a href="https://irtiqaa.com/" target="_blank" style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.9); text-decoration:none; padding:14px 16px; border-radius:12px; font-weight:600; font-size:15px; transition:0.25s; margin-bottom:4px;">
+    <a href="https://irtiqaa.com/" target="_blank" onclick="toggleMenu()" style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.9); text-decoration:none; padding:14px 16px; border-radius:12px; font-weight:600; font-size:15px; transition:0.25s; margin-bottom:4px;">
       <span style="font-size:18px; width:26px; text-align:center;">🏠</span>
       <span>الرئيسية</span>
     </a>
-    <a href="#subjects" style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.9); text-decoration:none; padding:14px 16px; border-radius:12px; font-weight:600; font-size:15px; transition:0.25s; margin-bottom:4px;">
+    <a href="#subjects" onclick="toggleMenu()" style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.9); text-decoration:none; padding:14px 16px; border-radius:12px; font-weight:600; font-size:15px; transition:0.25s; margin-bottom:4px;">
       <span style="font-size:18px; width:26px; text-align:center;">📚</span>
       <span>المواد</span>
     </a>
-    <a href="#how" style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.9); text-decoration:none; padding:14px 16px; border-radius:12px; font-weight:600; font-size:15px; transition:0.25s; margin-bottom:4px;">
+    <a href="#how" onclick="toggleMenu()" style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.9); text-decoration:none; padding:14px 16px; border-radius:12px; font-weight:600; font-size:15px; transition:0.25s; margin-bottom:4px;">
       <span style="font-size:18px; width:26px; text-align:center;">🎯</span>
       <span>طريقة الدراسة</span>
     </a>
-    <a href="#pricing" style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.9); text-decoration:none; padding:14px 16px; border-radius:12px; font-weight:600; font-size:15px; transition:0.25s; margin-bottom:4px;">
+    <a href="#pricing" onclick="toggleMenu()" style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.9); text-decoration:none; padding:14px 16px; border-radius:12px; font-weight:600; font-size:15px; transition:0.25s; margin-bottom:4px;">
       <span style="font-size:18px; width:26px; text-align:center;">💰</span>
       <span>الأسعار</span>
     </a>
-    <a href="#trial" style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.9); text-decoration:none; padding:14px 16px; border-radius:12px; font-weight:600; font-size:15px; transition:0.25s; margin-bottom:4px;">
+    <a href="#trial" onclick="toggleMenu()" style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.9); text-decoration:none; padding:14px 16px; border-radius:12px; font-weight:600; font-size:15px; transition:0.25s; margin-bottom:4px;">
       <span style="font-size:18px; width:26px; text-align:center;">🎬</span>
       <span>المحاضرة التجريبية</span>
     </a>
-    <a href="#faq" style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.9); text-decoration:none; padding:14px 16px; border-radius:12px; font-weight:600; font-size:15px; transition:0.25s; margin-bottom:4px;">
+    <a href="#faq" onclick="toggleMenu()" style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.9); text-decoration:none; padding:14px 16px; border-radius:12px; font-weight:600; font-size:15px; transition:0.25s; margin-bottom:4px;">
       <span style="font-size:18px; width:26px; text-align:center;">❓</span>
       <span>الأسئلة الشائعة</span>
     </a>
-    <a href="https://irtiqaa.com/about/" target="_blank" style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.9); text-decoration:none; padding:14px 16px; border-radius:12px; font-weight:600; font-size:15px; transition:0.25s; margin-bottom:4px;">
+    <a href="https://irtiqaa.com/about/" target="_blank" onclick="toggleMenu()" style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.9); text-decoration:none; padding:14px 16px; border-radius:12px; font-weight:600; font-size:15px; transition:0.25s; margin-bottom:4px;">
       <span style="font-size:18px; width:26px; text-align:center;">ℹ️</span>
       <span>من نحن</span>
     </a>
-    <a href="https://irtiqaa.com/contact/" target="_blank" style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.9); text-decoration:none; padding:14px 16px; border-radius:12px; font-weight:600; font-size:15px; transition:0.25s; margin-bottom:4px;">
+    <a href="https://irtiqaa.com/contact/" target="_blank" onclick="toggleMenu()" style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.9); text-decoration:none; padding:14px 16px; border-radius:12px; font-weight:600; font-size:15px; transition:0.25s; margin-bottom:4px;">
       <span style="font-size:18px; width:26px; text-align:center;">📞</span>
       <span>تواصل معنا</span>
     </a>
@@ -243,60 +246,62 @@
       </div>
 
       <!-- Why Irtiqaa -->
+      <div id="whySection" style="background:#f8f9fa; border-radius:24px; padding:32px; margin-bottom:32px;">
+        <h2 style="text-align:center; color:#172b4d; font-size:26px; font-weight:800; margin:0 0 10px 0;">
+          لماذا <span style="color:#b88a28;">ارتقاء</span>؟
+        </h2>
+        <p style="text-align:center; color:#66717d; font-size:15px; margin:0 auto 30px; max-width:650px;">
+          لسنا مجرد دروس خصوصية، بل منهجية تعليمية مختلفة تُبنى على الفهم العميق والتطبيق العملي
+        </p>
 
-<!-- Why Irtiqaa -->
-<section class="why-section">
-  <h2 class="section-title">لماذا <span class="accent">ارتقاء</span>؟</h2>
-  <p class="section-subtitle">
-    لسنا مجرد دروس خصوصية، بل منهجية تعليمية مختلفة تُبنى على الفهم العميق والتطبيق العملي
-  </p>
+        <div id="whyGrid" style="display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:24px;">
+          <div style="background:white; border:1px solid #e2e5e8; border-radius:16px; padding:20px; display:flex; gap:16px; align-items:flex-start; transition:all 0.3s;">
+            <div style="width:48px; height:48px; background:linear-gradient(135deg,#082847,#123f68); color:#e1b94f; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0;">🎯</div>
+            <div style="flex:1;">
+              <h3 style="color:#172b4d; font-size:16px; margin:0 0 6px 0; font-weight:800;">منهجية الفهم أولاً</h3>
+              <p style="font-size:13px; line-height:1.7; color:#66717d; margin:0;">لا نبدأ بالمعادلات، بل نبني معك المفهوم من الأساس حتى تفهم لماذا وكيف قبل أن تحفظ</p>
+            </div>
+          </div>
+          <div style="background:white; border:1px solid #e2e5e8; border-radius:16px; padding:20px; display:flex; gap:16px; align-items:flex-start; transition:all 0.3s;">
+            <div style="width:48px; height:48px; background:linear-gradient(135deg,#082847,#123f68); color:#e1b94f; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0;">🔗</div>
+            <div style="flex:1;">
+              <h3 style="color:#172b4d; font-size:16px; margin:0 0 6px 0; font-weight:800;">ربط النظرية بالتطبيق</h3>
+              <p style="font-size:13px; line-height:1.7; color:#66717d; margin:0;">كل مفهوم تدرسه له تطبيق عملي مباشر، لتفهم كيف تُستخدم الهندسة في الواقع</p>
+            </div>
+          </div>
+          <div style="background:white; border:1px solid #e2e5e8; border-radius:16px; padding:20px; display:flex; gap:16px; align-items:flex-start; transition:all 0.3s;">
+            <div style="width:48px; height:48px; background:linear-gradient(135deg,#082847,#123f68); color:#e1b94f; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0;">🏗️</div>
+            <div style="flex:1;">
+              <h3 style="color:#172b4d; font-size:16px; margin:0 0 6px 0; font-weight:800;">تخصص في الهندسة المدنية</h3>
+              <p style="font-size:13px; line-height:1.7; color:#66717d; margin:0;">لسنا منصة عامة، بل متخصصون في الهندسة المدنية فقط، مما يعني عمقًا أكبر في الشرح</p>
+            </div>
+          </div>
+          <div style="background:white; border:1px solid #e2e5e8; border-radius:16px; padding:20px; display:flex; gap:16px; align-items:flex-start; transition:all 0.3s;">
+            <div style="width:48px; height:48px; background:linear-gradient(135deg,#082847,#123f68); color:#e1b94f; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0;">👥</div>
+            <div style="flex:1;">
+              <h3 style="color:#172b4d; font-size:16px; margin:0 0 6px 0; font-weight:800;">بيئة تعلم تفاعلية</h3>
+              <p style="font-size:13px; line-height:1.7; color:#66717d; margin:0;">لست وحدك في الرحلة، بل مع زملاء ومدرس يتفاعل معك ويجيب على أسئلتك في الوقت الفعلي</p>
+            </div>
+          </div>
+          <div style="background:white; border:1px solid #e2e5e8; border-radius:16px; padding:20px; display:flex; gap:16px; align-items:flex-start; transition:all 0.3s;">
+            <div style="width:48px; height:48px; background:linear-gradient(135deg,#082847,#123f68); color:#e1b94f; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0;">🎓</div>
+            <div style="flex:1;">
+              <h3 style="color:#172b4d; font-size:16px; margin:0 0 6px 0; font-weight:800;">خبرة أكاديمية وعملية</h3>
+              <p style="font-size:13px; line-height:1.7; color:#66717d; margin:0;">مدرسون يجمعون بين الفهم الأكاديمي والخبرة العملية، ويعرفون بالضبط ما تحتاجه للاختبار</p>
+            </div>
+          </div>
+          <div style="background:white; border:1px solid #e2e5e8; border-radius:16px; padding:20px; display:flex; gap:16px; align-items:flex-start; transition:all 0.3s;">
+            <div style="width:48px; height:48px; background:linear-gradient(135deg,#082847,#123f68); color:#e1b94f; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0;">✅</div>
+            <div style="flex:1;">
+              <h3 style="color:#172b4d; font-size:16px; margin:0 0 6px 0; font-weight:800;">استعداد حقيقي للاختبارات</h3>
+              <p style="font-size:13px; line-height:1.7; color:#66717d; margin:0;">لا نكتفي بشرح المادة، بل نجهزك للاختبار بمسائل تدريبية ومراجعات مركزة</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <div class="why-grid">
-    <div class="why-item">
-      <div class="why-icon">🎯</div>
-      <div class="why-content">
-        <h3>منهجية الفهم أولاً</h3>
-        <p>لا نبدأ بالمعادلات، بل نبني معك المفهوم من الأساس حتى تفهم لماذا وكيف قبل أن تحفظ</p>
-      </div>
-    </div>
-    <div class="why-item">
-      <div class="why-icon">🔗</div>
-      <div class="why-content">
-        <h3>ربط النظرية بالتطبيق</h3>
-        <p>كل مفهوم تدرسه له تطبيق عملي مباشر، لتفهم كيف تُستخدم الهندسة في الواقع</p>
-      </div>
-    </div>
-    <div class="why-item">
-      <div class="why-icon">🏗️</div>
-      <div class="why-content">
-        <h3>تخصص في الهندسة المدنية</h3>
-        <p>لسنا منصة عامة، بل متخصصون في الهندسة المدنية فقط، مما يعني عمقًا أكبر في الشرح</p>
-      </div>
-    </div>
-    <div class="why-item">
-      <div class="why-icon">👥</div>
-      <div class="why-content">
-        <h3>بيئة تعلم تفاعلية</h3>
-        <p>لست وحدك في الرحلة، بل مع زملاء ومدرس يتفاعل معك ويجيب على أسئلتك في الوقت الفعلي</p>
-      </div>
-    </div>
-    <div class="why-item">
-      <div class="why-icon">🎓</div>
-      <div class="why-content">
-        <h3>خبرة أكاديمية وعملية</h3>
-        <p>مدرسون يجمعون بين الفهم الأكاديمي والخبرة العملية، ويعرفون بالضبط ما تحتاجه للاختبار</p>
-      </div>
-    </div>
-    <div class="why-item">
-      <div class="why-icon">✅</div>
-      <div class="why-content">
-        <h3>استعداد حقيقي للاختبارات</h3>
-        <p>لا نكتفي بشرح المادة، بل نجهزك للاختبار بمسائل تدريبية ومراجعات مركزة</p>
-      </div>
     </div>
   </div>
-</section>
-          
 
   <!-- ===== Card 2: How It Works ===== -->
   <div id="how" style="background:rgba(255,255,255,0.98); border-radius:28px; overflow:hidden; box-shadow:0 25px 70px rgba(0,0,0,0.30); margin-bottom:28px;">
@@ -642,9 +647,9 @@
       
       <!-- Brand -->
       <div style="grid-column:1;">
-        <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
-          <div style="width:42px; height:42px; background:linear-gradient(135deg,#d5a73a,#e1b94f); border-radius:11px; display:flex; align-items:center; justify-content:center; font-size:20px;">🏗️</div>
-          <div style="display:flex; flex-direction:column; line-height:1.2;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5nl7CCqQ-4HI6rT_ed-XnI5XWXXbRzmBLiPM8axh0vQbcXEB45ALFiPEvtU57a-dzBAeBKT2ARZJmigzXBYNgVG-Q0y_oXFp78Quwo561IksZxYkH_kZ5CPiCDcnOXo3Fh_U2ueMnTw3gv5vfgIPnJ8XXMCRBHwcfLpxJJr5O01w_b24wpT7JqTdteaJi/s845/333087.png" alt="شعار ارتقاء" style="height:44px; width:auto; object-fit:contain; display:block;">
+          <div style="display:flex; flex-direction:column; line-height:1.25;">
             <span style="font-size:18px; font-weight:800; color:white;">ارتقاء</span>
             <span style="font-size:10px; color:rgba(255,255,255,0.7); font-weight:500;">الهندسة المدنية</span>
           </div>
@@ -709,6 +714,9 @@
     #desktopLinks { display: none !important; }
     #desktopCTA { display: none !important; }
     #hamburgerBtn { display: flex !important; }
+    
+    /* تصغير اللوجو على الجوال */
+    .irtiqaa-logo-img { height: 42px !important; }
     
     #benefitsGrid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
     #whyGrid { grid-template-columns: 1fr !important; }
