@@ -1,0 +1,2207 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ارتقاء | منصة تعليمية متخصصة في الهندسة المدنية</title>
+
+  <meta name="description" content="ارتقاء منصة تعليمية متخصصة في الهندسة المدنية، تقدم دروسًا مباشرة وحل مسائل ومراجعات لطلاب وطالبات الجامعات">
+  <meta name="keywords" content="الهندسة المدنية, دروس خصوصية, تحليل إنشائي, خرسانة مسلحة, ميكانيكا الموائع, هندسة الأساسات">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ارتقاء | تعليم الهندسة المدنية">
+  <meta property="og:description" content="منصة تعليمية متخصصة في الهندسة المدنية - افهم الهندسة بعمق وارتقِ بمستواك">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_SA">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ارتقاء | تعليم الهندسة المدنية">
+  <meta name="twitter:description" content="منصة تعليمية متخصصة في الهندسة المدنية">
+
+  <link rel="canonical" href="https://irtiqaa.com/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #082847;
+      --navy-dark: #061d34;
+      --navy-deeper: #051829;
+      --navy-light: #123f68;
+      --gold: #d5a73a;
+      --gold-light: #e1b94f;
+      --gold-dark: #b88a28;
+      --text-dark: #172b4d;
+      --text-medium: #173452;
+      --text-light: #66717d;
+      --text-muted: #78838d;
+      --bg-light: #f8f9fa;
+      --bg-card: #f5f7f9;
+      --border: #e2e5e8;
+      --border-light: #e3e7eb;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Cairo", sans-serif;
+      background:
+        linear-gradient(rgba(5, 25, 48, .93), rgba(5, 25, 48, .97)),
+        url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&q=85")
+        center/cover fixed;
+      min-height: 100vh;
+      color: var(--text-dark);
+      padding: 0 15px 25px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ===== Navbar ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1000;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(8, 40, 71, 0);
+      backdrop-filter: blur(0px);
+      transition: all 0.4s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(8, 40, 71, 0.96);
+      backdrop-filter: blur(12px);
+      padding: 12px 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: white;
+      font-weight: 800;
+    }
+
+    .nav-logo-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 4px 14px rgba(213, 167, 58, 0.35);
+    }
+
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .nav-logo-name {
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .nav-logo-tag {
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.88);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.25s;
+      position: relative;
+      padding: 4px 0;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-light);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy-dark);
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: 800;
+      text-decoration: none;
+      font-size: 13px;
+      transition: .25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    /* Hamburger Button */
+    .hamburger {
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1.5px solid rgba(255, 255, 255, 0.25);
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 10px;
+      transition: all 0.3s;
+    }
+
+    .hamburger:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: rgba(225, 185, 79, 0.5);
+    }
+
+    .hamburger-line {
+      width: 20px;
+      height: 2px;
+      background: white;
+      border-radius: 2px;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-origin: center;
+    }
+
+    .hamburger.active .hamburger-line:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.active .hamburger-line:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .hamburger.active .hamburger-line:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 340px;
+      max-width: 85%;
+      height: 100vh;
+      background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deeper) 100%);
+      z-index: 999;
+      transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 100px 24px 30px;
+      overflow-y: auto;
+      box-shadow: 5px 0 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .mobile-menu.open {
+      left: 0;
+    }
+
+    .mobile-menu-header {
+      position: absolute;
+      top: 22px;
+      right: 24px;
+      left: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-menu-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      font-weight: 800;
+      font-size: 17px;
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .mobile-menu ul li {
+      margin-bottom: 4px;
+    }
+
+    .mobile-menu ul a {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      padding: 14px 16px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: .25s;
+    }
+
+    .mobile-menu ul a:hover {
+      background: rgba(225, 185, 79, 0.15);
+      color: var(--gold-light);
+      transform: translateX(-4px);
+    }
+
+    .mobile-menu ul a .menu-icon {
+      font-size: 18px;
+      width: 26px;
+      text-align: center;
+    }
+
+    .mobile-menu-footer {
+      margin-top: 30px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-menu-footer .nav-cta {
+      width: 100%;
+      justify-content: center;
+      padding: 14px;
+      font-size: 15px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+
+    .mobile-menu-footer .contact-info {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 13px;
+      text-align: center;
+      line-height: 1.9;
+    }
+
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 998;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.35s;
+    }
+
+    .menu-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ===== Page Container ===== */
+    .page {
+      max-width: 1100px;
+      margin: auto;
+      padding-top: 90px;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      text-align: center;
+      color: white;
+      padding: 30px 10px 40px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy-dark);
+      padding: 7px 20px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 6vw, 60px);
+      line-height: 1.25;
+      font-weight: 900;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero h1 span {
+      color: var(--gold-light);
+      position: relative;
+    }
+
+    .hero .subtitle {
+      font-size: 18px;
+      line-height: 1.9;
+      color: #edf3f8;
+      max-width: 720px;
+      margin: 0 auto 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 800;
+      text-decoration: none;
+      font-size: 15px;
+      transition: .25s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy-dark);
+      box-shadow: 0 8px 24px rgba(213, 167, 58, .25);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      background: var(--gold-light);
+      box-shadow: 0 12px 28px rgba(213, 167, 58, .35);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255, 255, 255, .4);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, .1);
+      border-color: rgba(255, 255, 255, .7);
+    }
+
+    .btn-dark {
+      background: var(--navy);
+      color: var(--gold-light);
+    }
+
+    .btn-dark:hover {
+      background: var(--navy-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-whatsapp {
+      background: #159447;
+      color: white;
+      box-shadow: 0 8px 20px rgba(21, 148, 71, .25);
+    }
+
+    .btn-whatsapp:hover {
+      background: #117d3c;
+      transform: translateY(-2px);
+    }
+
+    .hero-trust {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .trust-item-icon {
+      font-size: 18px;
+      color: var(--gold-light);
+    }
+
+    /* ===== Section Card ===== */
+    .card {
+      background: rgba(255, 255, 255, .98);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, .30);
+      margin-bottom: 28px;
+    }
+
+    .card-header {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      color: white;
+      text-align: center;
+      padding: 28px 20px;
+    }
+
+    .card-header h2 {
+      font-size: 24px;
+      margin-bottom: 8px;
+      font-weight: 800;
+    }
+
+    .card-header h2 .accent {
+      color: var(--gold-light);
+    }
+
+    .card-header p {
+      font-size: 14px;
+      opacity: .9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .card-content {
+      padding: 40px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--text-dark);
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .section-title .accent {
+      color: var(--gold-dark);
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 15px;
+      margin-bottom: 30px;
+      max-width: 650px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    /* ===== Benefits Grid ===== */
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .benefit {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 18px;
+      padding: 24px 18px;
+      text-align: center;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .benefit::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s;
+    }
+
+    .benefit:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .benefit:hover::before {
+      transform: scaleX(1);
+    }
+
+    .benefit-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      color: var(--gold-light);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin: 0 auto 14px;
+      box-shadow: 0 4px 12px rgba(8, 40, 71, 0.15);
+    }
+
+    .benefit h3 {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-medium);
+      font-weight: 800;
+    }
+
+    .benefit p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-light);
+      margin-top: 8px;
+    }
+
+    /* ===== Why Irtiqaa ===== */
+    .why-section {
+      background: var(--bg-light);
+      border-radius: 24px;
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .why-item {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: all 0.3s;
+    }
+
+    .why-item:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .why-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      color: var(--gold-light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .why-content h3 {
+      color: var(--text-dark);
+      font-size: 16px;
+      margin-bottom: 6px;
+      font-weight: 800;
+    }
+
+    .why-content p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-light);
+    }
+
+    /* ===== How It Works ===== */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      position: relative;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+      padding: 24px 16px;
+    }
+
+    .step-number {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      color: var(--gold-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 900;
+      margin: 0 auto 16px;
+      box-shadow: 0 6px 16px rgba(8, 40, 71, 0.2);
+      position: relative;
+      z-index: 2;
+    }
+
+    .step h3 {
+      color: var(--text-dark);
+      font-size: 15px;
+      margin-bottom: 8px;
+      font-weight: 800;
+    }
+
+    .step p {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* ===== Subjects ===== */
+    .subjects-section {
+      background: var(--bg-light);
+      border-radius: 24px;
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 10px 20px;
+      background: white;
+      border: 2px solid var(--border-light);
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-medium);
+      cursor: pointer;
+      transition: .25s;
+      font-family: inherit;
+    }
+
+    .tab-btn:hover {
+      background: var(--bg-card);
+      border-color: var(--gold);
+    }
+
+    .tab-btn.active {
+      background: var(--navy);
+      color: var(--gold-light);
+      border-color: var(--navy);
+    }
+
+    .subject-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .subject {
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 18px;
+      font-weight: 700;
+      color: var(--text-medium);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.3s;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .subject:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .subject-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .subject-check {
+      width: 26px;
+      height: 26px;
+      background: var(--bg-card);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-dark);
+      font-weight: 900;
+      flex-shrink: 0;
+      transition: all 0.3s;
+    }
+
+    .subject:hover .subject-check {
+      background: var(--gold);
+      color: var(--navy-dark);
+    }
+
+    .subject-arrow {
+      color: var(--text-muted);
+      transition: transform 0.3s;
+      font-size: 16px;
+    }
+
+    .subject:hover .subject-arrow {
+      transform: translateX(-4px);
+      color: var(--gold-dark);
+    }
+
+    .subject-note {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 18px;
+      line-height: 1.8;
+    }
+
+    .subject-note a {
+      color: var(--gold-dark);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .subject-note a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== Pricing ===== */
+    .pricing-section {
+      margin-bottom: 32px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .pricing-card {
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 18px;
+      padding: 24px 20px;
+      text-align: center;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .pricing-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    }
+
+    .pricing-card.featured {
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      color: white;
+      border-color: var(--gold);
+      transform: scale(1.03);
+    }
+
+    .pricing-card.featured:hover {
+      transform: scale(1.03) translateY(-4px);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -12px;
+      right: 50%;
+      transform: translateX(50%);
+      background: var(--gold);
+      color: var(--navy-dark);
+      padding: 4px 14px;
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .pricing-icon {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .pricing-card h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+      font-weight: 800;
+    }
+
+    .pricing-card.featured h3 {
+      color: var(--gold-light);
+    }
+
+    .pricing-card .students-count {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 16px;
+    }
+
+    .pricing-card.featured .students-count {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .pricing-card .price-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .pricing-card.featured .price-label {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .pricing-card .price {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .pricing-card.featured .price {
+      color: var(--gold-light);
+      border-top-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .pricing-card .discount {
+      font-size: 12px;
+      color: var(--success);
+      background: #d1fae5;
+      padding: 4px 10px;
+      border-radius: 50px;
+      font-weight: 700;
+      display: inline-block;
+      margin-top: 8px;
+    }
+
+    .pricing-card.featured .discount {
+      background: rgba(225, 185, 79, 0.2);
+      color: var(--gold-light);
+    }
+
+    .pricing-note {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 13px;
+      margin-top: 24px;
+      line-height: 1.8;
+    }
+
+    /* ===== Trial Box ===== */
+    .trial-box {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      color: white;
+      border-radius: 24px;
+      padding: 40px 30px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .trial-box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(225, 185, 79, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .trial-box::after {
+      content: '';
+      position: absolute;
+      bottom: -50%;
+      left: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(225, 185, 79, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .trial-box-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .trial-icon {
+      width: 70px;
+      height: 70px;
+      background: rgba(225, 185, 79, 0.2);
+      border: 2px solid rgba(225, 185, 79, 0.4);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin: 0 auto 20px;
+    }
+
+    .trial-box h2 {
+      color: var(--gold-light);
+      font-size: 26px;
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+
+    .trial-box p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #e8eef4;
+      margin-bottom: 24px;
+      max-width: 620px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .trial-features {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .trial-feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #e8eef4;
+      font-weight: 600;
+    }
+
+    .trial-feature-icon {
+      width: 24px;
+      height: 24px;
+      background: var(--gold);
+      color: var(--navy-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    /* ===== FAQ ===== */
+    .faq-section {
+      background: var(--bg-light);
+      border-radius: 24px;
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+
+    .faq-list {
+      max-width: 800px;
+      margin: 24px auto 0;
+    }
+
+    .faq-item {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .faq-item:hover {
+      border-color: var(--gold);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 18px 20px;
+      background: none;
+      border: none;
+      text-align: right;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-dark);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transition: all 0.3s;
+    }
+
+    .faq-question:hover {
+      background: var(--bg-card);
+    }
+
+    .faq-question-icon {
+      width: 28px;
+      height: 28px;
+      background: var(--bg-card);
+      color: var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 900;
+      flex-shrink: 0;
+      transition: all 0.3s;
+    }
+
+    .faq-item.active .faq-question-icon {
+      background: var(--gold);
+      color: var(--navy-dark);
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+
+    .faq-answer-content {
+      padding: 0 20px 18px;
+      color: var(--text-light);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+    }
+
+    /* ===== Final CTA ===== */
+    .final-cta {
+      background: white;
+      border-radius: 24px;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      margin-bottom: 28px;
+    }
+
+    .final-cta h2 {
+      font-size: 26px;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+
+    .final-cta p {
+      color: var(--text-light);
+      font-size: 15px;
+      margin-bottom: 24px;
+      max-width: 550px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .final-cta-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: rgba(8, 40, 71, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 28px;
+      padding: 40px 30px 24px;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 10px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .footer-brand p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 13px;
+      line-height: 1.8;
+      margin: 14px 0;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .footer-social a {
+      width: 38px;
+      height: 38px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-size: 16px;
+    }
+
+    .footer-social a:hover {
+      background: var(--gold);
+      color: var(--navy-dark);
+      transform: translateY(-2px);
+    }
+
+    .footer-col h4 {
+      color: var(--gold-light);
+      font-size: 15px;
+      margin-bottom: 16px;
+      font-weight: 800;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.3s;
+    }
+
+    .footer-col a:hover {
+      color: var(--gold-light);
+    }
+
+    .footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 12px;
+    }
+
+    /* ===== Scroll Animations ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 900px) {
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .page {
+        padding-top: 80px;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .hamburger {
+        display: none;
+      }
+    }
+
+    @media (max-width: 700px) {
+      body {
+        padding: 0 10px 12px;
+      }
+
+      .hero {
+        padding: 20px 5px 30px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .hero .subtitle {
+        font-size: 15px;
+      }
+
+      .card-content {
+        padding: 24px 18px;
+      }
+
+      .benefits {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .benefit {
+        padding: 18px 12px;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-section,
+      .subjects-section,
+      .faq-section {
+        padding: 24px 18px;
+      }
+
+      .subject-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        border-radius: 20px;
+      }
+
+      .section-title {
+        font-size: 22px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .hero-trust {
+        gap: 20px;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-card.featured {
+        transform: scale(1);
+      }
+
+      .pricing-card.featured:hover {
+        transform: translateY(-4px);
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .step {
+        display: flex;
+        gap: 16px;
+        text-align: right;
+        padding: 16px;
+        background: var(--bg-card);
+        border-radius: 14px;
+      }
+
+      .step-number {
+        margin: 0;
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+        flex-shrink: 0;
+      }
+
+      .step-text {
+        flex: 1;
+      }
+
+      .trial-box {
+        padding: 30px 20px;
+      }
+
+      .trial-box h2 {
+        font-size: 22px;
+      }
+
+      .trial-features {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        text-align: center;
+      }
+
+      .footer-social {
+        justify-content: center;
+      }
+
+      .final-cta {
+        padding: 30px 20px;
+      }
+
+      .final-cta-buttons {
+        flex-direction: column;
+      }
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--navy-dark);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--gold);
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ===== Navbar ===== -->
+<nav class="navbar" id="navbar">
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-icon">🏗️</div>
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">ارتقاء</span>
+      <span class="nav-logo-tag">الهندسة المدنية</span>
+    </div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="/">الرئيسية</a></li>
+    <li><a href="#subjects">المواد</a></li>
+    <li><a href="#how">طريقة الدراسة</a></li>
+    <li><a href="#pricing">الأسعار</a></li>
+    <li><a href="#trial">المحاضرة التجريبية</a></li>
+    <li><a href="#faq">الأسئلة الشائعة</a></li>
+  </ul>
+
+  <div class="nav-actions">
+    <a href="/register/" class="nav-cta">
+      <span>📝</span>
+      <span>سجل الآن</span>
+    </a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="فتح القائمة" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Overlay -->
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<!-- Mobile Menu -->
+<aside class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-header">
+    <div class="mobile-menu-logo">
+      <div class="nav-logo-icon">🏗️</div>
+      <span>ارتقاء</span>
+    </div>
+  </div>
+
+  <ul>
+    <li><a href="/"><span class="menu-icon">🏠</span> الرئيسية</a></li>
+    <li><a href="#subjects"><span class="menu-icon">📚</span> المواد</a></li>
+    <li><a href="#how"><span class="menu-icon">🎯</span> طريقة الدراسة</a></li>
+    <li><a href="#pricing"><span class="menu-icon">💰</span> الأسعار</a></li>
+    <li><a href="#trial"><span class="menu-icon">🎬</span> المحاضرة التجريبية</a></li>
+    <li><a href="#faq"><span class="menu-icon">❓</span> الأسئلة الشائعة</a></li>
+    <li><a href="/about/"><span class="menu-icon">ℹ️</span> من نحن</a></li>
+    <li><a href="/contact/"><span class="menu-icon">📞</span> تواصل معنا</a></li>
+  </ul>
+
+  <div class="mobile-menu-footer">
+    <a href="/register/" class="nav-cta">
+      <span>📝</span>
+      <span>سجل الآن</span>
+    </a>
+    <div class="contact-info">
+      📱 واتساب للتسجيل<br>
+      ⏰ السبت - الخميس: 9ص - 10م
+    </div>
+  </div>
+</aside>
+
+<!-- ===== Page ===== -->
+<div class="page">
+
+  <!-- ===== Hero ===== -->
+  <header class="hero">
+    <div class="badge">🎓 منصة تعليمية متخصصة في الهندسة المدنية</div>
+
+    <h1>
+      افهم الهندسة بعمق...<br>
+      و<span>ارتقِ</span> بمستواك
+    </h1>
+
+    <p class="subtitle">
+      دروس مباشرة وتطبيقات عملية ومسائل محلولة تساعدك على فهم مواد الهندسة المدنية والاستعداد للاختبارات بثقة.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#subjects" class="btn btn-gold">
+        <span>📚</span>
+        <span>استكشف المواد</span>
+      </a>
+      <a href="#trial" class="btn btn-outline">
+        <span>🎬</span>
+        <span>احجز محاضرة تجريبية</span>
+      </a>
+    </div>
+
+    <div class="hero-trust">
+      <div class="trust-item">
+        <span class="trust-item-icon">✓</span>
+        <span>شرح مباشر وتفاعلي</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-item-icon">✓</span>
+        <span>حل عملي للمسائل</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-item-icon">✓</span>
+        <span>تسجيلات للمراجعة</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Card 1: What You Get ===== -->
+  <main class="card fade-in">
+    <div class="card-header">
+      <h2>ماذا ستحصل عليه مع <span class="accent">ارتقاء</span>؟</h2>
+      <p>كل ما تحتاجه للانتقال من حفظ المعادلات إلى فهم كيفية استخدامها</p>
+    </div>
+
+    <div class="card-content">
+      <div class="benefits">
+        <div class="benefit">
+          <div class="benefit-icon">🎯</div>
+          <h3>شرح يركز على الفهم العميق</h3>
+          <p>نفهمك الأساسيات والمنطق خلف كل مفهوم هندسي</p>
+        </div>
+        <div class="benefit">
+          <div class="benefit-icon">✍️</div>
+          <h3>حل عملي للمسائل</h3>
+          <p>نطبق ما تتعلمه على مسائل حقيقية خطوة بخطوة</p>
+        </div>
+        <div class="benefit">
+          <div class="benefit-icon">📋</div>
+          <h3>محتوى منظم وخطة واضحة</h3>
+          <p>منهج دراسي محدد من البداية إلى النهاية</p>
+        </div>
+        <div class="benefit">
+          <div class="benefit-icon">🎥</div>
+          <h3>محاضرات مباشرة</h3>
+          <p>تفاعل مباشر مع المدرب وأسئلة في الوقت الفعلي</p>
+        </div>
+        <div class="benefit">
+          <div class="benefit-icon">🔁</div>
+          <h3>تسجيلات للمراجعة</h3>
+          <p>جميع المحاضرات مسجلة وتبقى معك للمراجعة</p>
+        </div>
+        <div class="benefit">
+          <div class="benefit-icon">💬</div>
+          <h3>دعم ومتابعة مستمرة</h3>
+          <p>مجموعة واتساب لكل مادة ودعم مستمر</p>
+        </div>
+      </div>
+
+      <!-- Why Irtiqaa -->
+      <section class="why-section">
+        <h2 class="section-title">لماذا <span class="accent">ارتقاء</span>؟</h2>
+        <p class="section-subtitle">
+          تجربة تعليمية منظمة تساعدك على الانتقال من حفظ المعادلات إلى فهم كيفية استخدامها
+        </p>
+
+        <div class="why-grid">
+          <div class="why-item">
+            <div class="why-icon">🧠</div>
+            <div class="why-content">
+              <h3>شرح يركز على الفهم</h3>
+              <p>لا نكتفي بالتلقين، بل نبني معك الفهم من الأساسيات</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">🔧</div>
+            <div class="why-content">
+              <h3>حل عملي للمسائل</h3>
+              <p>نطبق كل مفهوم على مسائل حقيقية خطوة بخطوة</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">📋</div>
+            <div class="why-content">
+              <h3>محتوى منظم</h3>
+              <p>خطة دراسية واضحة تحدد لك ماذا ومتى ستتعلم</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">🎥</div>
+            <div class="why-content">
+              <h3>محاضرات مباشرة وتسجيلات</h3>
+              <p>تفاعل مباشر في المحاضرة، وتسجيلات للمراجعة لاحقًا</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">📊</div>
+            <div class="why-content">
+              <h3>ملفات ومذكرات ومراجعات</h3>
+              <p>محتوى دراسي متكامل يساعدك على الاستعداد للاختبار</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">💪</div>
+            <div class="why-content">
+              <h3>دعم ومتابعة مستمرة</h3>
+              <p>مجموعة واتساب لكل مادة، ولا نترك سؤالك بلا إجابة</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ===== Card 2: How It Works ===== -->
+  <section class="card fade-in" id="how">
+    <div class="card-header">
+      <h2>كيف تعمل <span class="accent">منصة ارتقاء</span>؟</h2>
+      <p>4 خطوات بسيطة تبدأ فيها رحلتك التعليمية معنا</p>
+    </div>
+
+    <div class="card-content">
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-text">
+            <h3>اختر مادتك</h3>
+            <p>تصفح المواد المتاحة واختر المادة التي تحتاج دراستها</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-text">
+            <h3>سجّل بياناتك</h3>
+            <p>املأ نموذج التسجيل وسنتواصل معك عبر واتساب لتأكيد التفاصيل</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-text">
+            <h3>انضم للمجموعة</h3>
+            <p>انضم إلى مجموعة المادة على واتساب لمتابعة المواعيد والإعلانات</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-text">
+            <h3>احضر وارتقِ</h3>
+            <p>احضر المحاضرات المباشرة، حل المسائل، واستخدم التسجيلات للمراجعة</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Card 3: Subjects ===== -->
+  <section class="card fade-in" id="subjects">
+    <div class="card-header">
+      <h2>المواد <span class="accent">الدراسية</span></h2>
+      <p>نغطي أهم مواد الهندسة المدنية بتخصصاتها المختلفة</p>
+    </div>
+
+    <div class="card-content">
+      <div class="subjects-section">
+        <div class="tabs">
+          <button class="tab-btn active" data-category="all">الكل</button>
+          <button class="tab-btn" data-category="structural">الهندسة الإنشائية</button>
+          <button class="tab-btn" data-category="fluids">الموائع</button>
+          <button class="tab-btn" data-category="geotechnical">التربة والأساسات</button>
+          <button class="tab-btn" data-category="other">مواد أخرى</button>
+        </div>
+
+        <div class="subject-grid" id="subjectsGrid"></div>
+
+        <p class="subject-note">
+          وغيرها من مواد الهندسة المدنية حسب الطلب.
+          <a href="/contact/">اطلب مادة غير موجودة</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Card 4: Pricing ===== -->
+  <section class="card fade-in" id="pricing">
+    <div class="card-header">
+      <h2>الباقات <span class="accent">والأسعار</span></h2>
+      <p>اختر الباقة المناسبة لك ولزملائك</p>
+    </div>
+
+    <div class="card-content">
+      <div class="pricing-section">
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div class="pricing-icon">👤</div>
+            <h3>اشتراك فردي</h3>
+            <div class="students-count">طالب واحد</div>
+            <div class="price-label">السعر</div>
+            <div class="price">حسب المادة</div>
+          </div>
+
+          <div class="pricing-card featured">
+            <div class="pricing-badge">الأكثر طلبًا</div>
+            <div class="pricing-icon">👥</div>
+            <h3>مجموعة صغيرة</h3>
+            <div class="students-count">2 – 3 طلاب</div>
+            <div class="price-label">السعر للطالب</div>
+            <div class="price">حسب المادة</div>
+            <div class="discount">خصم مميز</div>
+          </div>
+
+          <div class="pricing-card">
+            <div class="pricing-icon">👨‍👩‍👧‍👦</div>
+            <h3>مجموعة</h3>
+            <div class="students-count">4 – 6 طلاب</div>
+            <div class="price-label">السعر للطالب</div>
+            <div class="price">حسب المادة</div>
+            <div class="discount">خصم أكبر</div>
+          </div>
+
+          <div class="pricing-card">
+            <div class="pricing-icon">🎓</div>
+            <h3>مجموعة موسعة</h3>
+            <div class="students-count">7 طلاب فأكثر</div>
+            <div class="price-label">السعر للطالب</div>
+            <div class="price">حسب المادة</div>
+            <div class="discount">أفضل سعر</div>
+          </div>
+        </div>
+
+        <p class="pricing-note">
+          الأسعار تختلف حسب المادة ومدة البرنامج.<br>
+          تواصل معنا عبر واتساب لمعرفة سعر مادتك وتفاصيل الباقات.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Card 5: Trial ===== -->
+  <section class="card fade-in" id="trial">
+    <div class="card-content">
+      <div class="trial-box">
+        <div class="trial-box-content">
+          <div class="trial-icon">🎬</div>
+          <h2>جرّب أسلوب ارتقاء قبل الاشتراك</h2>
+          <p>
+            نقدم لك محاضرة تجريبية لتتعرف على أسلوبنا في الشرح، وتقرر بنفسك إذا كانت المنصة تناسبك قبل الالتزام بالاشتراك.
+          </p>
+
+          <div class="trial-features">
+            <div class="trial-feature">
+              <span class="trial-feature-icon">✓</span>
+              <span>أسلوب شرح واضح وعملي</span>
+            </div>
+            <div class="trial-feature">
+              <span class="trial-feature-icon">✓</span>
+              <span>تطبيق مباشر على المسائل</span>
+            </div>
+            <div class="trial-feature">
+              <span class="trial-feature-icon">✓</span>
+              <span>تفاعل مع المدرب</span>
+            </div>
+          </div>
+
+          <div class="hero-buttons">
+            <a href="/trial/" class="btn btn-gold">
+              <span>🚀</span>
+              <span>احجز محاضرتك التجريبية</span>
+            </a>
+            <a href="https://wa.me/966576073342" target="_blank" rel="noopener" class="btn btn-outline">
+              <span>📱</span>
+              <span>استفسر عبر واتساب</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Card 6: FAQ ===== -->
+  <section class="card fade-in" id="faq">
+    <div class="card-header">
+      <h2>الأسئلة <span class="accent">الشائعة</span></h2>
+      <p>إجابات على أكثر الأسئلة التي يطرحها الطلاب</p>
+    </div>
+
+    <div class="card-content">
+      <div class="faq-section">
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>هل المحاضرات مباشرة أم مسجلة؟</span>
+              <span class="faq-question-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                المحاضرات أساسًا مباشرة عبر الإنترنت، ويمكنك التفاعل مع المدرب في الوقت الفعلي. بالإضافة إلى ذلك، يتم تسجيل كل محاضرة وتتاح لك للمراجعة في أي وقت.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>هل يمكنني الدراسة بشكل فردي؟</span>
+              <span class="faq-question-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                نعم، يمكنك الاشتراك بشكل فردي. لكننا نشجع الدراسة في مجموعات صغيرة مع زملائك للاستفادة من الخصم وتجربة التعلم الجماعي.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>هل توجد خصومات للمجموعات؟</span>
+              <span class="faq-question-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                نعم، لدينا خصومات متدرجة حسب عدد الطلاب في المجموعة. كلما زاد عدد الطلاب، كان الخصم أكبر. تواصل معنا لمعرفة السعر الدقيق لمجموعتك.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>كيف يتم الدفع؟</span>
+              <span class="faq-question-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                يتم الدفع عبر التحويل البنكي المحلي. بعد تأكيد التسجيل، نرسل لك تفاصيل الحساب وطريقة الدفع، وتبدأ الدراسة فور استلام التحويل.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>كيف أحصل على الملفات والمذكرات؟</span>
+              <span class="faq-question-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                يتم إرسال جميع الملفات والمذكرات والملخصات عبر مجموعة الواتساب الخاصة بالمادة قبل كل محاضرة، وتبقى متاحة لك طوال فترة الدراسة.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>هل يمكنني طلب مادة غير موجودة؟</span>
+              <span class="faq-question-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                نعم، نسعى لتغطية أكبر عدد ممكن من مواد الهندسة المدنية. إذا كانت المادة التي تريدها غير موجودة، تواصل معنا وسنعمل على توفيرها عند توفر عدد كافٍ من الطلاب المهتمين.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>هل توجد محاضرة تجريبية؟</span>
+              <span class="faq-question-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                نعم، نقدم محاضرة تجريبية لتتعرف على أسلوبنا في الشرح قبل الالتزام بالاشتراك. اطلع على قسم المحاضرة التجريبية في الأعلى لمعرفة التفاصيل.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>ماذا لو فاتتني محاضرة؟</span>
+              <span class="faq-question-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                لا تقلق، كل محاضرة يتم تسجيلها وتتاح لك للمشاهدة في أي وقت. كما يمكنك طرح أسئلتك في مجموعة الواتساب وسنجيبك عليها.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Final CTA ===== -->
+  <section class="final-cta fade-in">
+    <h2>جاهز للبدء في رحلة <span style="color: var(--gold-dark)">ارتقاء</span>؟</h2>
+    <p>سجّل اليوم وابدأ فهم الهندسة المدنية بعمق مع مدرسين متخصصين وخطة دراسية واضحة</p>
+    <div class="final-cta-buttons">
+      <a href="/register/" class="btn btn-gold">
+        <span>📝</span>
+        <span>سجل الآن</span>
+      </a>
+      <a href="https://wa.me/966576073342" target="_blank" rel="noopener" class="btn btn-whatsapp">
+        <span>📱</span>
+        <span>تحدث معنا عبر واتساب</span>
+      </a>
+      <a href="#trial" class="btn btn-dark">
+        <span>🎬</span>
+        <span>احجز محاضرة تجريبية</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="display: inline-flex;">
+          <div class="nav-logo-icon">🏗️</div>
+          <div class="nav-logo-text">
+            <span class="nav-logo-name" style="color: white;">ارتقاء</span>
+            <span class="nav-logo-tag">الهندسة المدنية</span>
+          </div>
+        </div>
+        <p>
+          منصة تعليمية متخصصة في الهندسة المدنية، نساعد طلاب وطالبات الجامعات على فهم المواد بعمق وتطوير مهاراتهم العملية من خلال دروس مباشرة وحل مسائل.
+        </p>
+        <div class="footer-social">
+          <a href="#" aria-label="واتساب">📱</a>
+          <a href="#" aria-label="تيليجرام">✈️</a>
+          <a href="#" aria-label="يوتيوب">▶️</a>
+          <a href="#" aria-label="إنستغرام">📷</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>روابط سريعة</h4>
+        <ul>
+          <li><a href="/">الرئيسية</a></li>
+          <li><a href="#subjects">المواد</a></li>
+          <li><a href="#pricing">الأسعار</a></li>
+          <li><a href="#trial">المحاضرة التجريبية</a></li>
+          <li><a href="/register/">التسجيل</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>المعلومات</h4>
+        <ul>
+          <li><a href="/about/">من نحن</a></li>
+          <li><a href="#faq">الأسئلة الشائعة</a></li>
+          <li><a href="/contact/">تواصل معنا</a></li>
+          <li><a href="/blog/">المدونة</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>قانوني</h4>
+        <ul>
+          <li><a href="/privacy/">سياسة الخصوصية</a></li>
+          <li><a href="/terms/">الشروط والأحكام</a></li>
+          <li><a href="/refund/">سياسة الاسترجاع</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 ارتقاء — منصة تعليمية متخصصة في الهندسة المدنية. جميع الحقوق محفوظة.
+    </div>
+  </footer>
+
+</div>
+
+
+<script>
+  /* =====================================================
+     بيانات المواد
+     ===================================================== */
+  const subjects = [
+    { name: "التحليل الإنشائي", category: "structural", url: "/courses/structural-analysis/" },
+    { name: "التصميم الإنشائي", category: "structural", url: "/courses/structural-design/" },
+    { name: "الخرسانة المسلحة", category: "structural", url: "/courses/reinforced-concrete/" },
+    { name: "الخرسانة مسبقة الإجهاد", category: "structural", url: "/courses/prestressed-concrete/" },
+    { name: "ميكانيكا المواد", category: "structural", url: "/courses/mechanics-of-materials/" },
+    { name: "ميكانيكا الموائع", category: "fluids", url: "/courses/fluid-mechanics/" },
+    { name: "الهيدروليكا", category: "fluids", url: "/courses/hydraulics/" },
+    { name: "هندسة التربة", category: "geotechnical", url: "/courses/soil-engineering/" },
+    { name: "هندسة الأساسات", category: "geotechnical", url: "/courses/foundation-engineering/" },
+    { name: "المساحة", category: "other", url: "/courses/surveying/" }
+  ];
+
+  /* =====================================================
+     عرض المواد
+     ===================================================== */
+  function renderSubjects(category = 'all') {
+    const grid = document.getElementById('subjectsGrid');
+    const filtered = category === 'all'
+      ? subjects
+      : subjects.filter(s => s.category === category);
+
+    grid.innerHTML = filtered.map(s => `
+      <a href="${s.url}" class="subject">
+        <div class="subject-name">
+          <span class="subject-check">✓</span>
+          <span>${s.name}</span>
+        </div>
+        <span class="subject-arrow">←</span>
+      </a>
+    `).join('');
+  }
+
+  /* =====================================================
+     التبويبات
+     ===================================================== */
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      renderSubjects(this.dataset.category);
+    });
+  });
+
+  /* =====================================================
+     Navbar Scroll Effect
+     ===================================================== */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 30) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  /* =====================================================
+     قائمة الهاتف
+     ===================================================== */
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuOverlay = document.getElementById('menuOverlay');
+
+  function openMenu() {
+    mobileMenu.classList.add('open');
+    menuOverlay.classList.add('show');
+    hamburgerBtn.classList.add('active');
+    hamburgerBtn.setAttribute('aria-expanded', 'true');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    menuOverlay.classList.remove('show');
+    hamburgerBtn.classList.remove('active');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function toggleMenu() {
+    if (mobileMenu.classList.contains('open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
+
+  hamburgerBtn.addEventListener('click', toggleMenu);
+  menuOverlay.addEventListener('click', closeMenu);
+
+  document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+      closeMenu();
+    }
+  });
+
+  /* =====================================================
+     FAQ Accordion
+     ===================================================== */
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const item = this.parentElement;
+      const wasActive = item.classList.contains('active');
+      
+      // إغلاق جميع العناصر
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+      
+      // فتح العنصر الحالي إذا لم يكن مفتوحًا
+      if (!wasActive) {
+        item.classList.add('active');
+      }
+    });
+  });
+
+  /* =====================================================
+     Smooth Scroll
+     ===================================================== */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#' || href.length < 2) return;
+
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        const offset = 90;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  /* =====================================================
+     Scroll Animations (Intersection Observer)
+     ===================================================== */
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.fade-in').forEach(el => {
+    observer.observe(el);
+  });
+
+  /* =====================================================
+     تهيئة الصفحة
+     ===================================================== */
+  renderSubjects();
+</script>
+
+</body>
+  </html>
