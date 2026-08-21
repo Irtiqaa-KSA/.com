@@ -2,1361 +2,841 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0e1c30">
 
 <title>ارتقاء | شرح مواد الهندسة المدنية بأسلوب يفهمه الطالب قبل الاختبار</title>
 
 <meta name="description" content="منصة ارتقاء تساعد طلاب الهندسة المدنية على فهم المواد الصعبة، حل المسائل، والاستعداد للاختبارات بثقة. محاضرات مباشرة، تسجيلات، ومجموعات دراسة منظمة.">
-<meta name="keywords" content="الهندسة المدنية, دروس خصوصية, تحليل إنشائي, خرسانة مسلحة, ميكانيكا الموائع, هندسة الأساسات, هيدروليكا, ميكانيكا التربة, شرح مواد الهندسة">
+<meta name="keywords" content="الهندسة المدنية, دروس خصوصية, تحليل إنشائي, خرسانة مسلحة, ميكانيكا الموائع, هندسة الأساسات, هيدروليكا, ميكانيكا التربة">
 
-<!-- Open Graph -->
 <meta property="og:title" content="ارتقاء | شرح مواد الهندسة المدنية بعمق">
 <meta property="og:description" content="فهم المادة أولاً، ثم حل المسائل، ثم النجاح في الاختبار. منصة متخصصة في الهندسة المدنية فقط.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ar_SA">
-<meta property="og:url" content="https://irtiqaa.com/">
+<meta property="og:url" content="https://irtiqaa-ksa.github.io/.com/">
 <meta property="og:image" content="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=85">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="ارتقاء">
 
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ارتقاء | شرح مواد الهندسة المدنية بعمق">
 <meta name="twitter:description" content="فهم المادة أولاً، ثم حل المسائل، ثم النجاح في الاختبار.">
 <meta name="twitter:image" content="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=85">
 
-<link rel="canonical" href="https://irtiqaa.com/">
+<link rel="canonical" href="https://irtiqaa-ksa.github.io/.com/">
 
-<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 
+<style>
+/* ============================================================
+   نظام التصميم — Design Tokens
+============================================================ */
+:root{
+  --ink:#0a1424;
+  --navy:#0e1c30;
+  --navy-2:#133156;
+  --navy-3:#1b4066;
+  --gold:#d5a73a;
+  --gold-2:#e9c86b;
+  --gold-deep:#a97f22;
+  --paper:#ffffff;
+  --mist:#f4f6fa;
+  --line:#e4e9f0;
+  --text:#182a44;
+  --muted:#5d6c85;
+  --wa:#159447;
+  --r-lg:22px;
+  --r-md:16px;
+  --r-sm:12px;
+  --sh-1:0 2px 10px rgba(10,20,36,.06);
+  --sh-2:0 12px 32px rgba(10,20,36,.12);
+  --sh-3:0 24px 60px rgba(10,20,36,.20);
+  --tb-h:72px;
+  --font-head:'Cairo',sans-serif;
+  --font-body:'Tajawal',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  background:var(--mist);
+  color:var(--text);
+  line-height:1.75;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:6px}
+::selection{background:var(--gold);color:var(--ink)}
+
+/* مقاسات خط سائلة */
+.fs-hero{font-size:clamp(1.7rem, 4.6vw + .6rem, 3.4rem)}
+.fs-h2{font-size:clamp(1.35rem, 2.6vw + .4rem, 2.1rem)}
+.fs-h3{font-size:clamp(1.02rem, 1.4vw + .5rem, 1.25rem)}
+.fs-lead{font-size:clamp(.95rem, 1.2vw + .5rem, 1.15rem)}
+
+/* ============================================================
+   Topbar
+============================================================ */
+.topbar{
+  position:fixed;inset:0 0 auto 0;height:var(--tb-h);z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:0 clamp(12px,3vw,32px);
+  background:transparent;border-bottom:1px solid transparent;
+  transition:background .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+.topbar::before{
+  content:"";position:absolute;inset:0 0 auto 0;height:3px;
+  background:linear-gradient(90deg,var(--gold-deep),var(--gold-2),var(--gold-deep));
+}
+.topbar.solid{background:rgba(14,28,48,.96);backdrop-filter:blur(12px);box-shadow:var(--sh-2)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;min-width:0}
+.brand-txt{display:flex;flex-direction:column;line-height:1.2}
+.brand-name{font-family:var(--font-head);font-weight:900;font-size:clamp(1.05rem,2.4vw,1.3rem);color:#fff}
+.brand-tag{font-size:clamp(.62rem,1.6vw,.72rem);color:#aeb9c6;font-weight:500}
+.brand-logo{height:clamp(34px,6vw,46px);width:auto;object-fit:contain}
+.nav-desktop{display:flex;gap:clamp(14px,2.2vw,30px)}
+.nav-desktop a{color:rgba(255,255,255,.88);text-decoration:none;font-weight:500;font-size:.92rem;padding:6px 2px;position:relative}
+.nav-desktop a::after{content:"";position:absolute;bottom:0;right:0;width:0;height:2px;background:var(--gold);transition:width .3s}
+.nav-desktop a:hover{color:var(--gold-2)}
+.nav-desktop a:hover::after{width:100%}
+.top-actions{display:flex;align-items:center;gap:10px}
+.cta-top{
+  background:var(--gold);color:var(--ink);text-decoration:none;font-weight:800;
+  font-size:.85rem;padding:9px 18px;border-radius:10px;display:inline-flex;gap:6px;align-items:center;
+  box-shadow:0 6px 18px rgba(213,167,58,.35);transition:transform .2s,background .2s;white-space:nowrap;
+}
+.cta-top:hover{background:var(--gold-2);transform:translateY(-2px)}
+.hamburger{
+  width:42px;height:42px;border-radius:10px;cursor:pointer;
+  background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.22);
+  display:none;align-items:center;justify-content:center;transition:background .2s;
+}
+.hamburger:hover{background:rgba(255,255,255,.16)}
+
+/* ============================================================
+   Mobile Menu
+============================================================ */
+.m-overlay{position:fixed;inset:0;background:rgba(6,12,24,.62);backdrop-filter:blur(3px);z-index:1100;display:none}
+.m-menu{
+  position:fixed;top:0;bottom:0;right:auto;left:0;width:min(340px,88vw);z-index:1200;
+  background:linear-gradient(180deg,#0c2138,#081525);display:none;flex-direction:column;
+  padding:calc(20px + env(safe-area-inset-top)) 22px calc(24px + env(safe-area-inset-bottom));
+  overflow-y:auto;box-shadow:var(--sh-3);
+}
+.m-menu.open,.m-overlay.open{display:flex}
+.m-menu.open{animation:mSlide .35s cubic-bezier(.2,.8,.3,1)}
+.m-overlay.open{animation:mFade .3s ease}
+@keyframes mSlide{from{transform:translateX(-100%)}to{transform:translateX(0)}}
+@keyframes mFade{from{opacity:0}to{opacity:1}}
+.m-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:14px}
+.m-close{background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;padding:6px 10px;border-radius:8px}
+.m-close:hover{background:rgba(255,255,255,.1)}
+.m-link{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.92);text-decoration:none;padding:13px 14px;border-radius:12px;font-weight:500;font-size:.98rem;margin-bottom:4px;transition:background .2s}
+.m-link:hover{background:rgba(213,167,58,.14);color:var(--gold-2)}
+.m-ico{width:26px;text-align:center;font-size:1.05rem}
+.m-cta{margin-top:auto;padding-top:18px;border-top:1px solid rgba(255,255,255,.1)}
+.m-cta a{display:flex;justify-content:center;align-items:center;gap:8px;background:var(--gold);color:var(--ink);font-weight:800;text-decoration:none;padding:14px;border-radius:12px;font-size:1rem}
+.m-hours{color:#9fb0c6;font-size:.8rem;text-align:center;margin-top:12px}
+
+/* ============================================================
+   Hero
+============================================================ */
+.hero{
+  background:
+    radial-gradient(1100px 500px at 85% -10%, rgba(213,167,58,.16), transparent 60%),
+    radial-gradient(900px 480px at 10% 110%, rgba(27,64,102,.5), transparent 60%),
+    linear-gradient(180deg,#0c1a2e 0%, #0e1c30 55%, #10233c 100%);
+  color:#fff;
+  padding:calc(var(--tb-h) + clamp(36px,7vh,80px)) clamp(14px,4vw,40px) clamp(48px,8vh,90px);
+  position:relative;overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;inset:auto 0 0 0;height:120px;
+  background:linear-gradient(180deg,transparent,var(--mist));pointer-events:none;
+}
+.hero-inner{max-width:1160px;margin:auto;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,64px);align-items:center;position:relative;z-index:1}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;background:rgba(213,167,58,.14);
+  border:1px solid rgba(213,167,58,.45);color:var(--gold-2);
+  padding:6px 16px;border-radius:999px;font-size:.78rem;font-weight:700;margin-bottom:18px;
+}
+.hero h1{font-family:var(--font-head);font-weight:900;line-height:1.35;margin-bottom:16px}
+.hero h1 .accent{color:var(--gold-2)}
+.hero .lead{color:#c6d2e2;max-width:56ch;margin-bottom:28px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;font-weight:800;border-radius:12px;transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer;border:none;font-family:var(--font-body)}
+.btn-gold{background:var(--gold);color:var(--ink);padding:15px 30px;font-size:1.02rem;box-shadow:0 10px 26px rgba(213,167,58,.38)}
+.btn-gold:hover{background:var(--gold-2);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35);padding:13px 28px;font-size:1.02rem}
+.btn-ghost:hover{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.07)}
+
+/* بطاقة المحاضرة (Hero Visual) */
+.hero-visual{position:relative}
+.mock{
+  background:#fff;color:var(--text);border-radius:var(--r-lg);box-shadow:var(--sh-3);
+  overflow:hidden;max-width:430px;margin-inline-start:auto;
+}
+.mock-top{display:flex;align-items:center;gap:6px;background:#0b1526;padding:12px 16px}
+.dot{width:10px;height:10px;border-radius:50%}
+.dot.r{background:#ff5f57}.dot.y{background:#febc2e}.dot.g{background:#28c840}
+.mock-title{color:#c6d2e2;font-size:.78rem;margin-inline-start:8px;font-weight:500}
+.mock-body{padding:20px}
+.mock-q{font-family:var(--font-head);font-weight:800;font-size:.95rem;background:var(--mist);border:1px dashed var(--line);border-radius:10px;padding:10px 14px;margin-bottom:14px}
+.mock-step{display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--muted);padding:8px 4px}
+.mock-step b{width:26px;height:26px;border-radius:8px;background:var(--navy);color:var(--gold-2);display:inline-flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0}
+.mock-step.done{color:var(--text);font-weight:700}
+.mock-step.done b{background:var(--gold);color:var(--ink)}
+.mock-bar{height:8px;background:var(--line);border-radius:99px;margin-top:14px;overflow:hidden}
+.mock-bar i{display:block;height:100%;width:78%;background:linear-gradient(90deg,var(--gold-deep),var(--gold-2));border-radius:99px}
+.mock-meta{font-size:.72rem;color:var(--muted);margin-top:8px}
+.mock-float{
+  position:absolute;background:#fff;color:var(--text);border-radius:12px;box-shadow:var(--sh-2);
+  padding:9px 14px;font-size:.78rem;font-weight:700;display:flex;gap:8px;align-items:center;
+}
+.mf-1{top:-16px;inset-inline-start:-8px}
+.mf-2{bottom:-16px;inset-inline-end:-8px}
+
+/* Stats */
+.stats{
+  max-width:1160px;margin:clamp(28px,5vh,52px) auto 0;position:relative;z-index:1;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,2vw,20px);
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);
+  border-radius:var(--r-lg);padding:clamp(16px,3vw,28px);backdrop-filter:blur(6px);
+}
+.stat{text-align:center}
+.stat b{display:block;font-family:var(--font-head);font-weight:900;color:var(--gold-2);font-size:clamp(1.3rem,3vw,2rem)}
+.stat span{color:#c6d2e2;font-size:clamp(.68rem,1.6vw,.82rem);font-weight:500}
+
+/* ============================================================
+   Blocks عامة
+============================================================ */
+.block{max-width:1160px;margin:auto;padding:clamp(44px,8vh,88px) clamp(14px,4vw,40px)}
+.block-head{text-align:center;max-width:720px;margin:0 auto clamp(26px,5vh,48px)}
+.block-head .eyebrow{background:rgba(19,49,86,.08);border-color:rgba(19,49,86,.25);color:var(--navy-2)}
+.block-head h2{font-family:var(--font-head);font-weight:900;color:var(--ink);line-height:1.4}
+.block-head p{color:var(--muted);margin-top:10px}
+.card{background:#fff;border-radius:var(--r-lg);box-shadow:var(--sh-1);border:1px solid var(--line)}
+
+/* Problems */
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(12px,2vw,20px)}
+.p-card{display:flex;gap:14px;background:#fff;border:1px solid #f0e4c8;background:linear-gradient(180deg,#fffdf8,#fff);border-radius:var(--r-md);padding:clamp(16px,2.4vw,24px);box-shadow:var(--sh-1)}
+.p-ico{width:44px;height:44px;border-radius:12px;background:var(--gold);color:var(--ink);font-weight:900;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.p-card h3{font-family:var(--font-head);font-weight:800;font-size:1rem;color:var(--ink);margin-bottom:6px}
+.p-card p{font-size:.88rem;color:var(--muted)}
+.callout{margin-top:clamp(18px,3vh,28px);background:var(--navy);color:#e8eef6;border-radius:var(--r-md);padding:clamp(18px,3vw,26px);text-align:center}
+.callout b{color:var(--gold-2)}
+
+/* Solution */
+.s-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:clamp(18px,2.6vw,28px);box-shadow:var(--sh-1);transition:transform .25s,box-shadow .25s}
+.s-card:hover{transform:translateY(-4px);box-shadow:var(--sh-2)}
+.s-num{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--navy),var(--navy-3));color:var(--gold-2);font-family:var(--font-head);font-weight:900;font-size:1.4rem;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.s-card h3{font-family:var(--font-head);font-weight:800;font-size:1.02rem;color:var(--ink);margin-bottom:8px}
+.s-card p{font-size:.88rem;color:var(--muted)}
+
+/* Subjects */
+.subj-wrap{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(18px,3vw,32px);box-shadow:var(--sh-1)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:22px}
+.tab{padding:9px 18px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--navy-2);font-weight:700;font-size:.85rem;cursor:pointer;font-family:var(--font-body);transition:all .2s}
+.tab.active{background:var(--navy);border-color:var(--navy);color:var(--gold-2)}
+.subj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.subj{background:#fff;border:1.5px solid var(--line);border-radius:var(--r-md);padding:18px;display:flex;flex-direction:column;gap:12px;transition:border-color .2s,box-shadow .2s,transform .2s}
+.subj:hover{border-color:var(--gold);box-shadow:var(--sh-2);transform:translateY(-3px)}
+.subj-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.subj h3{font-family:var(--font-head);font-weight:800;font-size:1rem;color:var(--ink)}
+.subj .desc{font-size:.8rem;color:var(--muted)}
+.subj .tick{width:30px;height:30px;border-radius:9px;background:var(--gold);color:var(--ink);font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{background:var(--mist);border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:.7rem;font-weight:700;color:var(--navy-2)}
+.subj-actions{margin-top:auto;display:flex;gap:8px}
+.subj-actions a{flex:1;text-align:center;text-decoration:none;font-weight:700;font-size:.8rem;padding:9px 10px;border-radius:10px}
+.a-detail{background:var(--navy);color:var(--gold-2)}
+.a-join{background:var(--gold);color:var(--ink)}
+.subj-note{text-align:center;font-size:.82rem;color:var(--muted);margin-top:18px}
+.subj-note a{color:var(--gold-deep);font-weight:800}
+
+/* Samples */
+.smp{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;box-shadow:var(--sh-1);transition:transform .25s,box-shadow .25s}
+.smp:hover{transform:translateY(-4px);box-shadow:var(--sh-2)}
+.smp-img{height:170px;display:flex;align-items:center;justify-content:center;position:relative;font-size:3.4rem}
+.smp-img.g1{background:linear-gradient(135deg,#082847,#1b4066)}
+.smp-img.g2{background:linear-gradient(135deg,#123f68,#2a6099)}
+.smp-img.g3{background:linear-gradient(135deg,#0a2d4d,#155084)}
+.smp-tag{position:absolute;top:10px;inset-inline-start:10px;background:var(--gold);color:var(--ink);font-size:.68rem;font-weight:800;padding:4px 12px;border-radius:999px}
+.smp-body{padding:18px}
+.smp-body h4{font-family:var(--font-head);font-weight:800;font-size:.98rem;color:var(--ink);margin-bottom:6px}
+.smp-body p{font-size:.82rem;color:var(--muted);margin-bottom:12px}
+.smp-body a{font-size:.82rem;font-weight:800;color:var(--gold-deep);text-decoration:none}
+
+/* Journey */
+.journey{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;position:relative;counter-reset:step}
+.journey::before{content:"";position:absolute;top:27px;right:8%;left:8%;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);z-index:0}
+.j-step{text-align:center;position:relative;z-index:1}
+.j-num{width:54px;height:54px;margin:0 auto 14px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--navy-3));color:var(--gold-2);font-family:var(--font-head);font-weight:900;font-size:1.25rem;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(14,28,48,.25);border:3px solid var(--mist)}
+.j-step h4{font-family:var(--font-head);font-weight:800;font-size:.95rem;color:var(--ink);margin-bottom:4px}
+.j-step p{font-size:.78rem;color:var(--muted)}
+
+/* Trial */
+.trial{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-3) 100%);border-radius:var(--r-lg);color:#fff;text-align:center;padding:clamp(32px,6vw,64px) clamp(18px,4vw,48px);position:relative;overflow:hidden;box-shadow:var(--sh-3)}
+.trial::before,.trial::after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;pointer-events:none}
+.trial::before{top:-40%;inset-inline-end:-15%;background:radial-gradient(circle,rgba(213,167,58,.16),transparent 70%)}
+.trial::after{bottom:-40%;inset-inline-start:-15%;background:radial-gradient(circle,rgba(213,167,58,.1),transparent 70%)}
+.trial > *{position:relative;z-index:1}
+.trial h2{font-family:var(--font-head);font-weight:900;margin-bottom:12px}
+.trial h2 .accent{color:var(--gold-2)}
+.trial p{color:#dbe6f2;max-width:62ch;margin:0 auto 24px}
+.t-feats{display:flex;gap:clamp(12px,3vw,28px);justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+.t-feat{display:flex;gap:8px;align-items:center;font-size:.88rem;font-weight:700;color:#e8eef6}
+.t-check{width:22px;height:22px;border-radius:50%;background:var(--gold);color:var(--ink);font-size:.7rem;font-weight:900;display:inline-flex;align-items:center;justify-content:center}
+
+/* Why */
+.w-card{display:flex;gap:14px;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:clamp(16px,2.4vw,24px);box-shadow:var(--sh-1)}
+.w-ico{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--navy-3));color:var(--gold-2);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
+.w-card h3{font-family:var(--font-head);font-weight:800;font-size:.98rem;color:var(--ink);margin-bottom:6px}
+.w-card p{font-size:.86rem;color:var(--muted)}
+.w-full{grid-column:1/-1}
+
+/* Trust */
+.uni-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:clamp(26px,5vh,40px)}
+.uni{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:18px 10px;text-align:center;box-shadow:var(--sh-1)}
+.uni .ico{font-size:1.7rem;margin-bottom:6px}
+.uni div:last-child{font-size:.8rem;font-weight:700;color:var(--navy-2)}
+.tst-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.tst{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:22px;box-shadow:var(--sh-1)}
+.stars{color:var(--gold);letter-spacing:2px;margin-bottom:10px}
+.tst q{display:block;font-size:.88rem;color:var(--text);line-height:1.9;margin-bottom:16px;quotes:"\201C" "\201D"}
+.tst-who{display:flex;gap:10px;align-items:center}
+.avatar{width:38px;height:38px;border-radius:50%;background:var(--navy);color:var(--gold-2);font-weight:800;display:flex;align-items:center;justify-content:center}
+.tst-who b{display:block;font-size:.88rem;color:var(--ink)}
+.tst-who span{font-size:.74rem;color:var(--muted)}
+
+/* Pricing */
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;align-items:stretch}
+.price{background:#fff;border:1.5px solid var(--line);border-radius:var(--r-md);padding:26px 20px;text-align:center;display:flex;flex-direction:column;position:relative;box-shadow:var(--sh-1)}
+.price.feat{background:linear-gradient(160deg,var(--navy),var(--navy-3));border-color:var(--gold);color:#fff;box-shadow:var(--sh-3)}
+.price-badge{position:absolute;top:-13px;right:50%;transform:translateX(50%);background:var(--gold);color:var(--ink);font-size:.7rem;font-weight:800;padding:4px 14px;border-radius:999px;white-space:nowrap}
+.price .ico{font-size:2.1rem;margin-bottom:8px}
+.price h3{font-family:var(--font-head);font-weight:800;font-size:1.05rem;color:var(--ink)}
+.price.feat h3{color:var(--gold-2)}
+.price .who{font-size:.8rem;color:var(--muted);margin-bottom:16px}
+.price.feat .who{color:rgba(255,255,255,.75)}
+.price .lbl{font-size:.72rem;color:var(--muted)}
+.price.feat .lbl{color:rgba(255,255,255,.65)}
+.price .val{font-family:var(--font-head);font-weight:900;font-size:1.25rem;color:var(--ink);margin:2px 0}
+.price.feat .val{color:var(--gold-2)}
+.price .note{font-size:.74rem;color:var(--muted);margin-bottom:16px}
+.price.feat .note{color:rgba(255,255,255,.7)}
+.price ul{list-style:none;text-align:right;border-top:1px dashed var(--line);padding-top:14px;margin-top:auto;font-size:.82rem;color:var(--muted)}
+.price.feat ul{border-top-color:rgba(255,255,255,.2);color:rgba(255,255,255,.85)}
+.price ul li{margin-bottom:5px}
+.price-note{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:20px;text-align:center;box-shadow:var(--sh-1)}
+.price-note p{font-size:.88rem;color:var(--text);margin-bottom:12px}
+.btn-sm{background:var(--gold);color:var(--ink);padding:10px 22px;font-size:.88rem;border-radius:10px}
+
+/* FAQ */
+.faq-wrap{max-width:820px;margin:auto}
+.faq{background:#fff;border:1px solid var(--line);border-radius:var(--r-sm);margin-bottom:10px;overflow:hidden}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;background:none;border:none;cursor:pointer;font-family:var(--font-body);font-weight:700;font-size:.95rem;color:var(--ink);padding:16px 18px;text-align:right}
+.faq-q:hover{background:var(--mist)}
+.faq-ico{width:28px;height:28px;border-radius:50%;background:var(--mist);color:var(--navy);font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s,background .3s}
+.faq.open .faq-ico{transform:rotate(45deg);background:var(--gold);color:var(--ink)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-a > div{padding:0 18px 16px;font-size:.88rem;color:var(--muted);line-height:1.9}
+
+/* Final CTA */
+.final{background:linear-gradient(135deg,var(--navy),var(--navy-3));border-radius:var(--r-lg);color:#fff;text-align:center;padding:clamp(36px,6vw,64px) clamp(18px,4vw,48px);position:relative;overflow:hidden;box-shadow:var(--sh-3)}
+.final h2{font-family:var(--font-head);font-weight:900;margin-bottom:14px}
+.final h2 .accent{color:var(--gold-2)}
+.final p{color:#c6d2e2;max-width:58ch;margin:0 auto 28px}
+.final-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.final .hours{margin-top:22px;color:#9fb0c6;font-size:.85rem}
+
+/* Site Bottom */
+.bottom{background:var(--navy);color:#c6d2e2;border-radius:var(--r-lg);padding:clamp(28px,5vw,48px) clamp(18px,4vw,40px) 22px;margin-bottom:14px}
+.bottom-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:clamp(20px,3vw,36px);margin-bottom:28px}
+.bottom h4{color:var(--gold-2);font-family:var(--font-head);font-weight:800;font-size:.95rem;margin-bottom:14px}
+.bottom a{display:block;color:#aeb9c6;text-decoration:none;font-size:.84rem;margin-bottom:9px;transition:color .2s}
+.bottom a:hover{color:var(--gold-2)}
+.bottom-brand p{font-size:.84rem;margin:12px 0 16px}
+.b-logo{display:flex;align-items:center;gap:10px}
+.b-logo img{height:42px;width:auto}
+.b-logo b{color:#fff;font-family:var(--font-head);font-size:1.05rem;display:block;line-height:1.2}
+.b-logo span{font-size:.68rem;color:#aeb9c6}
+.socials{display:flex;gap:8px}
+.socials a{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:1rem;margin:0}
+.socials a:hover{background:var(--gold);transform:translateY(-2px)}
+.bottom-line{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;text-align:center;font-size:.75rem;color:#8fa0b8}
+
+/* WhatsApp Float */
+.wa-float{
+  position:fixed;bottom:calc(16px + env(safe-area-inset-bottom));left:16px;z-index:900;
+  width:54px;height:54px;border-radius:50%;background:var(--wa);color:#fff;
+  display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(21,148,71,.4);
+  transition:transform .2s;
+}
+.wa-float:hover{transform:scale(1.08)}
+
+/* Reveal on scroll */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ============================================================
+   BREAKPOINTS — من 320px حتى الشاشات الكبيرة
+============================================================ */
+@media (min-width:1400px){
+  .block,.hero-inner,.stats{max-width:1240px}
+}
+@media (max-width:960px){
+  .nav-desktop{display:none}
+  .cta-top{display:none}
+  .hamburger{display:flex}
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero .lead{margin-inline:auto}
+  .hero-ctas{justify-content:center}
+  .mock{margin:26px auto 0}
+  .mf-1{inset-inline-start:4%}
+  .mf-2{inset-inline-end:4%}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .journey{grid-template-columns:repeat(2,1fr)}
+  .journey::before{display:none}
+  .bottom-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  :root{--tb-h:62px}
+  .grid-2{grid-template-columns:1fr}
+  .journey{grid-template-columns:1fr;gap:10px}
+  .j-step{display:flex;gap:14px;text-align:right;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:14px}
+  .j-num{margin:0;width:46px;height:46px;font-size:1.05rem;flex-shrink:0;border-color:#fff}
+  .block{padding-top:44px;padding-bottom:44px}
+}
+@media (max-width:560px){
+  .bottom-grid{grid-template-columns:1fr;text-align:center}
+  .b-logo{justify-content:center}
+  .socials{justify-content:center}
+  .hero-ctas .btn{width:100%}
+  .final-btns .btn{width:100%}
+  .mock-float{display:none}
+}
+@media (max-width:400px){
+  .brand-tag{display:none}
+  .stats{padding:14px;gap:8px}
+  .subj-grid{grid-template-columns:1fr}
+  .tabs{gap:6px}
+  .tab{padding:8px 13px;font-size:.76rem}
+  .faq-q{font-size:.88rem;padding:14px}
+}
+@media (max-width:340px){
+  .brand-name{font-size:.95rem}
+  .brand-logo{height:30px}
+  .stat b{font-size:1.15rem}
+  .btn-gold,.btn-ghost{padding:13px 18px;font-size:.92rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
 </head>
-<body style="margin:0; padding:0; font-family:'Cairo','Tajawal',sans-serif; background:#0a1628; min-height:100vh; color:#172b4d; line-height:1.7; overflow-x:hidden; direction:rtl;">
+<body>
 
 <!-- ===== Topbar ===== -->
-<div id="topbar" style="position:fixed; top:0; right:0; left:0; z-index:1000; padding:10px 16px; display:flex; align-items:center; justify-content:space-between; background:#0e1c30; border-top:3px solid #b98a2e; border-bottom:3px solid #b98a2e; transition:all 0.4s ease; box-sizing:border-box;">
-  
-  <!-- اللوجو -->
-  <a href="https://irtiqaa.com/" target="_blank" style="display:flex; align-items:center; gap:14px; text-decoration:none; color:white; flex-shrink:0;">
-    <div style="display:flex; flex-direction:column; line-height:1.25;">
-      <span style="font-size:21px; font-weight:800; color:#ffffff;">ارتقاء</span>
-      <span style="font-size:11px; font-weight:500; color:#aeb9c6;">الهندسة المدنية</span>
+<div class="topbar" id="topbar">
+  <a class="brand" href="https://irtiqaa-ksa.github.io/.com/" target="_blank">
+    <div class="brand-txt">
+      <span class="brand-name">ارتقاء</span>
+      <span class="brand-tag">الهندسة المدنية</span>
     </div>
-    <img class="irtiqaa-logo-img"
-      src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5nl7CCqQ-4HI6rT_ed-XnI5XWXXbRzmBLiPM8axh0vQbcXEB45ALFiPEvtU57a-dzBAeBKT2ARZJmigzXBYNgVG-Q0y_oXFp78Quwo561IksZxYkH_kZ5CPiCDcnOXo3Fh_U2ueMnTw3gv5vfgIPnJ8XXMCRBHwcfLpxJJr5O01w_b24wpT7JqTdteaJi/s845/333087.png"
-      alt="شعار ارتقاء - ASCEND Civil Engineering Platform"
-      style="height:56px; width:auto; max-width:56vw; object-fit:contain; display:block;">
+    <img class="brand-logo" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5nl7CCqQ-4HI6rT_ed-XnI5XWXXbRzmBLiPM8axh0vQbcXEB45ALFiPEvtU57a-dzBAeBKT2ARZJmigzXBYNgVG-Q0y_oXFp78Quwo561IksZxYkH_kZ5CPiCDcnOXo3Fh_U2ueMnTw3gv5vfgIPnJ8XXMCRBHwcfLpxJJr5O01w_b24wpT7JqTdteaJi/s845/333087.png" alt="شعار ارتقاء ASCEND">
   </a>
 
-  <!-- Desktop Links -->
-  <div id="desktopLinks" style="display:flex; gap:28px; list-style:none;">
-    <a href="#problem" style="color:rgba(255,255,255,0.88); text-decoration:none; font-size:14px; font-weight:600; transition:color 0.25s; padding:4px 0;">لماذا نحتاج ارتقاء؟</a>
-    <a href="#subjects" style="color:rgba(255,255,255,0.88); text-decoration:none; font-size:14px; font-weight:600; transition:color 0.25s; padding:4px 0;">المواد</a>
-    <a href="#samples" style="color:rgba(255,255,255,0.88); text-decoration:none; font-size:14px; font-weight:600; transition:color 0.25s; padding:4px 0;">نماذج الشرح</a>
-    <a href="#pricing" style="color:rgba(255,255,255,0.88); text-decoration:none; font-size:14px; font-weight:600; transition:color 0.25s; padding:4px 0;">الأسعار</a>
-    <a href="#trial" style="color:rgba(255,255,255,0.88); text-decoration:none; font-size:14px; font-weight:600; transition:color 0.25s; padding:4px 0;">جرّب مجانًا</a>
+  <div class="nav-desktop">
+    <a href="#problem">لماذا ارتقاء؟</a>
+    <a href="#subjects">المواد</a>
+    <a href="#samples">نماذج الشرح</a>
+    <a href="#pricing">الأسعار</a>
+    <a href="#trial">جرّب مجانًا</a>
   </div>
 
-  <!-- Actions -->
-  <div style="display:flex; align-items:center; gap:12px;">
-    <a href="https://wa.me/966576073342?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%20%D9%81%D9%8A%20%D9%85%D9%86%D8%B5%D8%A9%20%D8%A7%D8%B1%D8%AA%D9%82%D8%A7%D8%A1" target="_blank" id="desktopCTA" style="background:#d5a73a; color:#061d34; padding:10px 20px; border-radius:10px; font-weight:800; text-decoration:none; font-size:13px; transition:0.25s; display:inline-flex; align-items:center; gap:6px;">
-      <span>📝</span>
-      <span>سجّل الآن</span>
-    </a>
-    
-    <!-- Hamburger Button -->
-    <button id="hamburgerBtn" onclick="toggleMenu()" aria-label="فتح القائمة" style="width:44px; height:44px; background:rgba(255,255,255,0.1); border:1.5px solid rgba(255,255,255,0.25); border-radius:10px; cursor:pointer; display:none; align-items:center; justify-content:center; transition:all 0.3s; padding:0;">
-      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round">
-        <line x1="3" y1="6" x2="21" y2="6"></line>
-        <line x1="3" y1="12" x2="21" y2="12"></line>
-        <line x1="3" y1="18" x2="21" y2="18"></line>
-      </svg>
+  <div class="top-actions">
+    <a class="cta-top" href="https://wa.me/966576073342?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%20%D9%81%D9%8A%20%D9%85%D9%86%D8%B5%D8%A9%20%D8%A7%D8%B1%D8%AA%D9%82%D8%A7%D8%A1" target="_blank"><span>📝</span><span>سجّل الآن</span></a>
+    <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" aria-label="فتح القائمة">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
     </button>
   </div>
 </div>
 
-<!-- Mobile Menu Overlay -->
-<div id="menuOverlay" onclick="toggleMenu()" style="position:fixed; inset:0; background:rgba(0,0,0,0.6); backdrop-filter:blur(4px); z-index:998; opacity:0; visibility:hidden; transition:all 0.35s;"></div>
+<!-- ===== Mobile Menu ===== -->
+<div class="m-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+<div class="m-menu" id="mobileMenu">
+  <div class="m-head">
+    <div class="b-logo"><b>ارتقاء</b></div>
+    <button class="m-close" onclick="toggleMenu()" aria-label="إغلاق">✕</button>
+  </div>
+  <a class="m-link" href="#problem" onclick="toggleMenu()"><span class="m-ico">❓</span>لماذا ارتقاء؟</a>
+  <a class="m-link" href="#subjects" onclick="toggleMenu()"><span class="m-ico">📚</span>المواد</a>
+  <a class="m-link" href="#samples" onclick="toggleMenu()"><span class="m-ico">📝</span>نماذج الشرح</a>
+  <a class="m-link" href="#pricing" onclick="toggleMenu()"><span class="m-ico">💰</span>الأسعار</a>
+  <a class="m-link" href="#trial" onclick="toggleMenu()"><span class="m-ico">🎬</span>جرّب مجانًا</a>
+  <a class="m-link" href="#faq" onclick="toggleMenu()"><span class="m-ico">💬</span>الأسئلة الشائعة</a>
+  <a class="m-link" href="https://irtiqaa-ksa.github.io/.com/about/" target="_blank" onclick="toggleMenu()"><span class="m-ico">ℹ️</span>من نحن</a>
+  <a class="m-link" href="https://irtiqaa-ksa.github.io/.com/contact/" target="_blank" onclick="toggleMenu()"><span class="m-ico">📞</span>تواصل معنا</a>
+  <div class="m-cta">
+    <a href="https://wa.me/966576073342?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%20%D9%81%D9%8A%20%D9%85%D9%86%D8%B5%D8%A9%20%D8%A7%D8%B1%D8%AA%D9%82%D8%A7%D8%A1" target="_blank"><span>📝</span>سجّل الآن عبر واتساب</a>
+    <div class="m-hours">🕐 السبت - الخميس: 9ص - 10م</div>
+  </div>
+</div>
 
-<!-- Mobile Menu -->
-<div id="mobileMenu" style="position:fixed; top:0; left:-100%; width:340px; max-width:85%; height:100vh; background:linear-gradient(180deg,#0a2d4d 0%,#051829 100%); z-index:999; transition:left 0.4s cubic-bezier(0.4,0,0.2,1); padding:100px 24px 30px; overflow-y:auto; box-shadow:5px 0 30px rgba(0,0,0,0.4); box-sizing:border-box;">
-  
-  <!-- Mobile Menu Logo -->
-  <div style="position:absolute; top:22px; right:24px; left:24px; display:flex; align-items:center; justify-content:space-between; padding-bottom:20px; border-bottom:1px solid rgba(255,255,255,0.1);">
-    <div style="display:flex; align-items:center; gap:10px; color:white; font-weight:800; font-size:17px;">
-      <span>ارتقاء</span>
+<!-- ===== Hero ===== -->
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">🎓 منصة متخصصة في الهندسة المدنية فقط</div>
+      <h1 class="fs-hero">هل تحفظ المعادلات دون أن تفهمها؟<br><span class="accent">ارتقاء</span> تساعدك على الفهم أولاً</h1>
+      <p class="lead fs-lead">منصة تعليمية لطلاب الهندسة المدنية: شرح عميق للمواد الصعبة، حل خطوة بخطوة للمسائل، ومراجعات مركزة قبل الاختبار. نبدأ من الأساس، وننتهي بثقتك بنفسك.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="https://wa.me/966576073342?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9%20%D8%AA%D8%AC%D8%B1%D9%8A%D8%A8%D9%8A%D8%A9%20%D9%85%D8%AC%D8%A7%D9%86%D9%8A%D8%A9" target="_blank"><span>🎬</span>احجز محاضرة تجريبية مجانية</a>
+        <a class="btn btn-ghost" href="#subjects"><span>📚</span>استكشف المواد</a>
+      </div>
     </div>
-    <button onclick="toggleMenu()" aria-label="إغلاق القائمة" style="background:none; border:none; color:white; font-size:24px; cursor:pointer; padding:8px;">✕</button>
+
+    <div class="hero-visual">
+      <div class="mock-float mf-1">📄 مذكرة PDF جاهزة</div>
+      <div class="mock">
+        <div class="mock-top">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="mock-title">محاضرة مباشرة — تحليل إنشائي</span>
+        </div>
+        <div class="mock-body">
+          <div class="mock-q">كمرة مستمرة — 3 بحور</div>
+          <div class="mock-step"><b>1</b> تحديد درجة عدم التحديد</div>
+          <div class="mock-step"><b>2</b> كتابة معادلات التوافق</div>
+          <div class="mock-step done"><b>✓</b> رسم مخطط العزوم</div>
+          <div class="mock-bar"><i></i></div>
+          <div class="mock-meta">نسبة إتقان الموضوع 78%</div>
+        </div>
+      </div>
+      <div class="mock-float mf-2">💬 رد على سؤالك خلال ساعات</div>
+    </div>
   </div>
 
-  <!-- Mobile Links -->
-  <div style="margin-top:20px;">
-    <a href="#problem" onclick="toggleMenu()" style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.9); text-decoration:none; padding:14px 16px; border-radius:12px; font-weight:600; font-size:15px; margin-bottom:4px;">
-      <span style="font-size:18px; width:26px; text-align:center;">❓</span>
-      <span>لماذا نحتاج ارتقاء؟</span>
-    </a>
-    <a href="#subjects" onclick="toggleMenu()" style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.9); text-decoration:none; padding:14px 16px; border-radius:12px; font-weight:600; font-size:15px; margin-bottom:4px;">
-      <span style="font-size:18px; width:26px; text-align:center;">📚</span>
-      <span>المواد</span>
-    </a>
-    <a href="#samples" onclick="toggleMenu()" style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.9); text-decoration:none; padding:14px 16px; border-radius:12px; font-weight:600; font-size:15px; margin-bottom:4px;">
-      <span style="font-size:18px; width:26px; text-align:center;">📝</span>
-      <span>نماذج الشرح</span>
-    </a>
-    <a href="#pricing" onclick="toggleMenu()" style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.9); text-decoration:none; padding:14px 16px; border-radius:12px; font-weight:600; font-size:15px; margin-bottom:4px;">
-      <span style="font-size:18px; width:26px; text-align:center;">💰</span>
-      <span>الأسعار</span>
-    </a>
-    <a href="#trial" onclick="toggleMenu()" style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.9); text-decoration:none; padding:14px 16px; border-radius:12px; font-weight:600; font-size:15px; margin-bottom:4px;">
-      <span style="font-size:18px; width:26px; text-align:center;">🎬</span>
-      <span>جرّب مجانًا</span>
-    </a>
-    <a href="#faq" onclick="toggleMenu()" style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.9); text-decoration:none; padding:14px 16px; border-radius:12px; font-weight:600; font-size:15px; margin-bottom:4px;">
-      <span style="font-size:18px; width:26px; text-align:center;">💬</span>
-      <span>الأسئلة الشائعة</span>
-    </a>
-    <a href="https://irtiqaa.com/about/" target="_blank" onclick="toggleMenu()" style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.9); text-decoration:none; padding:14px 16px; border-radius:12px; font-weight:600; font-size:15px; margin-bottom:4px;">
-      <span style="font-size:18px; width:26px; text-align:center;">ℹ️</span>
-      <span>من نحن</span>
-    </a>
-    <a href="https://irtiqaa.com/contact/" target="_blank" onclick="toggleMenu()" style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.9); text-decoration:none; padding:14px 16px; border-radius:12px; font-weight:600; font-size:15px; margin-bottom:4px;">
-      <span style="font-size:18px; width:26px; text-align:center;">📞</span>
-      <span>تواصل معنا</span>
-    </a>
+  <div class="stats">
+    <div class="stat"><b>+200</b><span>طالب وثق في ارتقاء</span></div>
+    <div class="stat"><b>10+</b><span>مادة هندسية نغطيها</span></div>
+    <div class="stat"><b>95%</b><span>نسبة نجاح طلابنا</span></div>
+    <div class="stat"><b>8+</b><span>جامعات يدرس طلابها معنا</span></div>
   </div>
+</div>
 
-  <!-- Mobile Footer -->
-  <div style="margin-top:30px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.1);">
-    <a href="https://wa.me/966576073342?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%20%D9%81%D9%8A%20%D9%85%D9%86%D8%B5%D8%A9%20%D8%A7%D8%B1%D8%AA%D9%82%D8%A7%D8%A1" target="_blank" style="display:block; width:100%; background:#d5a73a; color:#061d34; padding:14px; border-radius:12px; font-weight:800; text-decoration:none; font-size:15px; text-align:center; margin-bottom:16px; box-sizing:border-box;">
-      <span>📝</span> <span>سجّل الآن عبر واتساب</span>
-    </a>
-    <div style="color:rgba(255,255,255,0.7); font-size:13px; text-align:center; line-height:1.9;">
-      📱 واتساب للتسجيل<br>
-      ⏰ السبت - الخميس: 9ص - 10م
+<!-- ===== Problem ===== -->
+<div class="block" id="problem">
+  <div class="block-head reveal">
+    <div class="eyebrow">المشكلة</div>
+    <h2 class="fs-h2">هل تعاني من هذه المشاكل؟</h2>
+    <p>مشاكل يعرفها كل طالب هندسة مدنية، وربما تواجهها أنت الآن</p>
+  </div>
+  <div class="grid-2 reveal">
+    <div class="p-card"><div class="p-ico">!</div><div><h3>تحفظ المعادلات دون فهم</h3><p>تكتب كل المعادلات في المحاضرة، لكن لا تعرف متى تستخدمها أو من أين جاءت.</p></div></div>
+    <div class="p-card"><div class="p-ico">!</div><div><h3>مسائل الاختبار مختلفة</h3><p>درست أمثلة الكتاب، لكن الاختبار يأتي بمسائل لم ترها من قبل فتقف عاجزًا.</p></div></div>
+    <div class="p-card"><div class="p-ico">!</div><div><h3>الشرح في الجامعة سريع</h3><p>المحاضر يمر على المفاهيم بسرعة، وإذا سألت تشعر أنك تأخذ من وقت المحاضرة.</p></div></div>
+    <div class="p-card"><div class="p-ico">!</div><div><h3>لا تجد من يجيب أسئلتك</h3><p>تذاكر وحدك، تتعثر في مسألة، ولا تجد مدرسًا أو زميلًا يساعدك في الوقت المناسب.</p></div></div>
+  </div>
+  <div class="callout reveal">إذا كانت أي من هذه المشاكل تصفك فأنت لست وحدك — <b>ارتقاء</b> صُممت خصيصًا لحلها بطريقة منهجية.</div>
+</div>
+
+<!-- ===== Solution ===== -->
+<div class="block" style="padding-top:0">
+  <div class="block-head reveal">
+    <div class="eyebrow">الحل</div>
+    <h2 class="fs-h2">كيف نحل هذه المشاكل؟</h2>
+    <p>طريقة ارتقاء مبنية على 4 ركائز أساسية</p>
+  </div>
+  <div class="grid-2 reveal">
+    <div class="s-card"><div class="s-num">1</div><h3>شرح يبني الفهم من الأساس</h3><p>نبني المفهوم خطوة بخطوة: لماذا ظهرت المعادلة؟ من أين جاءت؟ ومتى تستخدمها ومتى لا تستخدمها؟</p></div>
+    <div class="s-card"><div class="s-num">2</div><h3>حل مسائل حقيقية خطوة بخطوة</h3><p>نحل مسائل متنوعة الصعوبة، نشرح كل خطوة بصوت مسموع، ونوضح لماذا اخترنا هذا الطريق دون غيره.</p></div>
+    <div class="s-card"><div class="s-num">3</div><h3>مجموعة واتساب تفاعلية</h3><p>تطرح سؤالك في أي وقت ويرد عليك المدرس أو الزملاء خلال ساعات. لن تذاكر وحدك مرة أخرى.</p></div>
+    <div class="s-card"><div class="s-num">4</div><h3>مراجعات قبل الاختبار</h3><p>محاضرة مراجعة مركزة: أهم النقاط، المسائل المتوقعة، والأخطاء الشائعة التي يقع فيها الطلاب.</p></div>
+  </div>
+</div>
+
+<!-- ===== Subjects ===== -->
+<div class="block" id="subjects" style="padding-top:0">
+  <div class="block-head reveal">
+    <div class="eyebrow">المواد</div>
+    <h2 class="fs-h2">المواد التي ندرسها</h2>
+    <p>كل مادة مُعدّة كمنتج تعليمي كامل، وليس مجرد قائمة محاضرات</p>
+  </div>
+  <div class="subj-wrap reveal">
+    <div class="tabs">
+      <button class="tab active" data-category="all">الكل</button>
+      <button class="tab" data-category="structural">إنشائية</button>
+      <button class="tab" data-category="fluids">موائع</button>
+      <button class="tab" data-category="geotechnical">تربة وأساسات</button>
+      <button class="tab" data-category="other">أخرى</button>
+    </div>
+    <div class="subj-grid" id="subjectsGrid"></div>
+    <p class="subj-note">لا ترى مادتك؟ <a href="https://wa.me/966576073342?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%85%D8%A7%D8%AF%D8%A9%20%D8%BA%D9%8A%D8%B1%20%D9%85%D9%88%D8%AC%D9%88%D8%AF%D8%A9" target="_blank">اطلبها عبر واتساب</a> ونعمل على إضافتها.</p>
+  </div>
+</div>
+
+<!-- ===== Samples ===== -->
+<div class="block" id="samples" style="padding-top:0">
+  <div class="block-head reveal">
+    <div class="eyebrow">نماذج حقيقية</div>
+    <h2 class="fs-h2">شاهد أسلوب الشرح بنفسك</h2>
+    <p>نماذج من شروحاتنا ومذكراتنا حتى تتأكد قبل أن تدفع</p>
+  </div>
+  <div class="tst-grid reveal">
+    <div class="smp">
+      <div class="smp-img g1">📐<span class="smp-tag">تحليل إنشائي</span></div>
+      <div class="smp-body"><h4>حل كمرة مستمرة</h4><p>شرح كامل لطريقة القوى في حل كمرة مستمرة غير محددة ستاتيكيًا مع رسم مخططات العزوم والقص.</p><a href="https://wa.me/966576073342?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D8%B4%D8%A7%D9%87%D8%AF%D8%A9%20%D9%86%D9%85%D9%88%D8%B0%D8%AC%20%D8%B4%D8%B1%D8%AD%20%D9%83%D9%85%D8%B1%D8%A9%20%D9%85%D8%B3%D8%AA%D9%85%D8%B1%D8%A9" target="_blank">اطلب النموذج كاملًا ←</a></div>
+    </div>
+    <div class="smp">
+      <div class="smp-img g2">🏗️<span class="smp-tag">خرسانة مسلحة</span></div>
+      <div class="smp-body"><h4>تصميم قطاع مستطيل</h4><p>تصميم قطاع تحت تأثير عزم انحناء مع حساب حديد التسليح والتأكد من شروط الكود السعودي.</p><a href="https://wa.me/966576073342?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D8%B4%D8%A7%D9%87%D8%AF%D8%A9%20%D9%86%D9%85%D9%88%D8%B0%D8%AC%20%D8%AA%D8%B5%D9%85%D9%8A%D9%85%20%D8%AE%D8%B1%D8%B3%D8%A7%D9%86%D8%A9" target="_blank">اطلب النموذج كاملًا ←</a></div>
+    </div>
+    <div class="smp">
+      <div class="smp-img g3">💧<span class="smp-tag">هيدروليكا</span></div>
+      <div class="smp-body"><h4>تصميم شبكة مواسير</h4><p>حل شبكة مواسير بمعادلات دارسي-فايسباخ وهاردي كروس مع شرح كل تكرار.</p><a href="https://wa.me/966576073342?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D8%B4%D8%A7%D9%87%D8%AF%D8%A9%20%D9%86%D9%85%D9%88%D8%B0%D8%AC%20%D8%B4%D8%A8%D9%83%D8%A9%20%D9%85%D9%88%D8%A7%D8%B3%D9%8A%D8%B1" target="_blank">اطلب النموذج كاملًا ←</a></div>
     </div>
   </div>
 </div>
 
-<!-- ===== Page Container ===== -->
-<div style="max-width:1100px; margin:auto; padding:90px 15px 25px;">
-
-  <!-- ====================================================== -->
-  <!-- 1. HERO -->
-  <!-- ====================================================== -->
-  <div style="text-align:center; color:white; padding:50px 10px 40px;">
-    
-    <div style="display:inline-block; background:rgba(213,167,58,0.15); border:1px solid rgba(213,167,58,0.4); color:#e1b94f; padding:6px 18px; border-radius:50px; font-size:13px; font-weight:700; margin-bottom:20px;">
-      🎓 منصة متخصصة في الهندسة المدنية فقط
-    </div>
-
-    <h1 style="font-size:clamp(28px,5.5vw,52px); line-height:1.3; font-weight:900; margin:0 0 20px 0; letter-spacing:-0.5px; color:white;">
-      هل تحفظ المعادلات دون أن تفهمها؟<br>
-      <span style="color:#e1b94f;">ارتقاء</span> تساعدك على الفهم أولاً
-    </h1>
-
-    <p style="font-size:18px; line-height:1.9; color:#c8d2de; max-width:740px; margin:0 auto 32px;">
-      منصة تعليمية لطلاب الهندسة المدنية، نقدم لك شرحًا عميقًا للمواد الصعبة، وحلًا خطوة بخطوة للمسائل، ومراجعات مركزة قبل الاختبار. نبدأ من الأساس، وننتهي بثقتك بنفسك.
-    </p>
-
-    <!-- Hero CTAs -->
-    <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:40px;">
-      <a href="https://wa.me/966576073342?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9%20%D8%AA%D8%AC%D8%B1%D9%8A%D8%A8%D9%8A%D8%A9%20%D9%85%D8%AC%D8%A7%D9%86%D9%8A%D8%A9" target="_blank" style="background:#d5a73a; color:#061d34; padding:16px 32px; border-radius:12px; font-weight:800; text-decoration:none; font-size:16px; transition:0.25s; display:inline-flex; align-items:center; justify-content:center; gap:8px; box-shadow:0 8px 24px rgba(213,167,58,0.35);">
-        <span>🎬</span>
-        <span>احجز محاضرة تجريبية مجانية</span>
-      </a>
-      <a href="#subjects" style="background:transparent; color:white; border:2px solid rgba(255,255,255,0.4); padding:16px 32px; border-radius:12px; font-weight:800; text-decoration:none; font-size:16px; transition:0.25s; display:inline-flex; align-items:center; justify-content:center; gap:8px;">
-        <span>📚</span>
-        <span>استكشف المواد</span>
-      </a>
-    </div>
-
-    <!-- Stats -->
-    <div id="statsGrid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:20px; max-width:900px; margin:0 auto; padding:28px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:20px;">
-      <div>
-        <div style="font-size:32px; font-weight:900; color:#e1b94f; margin-bottom:4px;">+200</div>
-        <div style="font-size:13px; color:#c8d2de; font-weight:600;">طالب وثق في ارتقاء</div>
-      </div>
-      <div>
-        <div style="font-size:32px; font-weight:900; color:#e1b94f; margin-bottom:4px;">10+</div>
-        <div style="font-size:13px; color:#c8d2de; font-weight:600;">مادة هندسية نغطيها</div>
-      </div>
-      <div>
-        <div style="font-size:32px; font-weight:900; color:#e1b94f; margin-bottom:4px;">95%</div>
-        <div style="font-size:13px; color:#c8d2de; font-weight:600;">نسبة نجاح طلابنا</div>
-      </div>
-      <div>
-        <div style="font-size:32px; font-weight:900; color:#e1b94f; margin-bottom:4px;">8+</div>
-        <div style="font-size:13px; color:#c8d2de; font-weight:600;">جامعات يدرس طلابها معنا</div>
-      </div>
-    </div>
+<!-- ===== Journey ===== -->
+<div class="block" style="padding-top:0">
+  <div class="block-head reveal">
+    <div class="eyebrow">رحلة التسجيل</div>
+    <h2 class="fs-h2">5 خطوات فقط وتبدأ الدراسة</h2>
+    <p>عملية بسيطة وواضحة بدون أي تعقيد</p>
   </div>
-
-  <!-- ====================================================== -->
-  <!-- 2. PROBLEM -->
-  <!-- ====================================================== -->
-  <div id="problem" style="background:white; border-radius:28px; overflow:hidden; box-shadow:0 25px 70px rgba(0,0,0,0.30); margin-bottom:28px;">
-    
-    <div style="background:linear-gradient(135deg,#082847 0%,#123f68 100%); color:white; text-align:center; padding:32px 20px;">
-      <h2 style="font-size:26px; margin:0 0 8px 0; font-weight:800; color:white;">
-        هل تعاني من هذه المشاكل؟
-      </h2>
-      <p style="font-size:15px; opacity:0.9; max-width:600px; margin:0 auto;">
-        مشاكل يعرفها كل طالب هندسة مدنية، وربما تواجهها أنت الآن
-      </p>
-    </div>
-
-    <div style="padding:40px;">
-      <div id="problemsGrid" style="display:grid; grid-template-columns:repeat(2,1fr); gap:20px;">
-        
-        <div style="background:#fef9f0; border:1px solid #f0e4c8; border-radius:18px; padding:24px; display:flex; gap:16px; align-items:flex-start;">
-          <div style="width:44px; height:44px; background:#d5a73a; color:#061d34; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; font-weight:900;">!</div>
-          <div>
-            <h3 style="color:#172b4d; font-size:16px; margin:0 0 8px 0; font-weight:800;">تحفظ المعادلات دون فهم</h3>
-            <p style="font-size:14px; line-height:1.7; color:#66717d; margin:0;">تجلس في المحاضرة، تكتب كل المعادلات، لكن لا تعرف متى تستخدمها أو من أين جاءت.</p>
-          </div>
-        </div>
-
-        <div style="background:#fef9f0; border:1px solid #f0e4c8; border-radius:18px; padding:24px; display:flex; gap:16px; align-items:flex-start;">
-          <div style="width:44px; height:44px; background:#d5a73a; color:#061d34; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; font-weight:900;">!</div>
-          <div>
-            <h3 style="color:#172b4d; font-size:16px; margin:0 0 8px 0; font-weight:800;">المسائل في الاختبار مختلفة</h3>
-            <p style="font-size:14px; line-height:1.7; color:#66717d; margin:0;">درست أمثلة الكتاب، لكن الاختبار يأتي بمسائل لم ترها من قبل، فتقف عاجزًا.</p>
-          </div>
-        </div>
-
-        <div style="background:#fef9f0; border:1px solid #f0e4c8; border-radius:18px; padding:24px; display:flex; gap:16px; align-items:flex-start;">
-          <div style="width:44px; height:44px; background:#d5a73a; color:#061d34; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; font-weight:900;">!</div>
-          <div>
-            <h3 style="color:#172b4d; font-size:16px; margin:0 0 8px 0; font-weight:800;">الشرح في الجامعة سريع</h3>
-            <p style="font-size:14px; line-height:1.7; color:#66717d; margin:0;">المحاضر يمر على المفاهيم بسرعة، وإذا سألت تشعر أنك تأخذ من وقت المحاضرة.</p>
-          </div>
-        </div>
-
-        <div style="background:#fef9f0; border:1px solid #f0e4c8; border-radius:18px; padding:24px; display:flex; gap:16px; align-items:flex-start;">
-          <div style="width:44px; height:44px; background:#d5a73a; color:#061d34; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; font-weight:900;">!</div>
-          <div>
-            <h3 style="color:#172b4d; font-size:16px; margin:0 0 8px 0; font-weight:800;">لا تجد من يجيب أسئلتك</h3>
-            <p style="font-size:14px; line-height:1.7; color:#66717d; margin:0;">تذاكر لوحدك، تتعثر في مسألة، ولا تجد مدرسًا أو زميلًا يساعدك في الوقت المناسب.</p>
-          </div>
-        </div>
-
-      </div>
-
-      <div style="text-align:center; margin-top:32px; padding:24px; background:#f5f7f9; border-radius:16px;">
-        <p style="font-size:17px; color:#172b4d; font-weight:700; margin:0 0 8px 0;">
-          إذا كانت أي من هذه المشاكل تصفك، فأنت لست وحدك.
-        </p>
-        <p style="font-size:14px; color:#66717d; margin:0;">
-          <strong>ارتقاء</strong> صُممت خصيصًا لحل هذه المشاكل الأربع بطريقة منهجية.
-        </p>
-      </div>
-    </div>
+  <div class="journey reveal">
+    <div class="j-step"><div class="j-num">1</div><div><h4>اختر مادتك</h4><p>تصفح المواد واختر ما تحتاج دراسته</p></div></div>
+    <div class="j-step"><div class="j-num">2</div><div><h4>تواصل معنا</h4><p>أرسل رسالة واتساب ونؤكد التفاصيل</p></div></div>
+    <div class="j-step"><div class="j-num">3</div><div><h4>أكمل الدفع</h4><p>تحويل بنكي محلي وتأكيد فوري</p></div></div>
+    <div class="j-step"><div class="j-num">4</div><div><h4>انضم للمجموعة</h4><p>مجموعة واتساب خاصة بالمادة</p></div></div>
+    <div class="j-step"><div class="j-num">5</div><div><h4>ابدأ الدراسة</h4><p>محاضرات مباشرة وتسجيلات للمراجعة</p></div></div>
   </div>
-
-  <!-- ====================================================== -->
-  <!-- 3. SOLUTION -->
-  <!-- ====================================================== -->
-  <div style="background:white; border-radius:28px; overflow:hidden; box-shadow:0 25px 70px rgba(0,0,0,0.30); margin-bottom:28px;">
-    
-    <div style="background:linear-gradient(135deg,#082847 0%,#123f68 100%); color:white; text-align:center; padding:32px 20px;">
-      <h2 style="font-size:26px; margin:0 0 8px 0; font-weight:800; color:white;">
-        كيف نحل هذه المشاكل؟
-      </h2>
-      <p style="font-size:15px; opacity:0.9; max-width:600px; margin:0 auto;">
-        طريقة ارتقاء مبنية على 4 ركائز أساسية
-      </p>
-    </div>
-
-    <div style="padding:40px;">
-      <div id="solutionGrid" style="display:grid; grid-template-columns:repeat(2,1fr); gap:20px;">
-        
-        <div style="background:white; border:2px solid #e2e5e8; border-radius:18px; padding:28px; transition:all 0.3s;">
-          <div style="width:56px; height:56px; background:linear-gradient(135deg,#082847,#123f68); color:#e1b94f; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:28px; margin-bottom:16px; box-shadow:0 4px 12px rgba(8,40,71,0.15);">1</div>
-          <h3 style="color:#172b4d; font-size:17px; margin:0 0 10px 0; font-weight:800;">شرح يبني الفهم من الأساس</h3>
-          <p style="font-size:14px; line-height:1.7; color:#66717d; margin:0;">لا نبدأ بالمعادلة، بل نبني معك المفهوم خطوة بخطوة: لماذا ظهرت المعادلة؟ من أين جاءت؟ متى نستخدمها؟ ومتى لا نستخدمها؟</p>
-        </div>
-
-        <div style="background:white; border:2px solid #e2e5e8; border-radius:18px; padding:28px; transition:all 0.3s;">
-          <div style="width:56px; height:56px; background:linear-gradient(135deg,#082847,#123f68); color:#e1b94f; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:28px; margin-bottom:16px; box-shadow:0 4px 12px rgba(8,40,71,0.15);">2</div>
-          <h3 style="color:#172b4d; font-size:17px; margin:0 0 10px 0; font-weight:800;">حل مسائل حقيقية خطوة بخطوة</h3>
-          <p style="font-size:14px; line-height:1.7; color:#66717d; margin:0;">في كل محاضرة نحل مسائل متنوعة الصعوبة، نشرح كل خطوة بصوت مسموع، ونوضح لماذا اخترنا هذا الطريق دون غيره.</p>
-        </div>
-
-        <div style="background:white; border:2px solid #e2e5e8; border-radius:18px; padding:28px; transition:all 0.3s;">
-          <div style="width:56px; height:56px; background:linear-gradient(135deg,#082847,#123f68); color:#e1b94f; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:28px; margin-bottom:16px; box-shadow:0 4px 12px rgba(8,40,71,0.15);">3</div>
-          <h3 style="color:#172b4d; font-size:17px; margin:0 0 10px 0; font-weight:800;">مجموعة واتساب تفاعلية</h3>
-          <p style="font-size:14px; line-height:1.7; color:#66717d; margin:0;">لكل مادة مجموعة واتساب نشطة، تطرح سؤالك في أي وقت، ويرد عليك المدرس أو الزملاء خلال ساعات. لن تذاكر وحدك مرة أخرى.</p>
-        </div>
-
-        <div style="background:white; border:2px solid #e2e5e8; border-radius:18px; padding:28px; transition:all 0.3s;">
-          <div style="width:56px; height:56px; background:linear-gradient(135deg,#082847,#123f68); color:#e1b94f; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:28px; margin-bottom:16px; box-shadow:0 4px 12px rgba(8,40,71,0.15);">4</div>
-          <h3 style="color:#172b4d; font-size:17px; margin:0 0 10px 0; font-weight:800;">مراجعات قبل الاختبار</h3>
-          <p style="font-size:14px; line-height:1.7; color:#66717d; margin:0;">قبل كل اختبار، نقدم لك محاضرة مراجعة مركزة: أهم النقاط، المسائل المتوقعة، والأخطاء الشائعة التي يقع فيها الطلاب.</p>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- ====================================================== -->
-  <!-- 4. SUBJECTS -->
-  <!-- ====================================================== -->
-  <div id="subjects" style="background:white; border-radius:28px; overflow:hidden; box-shadow:0 25px 70px rgba(0,0,0,0.30); margin-bottom:28px;">
-    
-    <div style="background:linear-gradient(135deg,#082847 0%,#123f68 100%); color:white; text-align:center; padding:32px 20px;">
-      <h2 style="font-size:26px; margin:0 0 8px 0; font-weight:800; color:white;">
-        المواد التي ندرسها
-      </h2>
-      <p style="font-size:15px; opacity:0.9; max-width:600px; margin:0 auto;">
-        كل مادة مُعدّة كمنتج تعليمي كامل، وليس مجرد قائمة محاضرات
-      </p>
-    </div>
-
-    <div style="padding:40px;">
-      <div style="background:#f8f9fa; border-radius:24px; padding:32px;">
-        
-        <!-- Tabs -->
-        <div id="tabsContainer" style="display:flex; justify-content:center; gap:8px; margin-bottom:24px; flex-wrap:wrap;">
-          <button class="tab-btn active" data-category="all" style="padding:10px 20px; background:#082847; border:2px solid #082847; border-radius:50px; font-size:13px; font-weight:700; color:#e1b94f; cursor:pointer; transition:0.25s; font-family:inherit; white-space:nowrap;">الكل</button>
-          <button class="tab-btn" data-category="structural" style="padding:10px 20px; background:white; border:2px solid #e3e7eb; border-radius:50px; font-size:13px; font-weight:700; color:#173452; cursor:pointer; transition:0.25s; font-family:inherit; white-space:nowrap;">إنشائية</button>
-          <button class="tab-btn" data-category="fluids" style="padding:10px 20px; background:white; border:2px solid #e3e7eb; border-radius:50px; font-size:13px; font-weight:700; color:#173452; cursor:pointer; transition:0.25s; font-family:inherit; white-space:nowrap;">موائع</button>
-          <button class="tab-btn" data-category="geotechnical" style="padding:10px 20px; background:white; border:2px solid #e3e7eb; border-radius:50px; font-size:13px; font-weight:700; color:#173452; cursor:pointer; transition:0.25s; font-family:inherit; white-space:nowrap;">تربة وأساسات</button>
-          <button class="tab-btn" data-category="other" style="padding:10px 20px; background:white; border:2px solid #e3e7eb; border-radius:50px; font-size:13px; font-weight:700; color:#173452; cursor:pointer; transition:0.25s; font-family:inherit; white-space:nowrap;">أخرى</button>
-        </div>
-
-        <!-- Subjects Grid -->
-        <div id="subjectsGrid" style="display:grid; grid-template-columns:repeat(2,1fr); gap:14px;"></div>
-
-        <p style="text-align:center; font-size:13px; color:#78838d; margin-top:22px; line-height:1.8;">
-          لا ترى مادتك؟ <a href="https://wa.me/966576073342?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%85%D8%A7%D8%AF%D8%A9%20%D8%BA%D9%8A%D8%B1%20%D9%85%D9%88%D8%AC%D9%88%D8%AF%D8%A9" target="_blank" style="color:#b88a28; font-weight:700; text-decoration:none;">اطلبها عبر واتساب</a> ونعمل على إضافتها.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ====================================================== -->
-  <!-- 5. SAMPLES -->
-  <!-- ====================================================== -->
-  <div id="samples" style="background:white; border-radius:28px; overflow:hidden; box-shadow:0 25px 70px rgba(0,0,0,0.30); margin-bottom:28px;">
-    
-    <div style="background:linear-gradient(135deg,#082847 0%,#123f68 100%); color:white; text-align:center; padding:32px 20px;">
-      <h2 style="font-size:26px; margin:0 0 8px 0; font-weight:800; color:white;">
-        شاهد أسلوب الشرح بنفسك
-      </h2>
-      <p style="font-size:15px; opacity:0.9; max-width:600px; margin:0 auto;">
-        نماذج حقيقية من شروحاتنا ومذكراتنا حتى تتأكد قبل أن تدفع
-      </p>
-    </div>
-
-    <div style="padding:40px;">
-      <div id="samplesGrid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
-        
-        <div style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:16px; overflow:hidden;">
-          <div style="height:180px; background:linear-gradient(135deg,#082847,#123f68); display:flex; align-items:center; justify-content:center; position:relative;">
-            <div style="font-size:70px;">📐</div>
-            <div style="position:absolute; top:12px; right:12px; background:#d5a73a; color:#061d34; padding:4px 12px; border-radius:50px; font-size:11px; font-weight:800;">تحليل إنشائي</div>
-          </div>
-          <div style="padding:20px;">
-            <h4 style="color:#172b4d; font-size:15px; margin:0 0 8px 0; font-weight:800;">حل كمرة مستمرة</h4>
-            <p style="font-size:13px; line-height:1.7; color:#66717d; margin:0 0 12px 0;">شرح كامل لطريقة القوى في حل كمرة مستمرة غير محددة ستاتيكيًا، مع رسم مخططات العزوم والقص.</p>
-            <a href="https://wa.me/966576073342?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D8%B4%D8%A7%D9%87%D8%AF%D8%A9%20%D9%86%D9%85%D9%88%D8%B0%D8%AC%20%D8%B4%D8%B1%D8%AD%20%D9%83%D9%85%D8%B1%D8%A9%20%D9%85%D8%B3%D8%AA%D9%85%D8%B1%D8%A9" target="_blank" style="color:#b88a28; font-weight:700; text-decoration:none; font-size:13px;">اطلب النموذج كاملًا ←</a>
-          </div>
-        </div>
-
-        <div style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:16px; overflow:hidden;">
-          <div style="height:180px; background:linear-gradient(135deg,#123f68,#1e5a8f); display:flex; align-items:center; justify-content:center; position:relative;">
-            <div style="font-size:70px;">🏗️</div>
-            <div style="position:absolute; top:12px; right:12px; background:#d5a73a; color:#061d34; padding:4px 12px; border-radius:50px; font-size:11px; font-weight:800;">خرسانة مسلحة</div>
-          </div>
-          <div style="padding:20px;">
-            <h4 style="color:#172b4d; font-size:15px; margin:0 0 8px 0; font-weight:800;">تصميم قطاع مستطيل</h4>
-            <p style="font-size:13px; line-height:1.7; color:#66717d; margin:0 0 12px 0;">تصميم قطاع مستطيل تحت تأثير عزم انحناء، مع حساب حديد التسليح والتأكد من شروط الكود السعودي.</p>
-            <a href="https://wa.me/966576073342?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D8%B4%D8%A7%D9%87%D8%AF%D8%A9%20%D9%86%D9%85%D9%88%D8%B0%D8%AC%20%D8%AA%D8%B5%D9%85%D9%8A%D9%85%20%D8%AE%D8%B1%D8%B3%D8%A7%D9%86%D8%A9" target="_blank" style="color:#b88a28; font-weight:700; text-decoration:none; font-size:13px;">اطلب النموذج كاملًا ←</a>
-          </div>
-        </div>
-
-        <div style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:16px; overflow:hidden;">
-          <div style="height:180px; background:linear-gradient(135deg,#0a2d4d,#123f68); display:flex; align-items:center; justify-content:center; position:relative;">
-            <div style="font-size:70px;">💧</div>
-            <div style="position:absolute; top:12px; right:12px; background:#d5a73a; color:#061d34; padding:4px 12px; border-radius:50px; font-size:11px; font-weight:800;">هيدروليكا</div>
-          </div>
-          <div style="padding:20px;">
-            <h4 style="color:#172b4d; font-size:15px; margin:0 0 8px 0; font-weight:800;">تصميم شبكة مواسير</h4>
-            <p style="font-size:13px; line-height:1.7; color:#66717d; margin:0 0 12px 0;">حل مسألة شبكة مواسير باستخدام معادلات دارسي-فايسباخ وهاردى كروس، مع شرح كل تكرار.</p>
-            <a href="https://wa.me/966576073342?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D8%B4%D8%A7%D9%87%D8%AF%D8%A9%20%D9%86%D9%85%D9%88%D8%B0%D8%AC%20%D8%B4%D8%A8%D9%83%D8%A9%20%D9%85%D9%88%D8%A7%D8%B3%D9%8A%D8%B1" target="_blank" style="color:#b88a28; font-weight:700; text-decoration:none; font-size:13px;">اطلب النموذج كاملًا ←</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- ====================================================== -->
-  <!-- 6. JOURNEY -->
-  <!-- ====================================================== -->
-  <div id="journey" style="background:white; border-radius:28px; overflow:hidden; box-shadow:0 25px 70px rgba(0,0,0,0.30); margin-bottom:28px;">
-    
-    <div style="background:linear-gradient(135deg,#082847 0%,#123f68 100%); color:white; text-align:center; padding:32px 20px;">
-      <h2 style="font-size:26px; margin:0 0 8px 0; font-weight:800; color:white;">
-        رحلة التسجيل في 5 خطوات فقط
-      </h2>
-      <p style="font-size:15px; opacity:0.9; max-width:600px; margin:0 auto;">
-        عملية بسيطة وواضحة، بدون أي تعقيد
-      </p>
-    </div>
-
-    <div style="padding:40px;">
-      <div id="journeyGrid" style="display:grid; grid-template-columns:repeat(5,1fr); gap:16px;">
-        
-        <div style="text-align:center;">
-          <div style="width:60px; height:60px; background:linear-gradient(135deg,#082847,#123f68); color:#e1b94f; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:900; margin:0 auto 16px; box-shadow:0 6px 16px rgba(8,40,71,0.2);">1</div>
-          <h4 style="color:#172b4d; font-size:14px; margin:0 0 6px 0; font-weight:800;">اختر مادتك</h4>
-          <p style="font-size:12px; color:#66717d; line-height:1.6; margin:0;">تصفح المواد واختر المادة التي تحتاج دراستها</p>
-        </div>
-
-        <div style="text-align:center;">
-          <div style="width:60px; height:60px; background:linear-gradient(135deg,#082847,#123f68); color:#e1b94f; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:900; margin:0 auto 16px; box-shadow:0 6px 16px rgba(8,40,71,0.2);">2</div>
-          <h4 style="color:#172b4d; font-size:14px; margin:0 0 6px 0; font-weight:800;">تواصل معنا</h4>
-          <p style="font-size:12px; color:#66717d; line-height:1.6; margin:0;">أرسل رسالة واتساب وسنؤكد لك التفاصيل</p>
-        </div>
-
-        <div style="text-align:center;">
-          <div style="width:60px; height:60px; background:linear-gradient(135deg,#082847,#123f68); color:#e1b94f; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:900; margin:0 auto 16px; box-shadow:0 6px 16px rgba(8,40,71,0.2);">3</div>
-          <h4 style="color:#172b4d; font-size:14px; margin:0 0 6px 0; font-weight:800;">أكمل الدفع</h4>
-          <p style="font-size:12px; color:#66717d; line-height:1.6; margin:0;">تحويل بنكي محلي، تأكيد فوري عند الاستلام</p>
-        </div>
-
-        <div style="text-align:center;">
-          <div style="width:60px; height:60px; background:linear-gradient(135deg,#082847,#123f68); color:#e1b94f; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:900; margin:0 auto 16px; box-shadow:0 6px 16px rgba(8,40,71,0.2);">4</div>
-          <h4 style="color:#172b4d; font-size:14px; margin:0 0 6px 0; font-weight:800;">انضم للمجموعة</h4>
-          <p style="font-size:12px; color:#66717d; line-height:1.6; margin:0;">تنضم لمجموعة واتساب الخاصة بالمادة</p>
-        </div>
-
-        <div style="text-align:center;">
-          <div style="width:60px; height:60px; background:linear-gradient(135deg,#082847,#123f68); color:#e1b94f; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:900; margin:0 auto 16px; box-shadow:0 6px 16px rgba(8,40,71,0.2);">5</div>
-          <h4 style="color:#172b4d; font-size:14px; margin:0 0 6px 0; font-weight:800;">ابدأ الدراسة</h4>
-          <p style="font-size:12px; color:#66717d; line-height:1.6; margin:0;">احضر المحاضرات المباشرة وراجع التسجيلات</p>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- ====================================================== -->
-  <!-- 7. TRIAL -->
-  <!-- ====================================================== -->
-  <div id="trial" style="background:white; border-radius:28px; overflow:hidden; box-shadow:0 25px 70px rgba(0,0,0,0.30); margin-bottom:28px;">
-    <div style="padding:40px;">
-      <div style="background:linear-gradient(135deg,#082847 0%,#123f68 100%); color:white; border-radius:24px; padding:48px 32px; text-align:center; position:relative; overflow:hidden;">
-        
-        <div style="position:absolute; top:-50%; right:-20%; width:400px; height:400px; background:radial-gradient(circle, rgba(225,185,79,0.12) 0%, transparent 70%);"></div>
-        <div style="position:absolute; bottom:-50%; left:-20%; width:400px; height:400px; background:radial-gradient(circle, rgba(225,185,79,0.08) 0%, transparent 70%);"></div>
-        
-        <div style="position:relative; z-index:2;">
-          <div style="display:inline-block; background:rgba(213,167,58,0.2); border:1px solid rgba(213,167,58,0.4); color:#e1b94f; padding:6px 18px; border-radius:50px; font-size:13px; font-weight:700; margin-bottom:20px;">
-            ⭐ الأهم قبل أن تدفع
-          </div>
-          
-          <h2 style="color:#ffffff; font-size:28px; margin:0 0 12px 0; font-weight:800;">
-            لا تدفع حتى تعرف <span style="color:#e1b94f;">أسلوبنا</span>
-          </h2>
-          
-          <p style="font-size:17px; line-height:1.8; color:#e8eef4; margin:0 auto 28px; max-width:680px;">
-            احجز محاضرة تجريبية <strong style="color:#e1b94f;">مجانية</strong> مدتها 30 دقيقة. ستحضرها مع مدرس حقيقي، تشرح لك موضوعًا من المادة التي تريدها، وتشاهد بنفسك كيف يكون الشرح في ارتقاء.
-          </p>
-
-          <div style="display:flex; gap:24px; justify-content:center; margin-bottom:32px; flex-wrap:wrap;">
-            <div style="display:flex; align-items:center; gap:8px; font-size:14px; color:#e8eef4; font-weight:600;">
-              <span style="width:24px; height:24px; background:#d5a73a; color:#061d34; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:900;">✓</span>
-              <span>مجانية بالكامل</span>
-            </div>
-            <div style="display:flex; align-items:center; gap:8px; font-size:14px; color:#e8eef4; font-weight:600;">
-              <span style="width:24px; height:24px; background:#d5a73a; color:#061d34; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:900;">✓</span>
-              <span>بدون التزام</span>
-            </div>
-            <div style="display:flex; align-items:center; gap:8px; font-size:14px; color:#e8eef4; font-weight:600;">
-              <span style="width:24px; height:24px; background:#d5a73a; color:#061d34; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:900;">✓</span>
-              <span>تقرير بعد الجلسة</span>
-            </div>
-          </div>
-
-          <a href="https://wa.me/966576073342?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9%20%D8%AA%D8%AC%D8%B1%D9%8A%D8%A8%D9%8A%D8%A9%20%D9%85%D8%AC%D8%A7%D9%86%D9%8A%D8%A9%20%D9%81%D9%8A%20%D9%85%D8%A7%D8%AF%D8%A9%20%3A%20______" target="_blank" style="background:#d5a73a; color:#061d34; padding:18px 40px; border-radius:12px; font-weight:900; text-decoration:none; font-size:17px; transition:0.25s; display:inline-flex; align-items:center; justify-content:center; gap:10px; box-shadow:0 8px 24px rgba(213,167,58,0.35);">
-            <span>🎬</span>
-            <span>احجز محاضرتك التجريبية الآن</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ====================================================== -->
-  <!-- 8. WHY -->
-  <!-- ====================================================== -->
-  <div style="background:white; border-radius:28px; overflow:hidden; box-shadow:0 25px 70px rgba(0,0,0,0.30); margin-bottom:28px;">
-    
-    <div style="background:linear-gradient(135deg,#082847 0%,#123f68 100%); color:white; text-align:center; padding:32px 20px;">
-      <h2 style="font-size:26px; margin:0 0 8px 0; font-weight:800; color:white;">
-        لماذا يختار الطلاب ارتقاء؟
-      </h2>
-      <p style="font-size:15px; opacity:0.9; max-width:600px; margin:0 auto;">
-        5 أسباب ملموسة تجعلنا الخيار الأفضل
-      </p>
-    </div>
-
-    <div style="padding:40px;">
-      <div id="whyGrid" style="display:grid; grid-template-columns:repeat(2,1fr); gap:18px;">
-        
-        <div style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:16px; padding:24px; display:flex; gap:16px; align-items:flex-start;">
-          <div style="width:48px; height:48px; background:linear-gradient(135deg,#082847,#123f68); color:#e1b94f; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0;">🔍</div>
-          <div style="flex:1;">
-            <h3 style="color:#172b4d; font-size:16px; margin:0 0 6px 0; font-weight:800;">نحلل كل مسألة بدل أن نعطي الحل</h3>
-            <p style="font-size:14px; line-height:1.7; color:#66717d; margin:0;">نفكك المسألة خطوة بخطوة، نوضح لك من أين جاءت المعادلة، ومتى تستخدمها، ومتى لا تستخدمها. ستصبح قادرًا على حل أي مسألة مشابهة بنفسك.</p>
-          </div>
-        </div>
-
-        <div style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:16px; padding:24px; display:flex; gap:16px; align-items:flex-start;">
-          <div style="width:48px; height:48px; background:linear-gradient(135deg,#082847,#123f68); color:#e1b94f; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0;">🎯</div>
-          <div style="flex:1;">
-            <h3 style="color:#172b4d; font-size:16px; margin:0 0 6px 0; font-weight:800;">متخصصون في الهندسة المدنية فقط</h3>
-            <p style="font-size:14px; line-height:1.7; color:#66717d; margin:0;">لسنا منصة عامة تشرح كل شيء. تركيزنا على الهندسة المدنية يعني فهمًا أعمق للتخصص، وأمثلة من واقع الهندسة، ومعرفة دقيقة بمناهج الجامعات السعودية.</p>
-          </div>
-        </div>
-
-        <div style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:16px; padding:24px; display:flex; gap:16px; align-items:flex-start;">
-          <div style="width:48px; height:48px; background:linear-gradient(135deg,#082847,#123f68); color:#e1b94f; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0;">💬</div>
-          <div style="flex:1;">
-            <h3 style="color:#172b4d; font-size:16px; margin:0 0 6px 0; font-weight:800;">مجموعة واتساب نشطة لكل مادة</h3>
-            <p style="font-size:14px; line-height:1.7; color:#66717d; margin:0;">لست وحدك في رحلة الدراسة. تطرح سؤالك في أي وقت، ويحصل على إجابة خلال ساعات. المدرس والزملاء متاحون لمساعدتك.</p>
-          </div>
-        </div>
-
-        <div style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:16px; padding:24px; display:flex; gap:16px; align-items:flex-start;">
-          <div style="width:48px; height:48px; background:linear-gradient(135deg,#082847,#123f68); color:#e1b94f; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0;">📚</div>
-          <div style="flex:1;">
-            <h3 style="color:#172b4d; font-size:16px; margin:0 0 6px 0; font-weight:800;">مذكرات وملخصات جاهزة</h3>
-            <p style="font-size:14px; line-height:1.7; color:#66717d; margin:0;">كل محاضرة تأتي مع مذكرة منظمة وملخص بصيغة PDF، جاهزة للمراجعة قبل الاختبار. لن تحتاج لتدوين كل شيء يدويًا.</p>
-          </div>
-        </div>
-
-        <div style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:16px; padding:24px; display:flex; gap:16px; align-items:flex-start;">
-          <div style="width:48px; height:48px; background:linear-gradient(135deg,#082847,#123f68); color:#e1b94f; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0;">🏆</div>
-          <div style="flex:1;">
-            <h3 style="color:#172b4d; font-size:16px; margin:0 0 6px 0; font-weight:800;">مدرسون بخبرة أكاديمية وعملية</h3>
-            <p style="font-size:14px; line-height:1.7; color:#66717d; margin:0;">مدرسونا يحملون شهادات ماجستير ودكتوراه في تخصصات الهندسة المدنية، مع خبرة عملية في المكاتب الاستشارية. يعرفون بالضبط ما يحتاجه الطالب في الجامعة، وما يحتاجه المهندس في سوق العمل.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- ====================================================== -->
-  <!-- 9. TRUST -->
-  <!-- ====================================================== -->
-  <div style="background:white; border-radius:28px; overflow:hidden; box-shadow:0 25px 70px rgba(0,0,0,0.30); margin-bottom:28px;">
-    
-    <div style="background:linear-gradient(135deg,#082847 0%,#123f68 100%); color:white; text-align:center; padding:32px 20px;">
-      <h2 style="font-size:26px; margin:0 0 8px 0; font-weight:800; color:white;">
-        طلاب من أكثر من 8 جامعات سعودية
-      </h2>
-      <p style="font-size:15px; opacity:0.9; max-width:600px; margin:0 auto;">
-        ارتقاء تخدم طلاب الهندسة المدنية في أهم الجامعات السعودية
-      </p>
-    </div>
-
-    <div style="padding:40px;">
-      
-      <!-- الجامعات -->
-      <div id="universitiesGrid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:32px;">
-        <div style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:14px; padding:20px 12px; text-align:center;">
-          <div style="font-size:28px; margin-bottom:8px;">🏛️</div>
-          <div style="font-size:13px; color:#172b4d; font-weight:700;">جامعة الملك سعود</div>
-        </div>
-        <div style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:14px; padding:20px 12px; text-align:center;">
-          <div style="font-size:28px; margin-bottom:8px;">🏛️</div>
-          <div style="font-size:13px; color:#172b4d; font-weight:700;">جامعة الملك عبدالعزيز</div>
-        </div>
-        <div style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:14px; padding:20px 12px; text-align:center;">
-          <div style="font-size:28px; margin-bottom:8px;">🏛️</div>
-          <div style="font-size:13px; color:#172b4d; font-weight:700;">جامعة الملك فهد</div>
-        </div>
-        <div style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:14px; padding:20px 12px; text-align:center;">
-          <div style="font-size:28px; margin-bottom:8px;">🏛️</div>
-          <div style="font-size:13px; color:#172b4d; font-weight:700;">جامعات أخرى</div>
-        </div>
-      </div>
-
-      <!-- شهادات -->
-      <h3 style="color:#172b4d; font-size:20px; margin:0 0 20px 0; font-weight:800; text-align:center;">ماذا يقول طلابنا؟</h3>
-      
-      <div id="testimonialsGrid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
-        
-        <div style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:16px; padding:24px;">
-          <div style="color:#d5a73a; font-size:16px; margin-bottom:12px;">★★★★★</div>
-          <p style="font-size:14px; line-height:1.8; color:#172b4d; margin:0 0 16px 0;">"كنت أذاكر التحليل الإنشائي بالحفظ، وجبت نص درجة. بعد ارتقاء فهمت كل معادلة من أين جاءت، وجبت A في المادة."</p>
-          <div style="display:flex; align-items:center; gap:10px;">
-            <div style="width:36px; height:36px; background:#082847; color:#e1b94f; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800;">ع</div>
-            <div>
-              <div style="font-size:14px; font-weight:700; color:#172b4d;">عبدالرحمن</div>
-              <div style="font-size:12px; color:#66717d;">طالب هندسة مدنية - الرياض</div>
-            </div>
-          </div>
-        </div>
-
-        <div style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:16px; padding:24px;">
-          <div style="color:#d5a73a; font-size:16px; margin-bottom:12px;">★★★★★</div>
-          <p style="font-size:14px; line-height:1.8; color:#172b4d; margin:0 0 16px 0;">"أحسن قرار أخذته. مجموعة الواتساب ساعدتني كثيرًا، وأي سؤال أطرحه أحصل على إجابة سريعة. المدرس صبور جدًا."</p>
-          <div style="display:flex; align-items:center; gap:10px;">
-            <div style="width:36px; height:36px; background:#082847; color:#e1b94f; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800;">م</div>
-            <div>
-              <div style="font-size:14px; font-weight:700; color:#172b4d;">محمد</div>
-              <div style="font-size:12px; color:#66717d;">طالب هندسة مدنية - جدة</div>
-            </div>
-          </div>
-        </div>
-
-        <div style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:16px; padding:24px;">
-          <div style="color:#d5a73a; font-size:16px; margin-bottom:12px;">★★★★★</div>
-          <p style="font-size:14px; line-height:1.8; color:#172b4d; margin:0 0 16px 0;">"المذكرات المنظمة وفرّت عليّ ساعات في المذاكرة. وشرح الخرسانة المسلحة كان أفضل بكثير من شرح الجامعة."</p>
-          <div style="display:flex; align-items:center; gap:10px;">
-            <div style="width:36px; height:36px; background:#082847; color:#e1b94f; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800;">خ</div>
-            <div>
-              <div style="font-size:14px; font-weight:700; color:#172b4d;">خالد</div>
-              <div style="font-size:12px; color:#66717d;">طالب هندسة مدنية - الدمام</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- ====================================================== -->
-  <!-- 10. PRICING -->
-  <!-- ====================================================== -->
-  <div id="pricing" style="background:white; border-radius:28px; overflow:hidden; box-shadow:0 25px 70px rgba(0,0,0,0.30); margin-bottom:28px;">
-    
-    <div style="background:linear-gradient(135deg,#082847 0%,#123f68 100%); color:white; text-align:center; padding:32px 20px;">
-      <h2 style="font-size:26px; margin:0 0 8px 0; font-weight:800; color:white;">
-        الأسعار والباقات
-      </h2>
-      <p style="font-size:15px; opacity:0.9; max-width:600px; margin:0 auto;">
-        أسعار واضحة، بدون مفاجآت. كلما زاد عدد المجموعة، قل السعر على كل طالب
-      </p>
-    </div>
-
-    <div style="padding:40px;">
-      <div id="pricingGrid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px;">
-        
-        <!-- Card 1 -->
-        <div style="background:white; border:2px solid #e2e5e8; border-radius:18px; padding:28px 20px; text-align:center; transition:all 0.3s;">
-          <div style="font-size:36px; margin-bottom:12px;">👤</div>
-          <h3 style="font-size:17px; margin:0 0 6px 0; font-weight:800; color:#172b4d;">اشتراك فردي</h3>
-          <div style="font-size:13px; color:#66717d; margin-bottom:20px;">طالب واحد</div>
-          <div style="font-size:12px; color:#78838d; margin-bottom:4px;">السعر الشهري</div>
-          <div style="font-size:20px; font-weight:800; color:#172b4d; margin-bottom:6px;">يبدأ من 600 ر.س</div>
-          <div style="font-size:12px; color:#66717d; margin-bottom:16px;">حسب المادة وعدد المحاضرات</div>
-          <div style="padding-top:16px; border-top:1px dashed #e2e5e8; font-size:13px; color:#66717d; line-height:1.7; text-align:right;">
-            <div style="margin-bottom:4px;">✓ محاضرات مباشرة</div>
-            <div style="margin-bottom:4px;">✓ تسجيلات للمراجعة</div>
-            <div style="margin-bottom:4px;">✓ مذكرة منظمة</div>
-            <div>✓ مجموعة واتساب</div>
-          </div>
-        </div>
-
-        <!-- Card 2 - Featured -->
-        <div style="background:linear-gradient(135deg,#082847,#123f68); color:white; border:2px solid #d5a73a; border-radius:18px; padding:28px 20px; text-align:center; transition:all 0.3s; position:relative; transform:scale(1.03);">
-          <div style="position:absolute; top:-12px; right:50%; transform:translateX(50%); background:#d5a73a; color:#061d34; padding:4px 14px; border-radius:50px; font-size:11px; font-weight:800; white-space:nowrap;">الأكثر طلبًا</div>
-          <div style="font-size:36px; margin-bottom:12px;">👥</div>
-          <h3 style="font-size:17px; margin:0 0 6px 0; font-weight:800; color:#e1b94f;">مجموعة صغيرة</h3>
-          <div style="font-size:13px; color:rgba(255,255,255,0.8); margin-bottom:20px;">2 - 3 طلاب</div>
-          <div style="font-size:12px; color:rgba(255,255,255,0.7); margin-bottom:4px;">السعر للطالب شهريًا</div>
-          <div style="font-size:20px; font-weight:800; color:#e1b94f; margin-bottom:6px;">يبدأ من 450 ر.س</div>
-          <div style="font-size:12px; color:rgba(255,255,255,0.7); margin-bottom:16px;">خصم 25% عن الفردي</div>
-          <div style="padding-top:16px; border-top:1px dashed rgba(255,255,255,0.15); font-size:13px; color:rgba(255,255,255,0.85); line-height:1.7; text-align:right;">
-            <div style="margin-bottom:4px;">✓ كل مزايا الفردي</div>
-            <div style="margin-bottom:4px;">✓ تجربة جماعية</div>
-            <div>✓ خصم مميز</div>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div style="background:white; border:2px solid #e2e5e8; border-radius:18px; padding:28px 20px; text-align:center; transition:all 0.3s;">
-          <div style="font-size:36px; margin-bottom:12px;">👨‍👩‍👧‍👦</div>
-          <h3 style="font-size:17px; margin:0 0 6px 0; font-weight:800; color:#172b4d;">مجموعة</h3>
-          <div style="font-size:13px; color:#66717d; margin-bottom:20px;">4 - 6 طلاب</div>
-          <div style="font-size:12px; color:#78838d; margin-bottom:4px;">السعر للطالب شهريًا</div>
-          <div style="font-size:20px; font-weight:800; color:#172b4d; margin-bottom:6px;">يبدأ من 350 ر.س</div>
-          <div style="font-size:12px; color:#66717d; margin-bottom:16px;">خصم 42% عن الفردي</div>
-          <div style="padding-top:16px; border-top:1px dashed #e2e5e8; font-size:13px; color:#66717d; line-height:1.7; text-align:right;">
-            <div style="margin-bottom:4px;">✓ كل مزايا الفردي</div>
-            <div style="margin-bottom:4px;">✓ بيئة تعلم تعاونية</div>
-            <div>✓ خصم أكبر</div>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div style="background:white; border:2px solid #e2e5e8; border-radius:18px; padding:28px 20px; text-align:center; transition:all 0.3s;">
-          <div style="font-size:36px; margin-bottom:12px;">🎓</div>
-          <h3 style="font-size:17px; margin:0 0 6px 0; font-weight:800; color:#172b4d;">مجموعة موسعة</h3>
-          <div style="font-size:13px; color:#66717d; margin-bottom:20px;">7 طلاب فأكثر</div>
-          <div style="font-size:12px; color:#78838d; margin-bottom:4px;">السعر للطالب شهريًا</div>
-          <div style="font-size:20px; font-weight:800; color:#172b4d; margin-bottom:6px;">يبدأ من 280 ر.س</div>
-          <div style="font-size:12px; color:#66717d; margin-bottom:16px;">خصم 53% عن الفردي</div>
-          <div style="padding-top:16px; border-top:1px dashed #e2e5e8; font-size:13px; color:#66717d; line-height:1.7; text-align:right;">
-            <div style="margin-bottom:4px;">✓ كل مزايا الفردي</div>
-            <div style="margin-bottom:4px;">✓ تجربة تعليمية جماعية</div>
-            <div>✓ أفضل سعر</div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- ملاحظة -->
-      <div style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:16px; padding:20px 24px; margin-top:24px; text-align:center;">
-        <p style="color:#172b4d; font-size:14px; line-height:1.8; margin:0 0 12px 0;">
-          <strong>ملاحظة مهمة:</strong> الأسعار تختلف قليلًا حسب المادة وعدد المحاضرات الشهرية.
-        </p>
-        <a href="https://wa.me/966576073342?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D8%B9%D8%B1%D9%81%D8%A9%20%D8%A7%D9%84%D8%B3%D8%B9%D8%B1%20%D8%A7%D9%84%D9%86%D9%87%D8%A7%D8%A6%D9%8A%20%D9%84%D9%85%D8%A7%D8%AF%D8%A9%20%3A%20______" target="_blank" style="display:inline-flex; align-items:center; gap:6px; background:#d5a73a; color:#061d34; padding:10px 20px; border-radius:10px; font-weight:800; text-decoration:none; font-size:14px;">
-          <span>💬</span>
-          <span>اطلب السعر النهائي لمادتك</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- ====================================================== -->
-  <!-- 11. FAQ -->
-  <!-- ====================================================== -->
-  <div id="faq" style="background:white; border-radius:28px; overflow:hidden; box-shadow:0 25px 70px rgba(0,0,0,0.30); margin-bottom:28px;">
-    
-    <div style="background:linear-gradient(135deg,#082847 0%,#123f68 100%); color:white; text-align:center; padding:32px 20px;">
-      <h2 style="font-size:26px; margin:0 0 8px 0; font-weight:800; color:white;">
-        الأسئلة الأكثر شيوعًا
-      </h2>
-      <p style="font-size:15px; opacity:0.9; max-width:600px; margin:0 auto;">
-        إجابات مباشرة على الأسئلة التي تؤثر في قرارك
-      </p>
-    </div>
-
-    <div style="padding:40px;">
-      <div style="max-width:800px; margin:0 auto;">
-        
-        <div class="faq-item" style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:14px; margin-bottom:10px; overflow:hidden;">
-          <button class="faq-question" style="width:100%; padding:18px 20px; background:none; border:none; text-align:right; font-family:inherit; font-size:15px; font-weight:700; color:#172b4d; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:12px;">
-            <span>كم عدد المحاضرات في الشهر؟</span>
-            <span style="width:28px; height:28px; background:#e2e5e8; color:#082847; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:900; flex-shrink:0; transition:all 0.3s;">+</span>
-          </button>
-          <div class="faq-answer" style="max-height:0; overflow:hidden; transition:max-height 0.35s ease;">
-            <div style="padding:0 20px 18px; color:#66717d; font-size:14px; line-height:1.9;">
-              عادةً نعطي <strong>8 محاضرات شهريًا</strong> (محاضرتان في الأسبوع) مدة كل منها 90 دقيقة. قد يزيد العدد قليلًا قبل الاختبار لإضافة جلسات مراجعة.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item" style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:14px; margin-bottom:10px; overflow:hidden;">
-          <button class="faq-question" style="width:100%; padding:18px 20px; background:none; border:none; text-align:right; font-family:inherit; font-size:15px; font-weight:700; color:#172b4d; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:12px;">
-            <span>هل المحاضرات مباشرة أم مسجلة؟</span>
-            <span style="width:28px; height:28px; background:#e2e5e8; color:#082847; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:900; flex-shrink:0; transition:all 0.3s;">+</span>
-          </button>
-          <div class="faq-answer" style="max-height:0; overflow:hidden; transition:max-height 0.35s ease;">
-            <div style="padding:0 20px 18px; color:#66717d; font-size:14px; line-height:1.9;">
-              المحاضرات <strong>مباشرة عبر الإنترنت</strong>، يمكنك التفاعل مع المدرس وطرح أسئلتك في الوقت الفعلي. بالإضافة إلى ذلك، يتم تسجيل كل محاضرة وتتاح لك للمراجعة في أي وقت.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item" style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:14px; margin-bottom:10px; overflow:hidden;">
-          <button class="faq-question" style="width:100%; padding:18px 20px; background:none; border:none; text-align:right; font-family:inherit; font-size:15px; font-weight:700; color:#172b4d; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:12px;">
-            <span>هل الشرح مناسب للطالب المبتدئ في المادة؟</span>
-            <span style="width:28px; height:28px; background:#e2e5e8; color:#082847; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:900; flex-shrink:0; transition:all 0.3s;">+</span>
-          </button>
-          <div class="faq-answer" style="max-height:0; overflow:hidden; transition:max-height 0.35s ease;">
-            <div style="padding:0 20px 18px; color:#66717d; font-size:14px; line-height:1.9;">
-              نعم، الشرح يبني المادة من الأساس. لا نفترض أنك تعرف شيئًا مسبقًا. نبدأ بالأساسيات ثم نتدرج حتى المسائل المتقدمة. هذا الأسلوب مفيد للمبتدئين، ولمن يريد مراجعة المادة من جديد.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item" style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:14px; margin-bottom:10px; overflow:hidden;">
-          <button class="faq-question" style="width:100%; padding:18px 20px; background:none; border:none; text-align:right; font-family:inherit; font-size:15px; font-weight:700; color:#172b4d; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:12px;">
-            <span>هل يمكنني التسجيل مع زملائي في نفس المجموعة؟</span>
-            <span style="width:28px; height:28px; background:#e2e5e8; color:#082847; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:900; flex-shrink:0; transition:all 0.3s;">+</span>
-          </button>
-          <div class="faq-answer" style="max-height:0; overflow:hidden; transition:max-height 0.35s ease;">
-            <div style="padding:0 20px 18px; color:#66717d; font-size:14px; line-height:1.9;">
-              نعم، بل نشجع ذلك. كل طالب يحجز مقعده ضمن نفس المجموعة، وتحصلون على خصم يتناسب مع عدد المجموعة. كلما زاد عددكم، كان الخصم أكبر. تواصل معنا لترتيب ذلك.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item" style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:14px; margin-bottom:10px; overflow:hidden;">
-          <button class="faq-question" style="width:100%; padding:18px 20px; background:none; border:none; text-align:right; font-family:inherit; font-size:15px; font-weight:700; color:#172b4d; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:12px;">
-            <span>ماذا يحدث إذا فاتتني محاضرة؟</span>
-            <span style="width:28px; height:28px; background:#e2e5e8; color:#082847; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:900; flex-shrink:0; transition:all 0.3s;">+</span>
-          </button>
-          <div class="faq-answer" style="max-height:0; overflow:hidden; transition:max-height 0.35s ease;">
-            <div style="padding:0 20px 18px; color:#66717d; font-size:14px; line-height:1.9;">
-              لا تقلق. كل محاضرة يتم تسجيلها وتتاح لك للمشاهدة في أي وقت عبر مجموعة الواتساب. كما يمكنك طرح أي سؤال في المجموعة وسنرد عليك.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item" style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:14px; margin-bottom:10px; overflow:hidden;">
-          <button class="faq-question" style="width:100%; padding:18px 20px; background:none; border:none; text-align:right; font-family:inherit; font-size:15px; font-weight:700; color:#172b4d; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:12px;">
-            <span>هل التسجيلات تبقى متاحة بعد انتهاء البرنامج؟</span>
-            <span style="width:28px; height:28px; background:#e2e5e8; color:#082847; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:900; flex-shrink:0; transition:all 0.3s;">+</span>
-          </button>
-          <div class="faq-answer" style="max-height:0; overflow:hidden; transition:max-height 0.35s ease;">
-            <div style="padding:0 20px 18px; color:#66717d; font-size:14px; line-height:1.9;">
-              نعم، التسجيلات تبقى متاحة لك حتى بعد انتهاء البرنامج لمدة شهر كامل، لتتمكن من المراجعة النهائية قبل الاختبار.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item" style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:14px; margin-bottom:10px; overflow:hidden;">
-          <button class="faq-question" style="width:100%; padding:18px 20px; background:none; border:none; text-align:right; font-family:inherit; font-size:15px; font-weight:700; color:#172b4d; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:12px;">
-            <span>هل تقدمون مراجعة قبل الاختبار؟</span>
-            <span style="width:28px; height:28px; background:#e2e5e8; color:#082847; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:900; flex-shrink:0; transition:all 0.3s;">+</span>
-          </button>
-          <div class="faq-answer" style="max-height:0; overflow:hidden; transition:max-height 0.35s ease;">
-            <div style="padding:0 20px 18px; color:#66717d; font-size:14px; line-height:1.9;">
-              نعم، نقدم محاضرات مراجعة مركزة قبل كل اختبار، نركز فيها على أهم النقاط، المسائل المتوقعة، والأخطاء الشائعة التي يقع فيها الطلاب. هذه المراجعات جزء أساسي من خدمتنا.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item" style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:14px; margin-bottom:10px; overflow:hidden;">
-          <button class="faq-question" style="width:100%; padding:18px 20px; background:none; border:none; text-align:right; font-family:inherit; font-size:15px; font-weight:700; color:#172b4d; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:12px;">
-            <span>كيف يتم الدفع؟</span>
-            <span style="width:28px; height:28px; background:#e2e5e8; color:#082847; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:900; flex-shrink:0; transition:all 0.3s;">+</span>
-          </button>
-          <div class="faq-answer" style="max-height:0; overflow:hidden; transition:max-height 0.35s ease;">
-            <div style="padding:0 20px 18px; color:#66717d; font-size:14px; line-height:1.9;">
-              الدفع يكون عبر <strong>التحويل البنكي المحلي</strong>. بعد تأكيد التسجيل، نرسل لك تفاصيل الحساب وطريقة الدفع. الدراسة تبدأ فور استلام التحويل وتأكيدك على مجموعة الواتساب.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item" style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:14px; margin-bottom:10px; overflow:hidden;">
-          <button class="faq-question" style="width:100%; padding:18px 20px; background:none; border:none; text-align:right; font-family:inherit; font-size:15px; font-weight:700; color:#172b4d; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:12px;">
-            <span>ماذا لو لم تعجبني المحاضرة التجريبية؟</span>
-            <span style="width:28px; height:28px; background:#e2e5e8; color:#082847; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:900; flex-shrink:0; transition:all 0.3s;">+</span>
-          </button>
-          <div class="faq-answer" style="max-height:0; overflow:hidden; transition:max-height 0.35s ease;">
-            <div style="padding:0 20px 18px; color:#66717d; font-size:14px; line-height:1.9;">
-              المحاضرة التجريبية <strong>مجانية بالكامل وبدون أي التزام</strong>. إذا لم تعجبك، ببساطة لا تسجل. هدفنا أن تكون واثقًا من أسلوبنا قبل أن تدفع ريالًا واحدًا.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item" style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:14px; margin-bottom:10px; overflow:hidden;">
-          <button class="faq-question" style="width:100%; padding:18px 20px; background:none; border:none; text-align:right; font-family:inherit; font-size:15px; font-weight:700; color:#172b4d; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:12px;">
-            <span>هل أستطيع طلب مادة غير موجودة في القائمة؟</span>
-            <span style="width:28px; height:28px; background:#e2e5e8; color:#082847; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:900; flex-shrink:0; transition:all 0.3s;">+</span>
-          </button>
-          <div class="faq-answer" style="max-height:0; overflow:hidden; transition:max-height 0.35s ease;">
-            <div style="padding:0 20px 18px; color:#66717d; font-size:14px; line-height:1.9;">
-              نعم، نسعى لتغطية أكبر عدد ممكن من مواد الهندسة المدنية. تواصل معنا وسنعمل على توفير المادة عند توفر عدد كافٍ من الطلاب المهتمين.
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- ====================================================== -->
-  <!-- 12. FINAL CTA -->
-  <!-- ====================================================== -->
-  <div style="background:linear-gradient(135deg,#082847 0%,#123f68 100%); border-radius:28px; padding:56px 32px; text-align:center; color:white; position:relative; overflow:hidden; margin-bottom:28px;">
-    
-    <div style="position:absolute; top:-50%; right:-20%; width:500px; height:500px; background:radial-gradient(circle, rgba(213,167,58,0.15) 0%, transparent 70%);"></div>
-    <div style="position:absolute; bottom:-50%; left:-20%; width:500px; height:500px; background:radial-gradient(circle, rgba(213,167,58,0.10) 0%, transparent 70%);"></div>
-    
-    <div style="position:relative; z-index:2;">
-      <h2 style="font-size:32px; color:white; margin:0 0 16px 0; font-weight:900;">
-        جاهز لأن تبدأ <span style="color:#e1b94f;">رحلتك الحقيقية</span>؟
-      </h2>
-      <p style="color:#c8d2de; font-size:17px; margin:0 auto 32px; max-width:620px; line-height:1.8;">
-        احجز محاضرة تجريبية مجانية الآن، وشاهد بنفسك كيف يمكن لارتقاء أن تغير طريقة فهمك لمواد الهندسة المدنية.
-      </p>
-      <div id="finalCtaButtons" style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
-        <a href="https://wa.me/966576073342?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9%20%D8%AA%D8%AC%D8%B1%D9%8A%D8%A8%D9%8A%D8%A9%20%D9%85%D8%AC%D8%A7%D9%86%D9%8A%D8%A9%20%D9%81%D9%8A%20%D9%85%D8%A7%D8%AF%D8%A9%20%3A%20______" target="_blank" style="background:#d5a73a; color:#061d34; padding:16px 36px; border-radius:12px; font-weight:900; text-decoration:none; font-size:17px; display:inline-flex; align-items:center; justify-content:center; gap:8px; box-shadow:0 8px 24px rgba(213,167,58,0.35);">
-          <span>🎬</span>
-          <span>احجز محاضرتك المجانية</span>
-        </a>
-        <a href="https://wa.me/966576073342?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D8%B9%D8%B1%D9%81%D8%A9%20%D8%A7%D9%84%D8%B3%D8%B9%D8%B1%20%D8%A7%D9%84%D9%86%D9%87%D8%A7%D8%A6%D9%8A%20%D9%84%D9%85%D8%A7%D8%AF%D8%A9%20%3A%20______" target="_blank" style="background:rgba(255,255,255,0.1); border:2px solid rgba(255,255,255,0.3); color:white; padding:16px 36px; border-radius:12px; font-weight:800; text-decoration:none; font-size:17px; display:inline-flex; align-items:center; justify-content:center; gap:8px;">
-          <span>💬</span>
-          <span>اطلب سعر مادتك</span>
-        </a>
-      </div>
-      <p style="color:#aeb9c6; font-size:14px; margin-top:24px;">
-        🕐 متاحون من السبت إلى الخميس، 9 صباحًا - 10 مساءً
-      </p>
-    </div>
-  </div>
-
-  <!-- ====================================================== -->
-  <!-- 13. SITE BOTTOM -->
-  <!-- ====================================================== -->
-  <div style="background:rgba(8,40,71,0.95); backdrop-filter:blur(10px); border-radius:28px; padding:40px 30px 24px; color:rgba(255,255,255,0.85); margin-bottom:10px;">
-    
-    <div id="siteBottomGrid" style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:32px; margin-bottom:32px;">
-      
-      <!-- Brand -->
-      <div style="grid-column:1;">
-        <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
-          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5nl7CCqQ-4HI6rT_ed-XnI5XWXXbRzmBLiPM8axh0vQbcXEB45ALFiPEvtU57a-dzBAeBKT2ARZJmigzXBYNgVG-Q0y_oXFp78Quwo561IksZxYkH_kZ5CPiCDcnOXo3Fh_U2ueMnTw3gv5vfgIPnJ8XXMCRBHwcfLpxJJr5O01w_b24wpT7JqTdteaJi/s845/333087.png" alt="شعار ارتقاء" style="height:44px; width:auto; object-fit:contain; display:block;">
-          <div style="display:flex; flex-direction:column; line-height:1.25;">
-            <span style="font-size:18px; font-weight:800; color:white;">ارتقاء</span>
-            <span style="font-size:10px; color:rgba(255,255,255,0.7); font-weight:500;">الهندسة المدنية</span>
-          </div>
-        </div>
-        <p style="color:rgba(255,255,255,0.7); font-size:13px; line-height:1.8; margin:0 0 16px 0;">
-          منصة تعليمية متخصصة في الهندسة المدنية، نساعد الطلاب على فهم المواد بعمق، حل المسائل، والاستعداد للاختبارات بثقة.
-        </p>
-        <div style="display:flex; gap:10px; margin-top:16px;">
-          <a href="https://wa.me/966576073342" target="_blank" aria-label="واتساب" style="width:38px; height:38px; background:rgba(255,255,255,0.08); border-radius:10px; display:flex; align-items:center; justify-content:center; color:white; text-decoration:none; font-size:16px;">📱</a>
-          <a href="https://t.me/irtiqaa" target="_blank" aria-label="تيليجرام" style="width:38px; height:38px; background:rgba(255,255,255,0.08); border-radius:10px; display:flex; align-items:center; justify-content:center; color:white; text-decoration:none; font-size:16px;">✈️</a>
-          <a href="https://youtube.com/@irtiqaa" target="_blank" aria-label="يوتيوب" style="width:38px; height:38px; background:rgba(255,255,255,0.08); border-radius:10px; display:flex; align-items:center; justify-content:center; color:white; text-decoration:none; font-size:16px;">▶️</a>
-          <a href="https://instagram.com/irtiqaa" target="_blank" aria-label="إنستغرام" style="width:38px; height:38px; background:rgba(255,255,255,0.08); border-radius:10px; display:flex; align-items:center; justify-content:center; color:white; text-decoration:none; font-size:16px;">📷</a>
-        </div>
-      </div>
-
-      <!-- Quick Links -->
-      <div>
-        <h4 style="color:#e1b94f; font-size:15px; margin:0 0 16px 0; font-weight:800;">روابط سريعة</h4>
-        <div>
-          <div style="margin-bottom:10px;"><a href="#problem" style="color:rgba(255,255,255,0.7); text-decoration:none; font-size:13px;">لماذا ارتقاء؟</a></div>
-          <div style="margin-bottom:10px;"><a href="#subjects" style="color:rgba(255,255,255,0.7); text-decoration:none; font-size:13px;">المواد</a></div>
-          <div style="margin-bottom:10px;"><a href="#samples" style="color:rgba(255,255,255,0.7); text-decoration:none; font-size:13px;">نماذج الشرح</a></div>
-          <div style="margin-bottom:10px;"><a href="#pricing" style="color:rgba(255,255,255,0.7); text-decoration:none; font-size:13px;">الأسعار</a></div>
-          <div style="margin-bottom:10px;"><a href="#trial" style="color:rgba(255,255,255,0.7); text-decoration:none; font-size:13px;">محاضرة تجريبية</a></div>
-        </div>
-      </div>
-
-      <!-- Info -->
-      <div>
-        <h4 style="color:#e1b94f; font-size:15px; margin:0 0 16px 0; font-weight:800;">المعلومات</h4>
-        <div>
-          <div style="margin-bottom:10px;"><a href="https://irtiqaa.com/about/" target="_blank" style="color:rgba(255,255,255,0.7); text-decoration:none; font-size:13px;">من نحن</a></div>
-          <div style="margin-bottom:10px;"><a href="#faq" style="color:rgba(255,255,255,0.7); text-decoration:none; font-size:13px;">الأسئلة الشائعة</a></div>
-          <div style="margin-bottom:10px;"><a href="https://irtiqaa.com/contact/" target="_blank" style="color:rgba(255,255,255,0.7); text-decoration:none; font-size:13px;">تواصل معنا</a></div>
-          <div style="margin-bottom:10px;"><a href="https://irtiqaa.com/blog/" target="_blank" style="color:rgba(255,255,255,0.7); text-decoration:none; font-size:13px;">المدونة</a></div>
-        </div>
-      </div>
-
-      <!-- Legal -->
-      <div>
-        <h4 style="color:#e1b94f; font-size:15px; margin:0 0 16px 0; font-weight:800;">قانوني</h4>
-        <div>
-          <div style="margin-bottom:10px;"><a href="https://irtiqaa.com/privacy/" target="_blank" style="color:rgba(255,255,255,0.7); text-decoration:none; font-size:13px;">سياسة الخصوصية</a></div>
-          <div style="margin-bottom:10px;"><a href="https://irtiqaa.com/terms/" target="_blank" style="color:rgba(255,255,255,0.7); text-decoration:none; font-size:13px;">الشروط والأحكام</a></div>
-          <div style="margin-bottom:10px;"><a href="https://irtiqaa.com/refund/" target="_blank" style="color:rgba(255,255,255,0.7); text-decoration:none; font-size:13px;">سياسة الاسترجاع</a></div>
-        </div>
-      </div>
-
-    </div>
-
-    <div style="padding-top:24px; border-top:1px solid rgba(255,255,255,0.1); text-align:center; color:rgba(255,255,255,0.6); font-size:12px;">
-      © 2026 ارتقاء — منصة تعليمية متخصصة في الهندسة المدنية. جميع الحقوق محفوظة.
-    </div>
-  </div>
-
 </div>
 
-<!-- ===== Responsive Styles (محسّنة لجميع أحجام الشاشات) ===== -->
-<style>
-  /* ===== Tablets (768px وأقل) ===== */
-  @media (max-width: 768px) {
-    #desktopLinks { display: none !important; }
-    #desktopCTA { display: none !important; }
-    #hamburgerBtn { display: flex !important; }
-    
-    .irtiqaa-logo-img { height: 42px !important; }
-    
-    /* تقليل الحشوة العامة */
-    body > div:first-child { padding: 70px 10px 20px !important; }
-    
-    /* Hero */
-    #statsGrid { grid-template-columns: repeat(2, 1fr) !important; gap: 16px !important; padding: 20px !important; }
-    #statsGrid > div > div:first-child { font-size: 26px !important; }
-    #statsGrid > div > div:last-child { font-size: 11px !important; }
-    
-    /* Grids - تحويل إلى عمود واحد */
-    #problemsGrid,
-    #solutionGrid,
-    #subjectsGrid,
-    #samplesGrid,
-    #journeyGrid,
-    #whyGrid,
-    #universitiesGrid,
-    #testimonialsGrid,
-    #pricingGrid {
-      grid-template-columns: 1fr !important;
-      gap: 14px !important;
-    }
-    
-    /* رحلة التسجيل - عمودي على الجوال */
-    #journeyGrid > div {
-      display: flex !important;
-      gap: 16px !important;
-      text-align: right !important;
-      background: #f5f7f9 !important;
-      border-radius: 14px !important;
-      padding: 16px !important;
-    }
-    #journeyGrid > div > div:first-child {
-      margin: 0 !important;
-      width: 48px !important;
-      height: 48px !important;
-      font-size: 20px !important;
-      flex-shrink: 0 !important;
-    }
-    #journeyGrid > div > div:last-child {
-      flex: 1 !important;
-    }
-    
-    /* لماذا ارتقاء - عنصر واحد بعرض كامل */
-    #whyGrid > div:last-child {
-      grid-column: 1 !important;
-    }
-    
-    /* Footer */
-    #siteBottomGrid {
-      grid-template-columns: 1fr !important;
-      gap: 24px !important;
-      text-align: center !important;
-    }
-    #siteBottomGrid > div:first-child {
-      grid-column: 1 !important;
-    }
-    
-    /* Final CTA */
-    #finalCtaButtons {
-      flex-direction: column !important;
-    }
-    #finalCtaButtons > a {
-      width: 100% !important;
-      justify-content: center !important;
-    }
-    
-    /* تصغير العناوين */
-    h1 { font-size: 28px !important; }
-    h2 { font-size: 22px !important; }
-    
-    /* FAQ */
-    .faq-question { font-size: 14px !important; padding: 16px !important; }
-    
-    /* تقليل الحشوة في الأقسام */
-    [style*="padding:40px"] { padding: 24px !important; }
-    [style*="padding:32px"] { padding: 20px !important; }
-    [style*="padding:48px"] { padding: 28px !important; }
-    [style*="padding:56px"] { padding: 32px !important; }
-  }
+<!-- ===== Trial ===== -->
+<div class="block" id="trial" style="padding-top:0">
+  <div class="trial reveal">
+    <div class="eyebrow" style="background:rgba(213,167,58,.2);border-color:rgba(213,167,58,.5)">⭐ الأهم قبل أن تدفع</div>
+    <h2 class="fs-h2">لا تدفع حتى تعرف <span class="accent">أسلوبنا</span></h2>
+    <p class="fs-lead">احجز محاضرة تجريبية <b style="color:var(--gold-2)">مجانية</b> مدتها 30 دقيقة مع مدرس حقيقي، تشرح لك موضوعًا من المادة التي تريدها، وتشاهد بنفسك كيف يكون الشرح في ارتقاء.</p>
+    <div class="t-feats">
+      <div class="t-feat"><span class="t-check">✓</span>مجانية بالكامل</div>
+      <div class="t-feat"><span class="t-check">✓</span>بدون التزام</div>
+      <div class="t-feat"><span class="t-check">✓</span>تقرير بعد الجلسة</div>
+    </div>
+    <a class="btn btn-gold" href="https://wa.me/966576073342?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9%20%D8%AA%D8%AC%D8%B1%D9%8A%D8%A8%D9%8A%D8%A9%20%D9%85%D8%AC%D8%A7%D9%86%D9%8A%D8%A9%20%D9%81%D9%8A%20%D9%85%D8%A7%D8%AF%D8%A9%20%3A%20______" target="_blank"><span>🎬</span>احجز محاضرتك التجريبية الآن</a>
+  </div>
+</div>
 
-  /* ===== شاشات صغيرة جدًا (480px وأقل) ===== */
-  @media (max-width: 480px) {
-    body > div:first-child { padding: 65px 8px 16px !important; }
-    
-    /* اللوجو أصغر */
-    .irtiqaa-logo-img { height: 36px !important; }
-    
-    /* تصغير النصوص أكثر */
-    h1 { font-size: 24px !important; }
-    h2 { font-size: 20px !important; }
-    h3 { font-size: 15px !important; }
-    h4 { font-size: 14px !important; }
-    p { font-size: 13px !important; }
-    
-    /* أزرار Hero */
-    [style*="padding:16px 32px"] {
-      padding: 14px 20px !important;
-      font-size: 14px !important;
-      width: 100% !important;
-      justify-content: center !important;
-    }
-    
-    /* بطاقات الأسعار */
-    #pricingGrid > div {
-      padding: 20px 16px !important;
-    }
-    #pricingGrid > div > div[style*="font-size:20px"] {
-      font-size: 18px !important;
-    }
-    
-    /* نماذج الشرح - تقليل ارتفاع الصورة */
-    #samplesGrid > div > div:first-child {
-      height: 140px !important;
-    }
-    #samplesGrid > div > div:first-child > div:first-child {
-      font-size: 50px !important;
-    }
-    
-    /* الشهادات */
-    #testimonialsGrid > div {
-      padding: 20px !important;
-    }
-    
-    /* Tabs - قابلة للتمرير أفقيًا */
-    #tabsContainer {
-      overflow-x: auto !important;
-      flex-wrap: nowrap !important;
-      justify-content: flex-start !important;
-      padding-bottom: 8px !important;
-    }
-    #tabsContainer::-webkit-scrollbar {
-      height: 4px !important;
-    }
-    #tabsContainer::-webkit-scrollbar-thumb {
-      background: #d5a73a !important;
-      border-radius: 2px !important;
-    }
-    
-    /* بطاقات المواد */
-    #subjectsGrid > div {
-      padding: 16px !important;
-    }
-    
-    /* لماذا ارتقاء - تصغير الأيقونات */
-    #whyGrid > div > div:first-child {
-      width: 40px !important;
-      height: 40px !important;
-      font-size: 18px !important;
-    }
-  }
+<!-- ===== Why ===== -->
+<div class="block" style="padding-top:0">
+  <div class="block-head reveal">
+    <div class="eyebrow">لماذا نحن</div>
+    <h2 class="fs-h2">لماذا يختار الطلاب ارتقاء؟</h2>
+    <p>5 أسباب ملموسة تجعلنا الخيار الأفضل</p>
+  </div>
+  <div class="grid-2 reveal">
+    <div class="w-card"><div class="w-ico">🔍</div><div><h3>نحلل كل مسألة بدل أن نعطي الحل</h3><p>نفكك المسألة خطوة بخطوة حتى تعرف من أين جاءت المعادلة ومتى تستخدمها، لتصبح قادرًا على حل أي مسألة مشابهة بنفسك.</p></div></div>
+    <div class="w-card"><div class="w-ico">🎯</div><div><h3>متخصصون في الهندسة المدنية فقط</h3><p>لسنا منصة عامة؛ تركيزنا يعني فهمًا أعمق للتخصص ومعرفة دقيقة بمناهج الجامعات السعودية.</p></div></div>
+    <div class="w-card"><div class="w-ico">💬</div><div><h3>مجموعة واتساب نشطة لكل مادة</h3><p>تطرح سؤالك في أي وقت ويصلك الرد خلال ساعات. المدرس والزملاء متاحون لمساعدتك.</p></div></div>
+    <div class="w-card"><div class="w-ico">📚</div><div><h3>مذكرات وملخصات جاهزة</h3><p>كل محاضرة تأتي مع مذكرة منظمة وملخص PDF جاهز للمراجعة قبل الاختبار.</p></div></div>
+    <div class="w-card w-full"><div class="w-ico">🏆</div><div><h3>مدرسون بخبرة أكاديمية وعملية</h3><p>مدرسونا يحملون شهادات ماجستير ودكتوراه في تخصصات الهندسة المدنية مع خبرة عملية في المكاتب الاستشارية — يعرفون ما يحتاجه الطالب في الجامعة والمهندس في سوق العمل.</p></div></div>
+  </div>
+</div>
 
-  /* ===== شاشات صغيرة جدًا جدًا (360px وأقل) ===== */
-  @media (max-width: 360px) {
-    body > div:first-child { padding: 60px 6px 12px !important; }
-    
-    .irtiqaa-logo-img { height: 32px !important; }
-    
-    h1 { font-size: 22px !important; }
-    h2 { font-size: 18px !important; }
-    
-    [style*="padding:40px"] { padding: 18px !important; }
-    [style*="padding:32px"] { padding: 16px !important; }
-    [style*="padding:48px"] { padding: 24px !important; }
-    [style*="padding:56px"] { padding: 28px !important; }
-    
-    #statsGrid { padding: 16px !important; }
-    #statsGrid > div > div:first-child { font-size: 22px !important; }
-    #statsGrid > div > div:last-child { font-size: 10px !important; }
-  }
-</style>
+<!-- ===== Trust ===== -->
+<div class="block" style="padding-top:0">
+  <div class="block-head reveal">
+    <div class="eyebrow">الثقة</div>
+    <h2 class="fs-h2">طلاب من أكثر من 8 جامعات سعودية</h2>
+  </div>
+  <div class="uni-grid reveal">
+    <div class="uni"><div class="ico">🏛️</div><div>جامعة الملك سعود</div></div>
+    <div class="uni"><div class="ico">🏛️</div><div>جامعة الملك عبدالعزيز</div></div>
+    <div class="uni"><div class="ico">🏛️</div><div>جامعة الملك فهد</div></div>
+    <div class="uni"><div class="ico">🏛️</div><div>جامعات أخرى</div></div>
+  </div>
+  <div class="tst-grid reveal">
+    <div class="tst"><div class="stars">★★★★★</div><q>كنت أذاكر التحليل الإنشائي بالحفظ وجبت نص الدرجة. بعد ارتقاء فهمت كل معادلة من أين جاءت وجبت A في المادة.</q><div class="tst-who"><div class="avatar">ع</div><div><b>عبدالرحمن</b><span>طالب هندسة مدنية — الرياض</span></div></div></div>
+    <div class="tst"><div class="stars">★★★★★</div><q>أحسن قرار أخذته. مجموعة الواتساب ساعدتني كثيرًا، وأي سؤال أطرحه أحصل على إجابة سريعة. المدرس صبور جدًا.</q><div class="tst-who"><div class="avatar">م</div><div><b>محمد</b><span>طالب هندسة مدنية — جدة</span></div></div></div>
+    <div class="tst"><div class="stars">★★★★★</div><q>المذكرات المنظمة وفّرت عليّ ساعات في المذاكرة، وشرح الخرسانة المسلحة كان أفضل بكثير من شرح الجامعة.</q><div class="tst-who"><div class="avatar">خ</div><div><b>خالد</b><span>طالب هندسة مدنية — الدمام</span></div></div></div>
+  </div>
+</div>
 
-<!-- ===== JavaScript ===== -->
+<!-- ===== Pricing ===== -->
+<div class="block" id="pricing" style="padding-top:0">
+  <div class="block-head reveal">
+    <div class="eyebrow">الأسعار</div>
+    <h2 class="fs-h2">أسعار واضحة بدون مفاجآت</h2>
+    <p>كلما زاد عدد المجموعة قلّ السعر على كل طالب</p>
+  </div>
+  <div class="price-grid reveal">
+    <div class="price"><div class="ico">👤</div><h3>اشتراك فردي</h3><div class="who">طالب واحد</div><div class="lbl">السعر الشهري</div><div class="val">يبدأ من 600 ر.س</div><div class="note">حسب المادة وعدد المحاضرات</div><ul><li>✓ محاضرات مباشرة</li><li>✓ تسجيلات للمراجعة</li><li>✓ مذكرة منظمة</li><li>✓ مجموعة واتساب</li></ul></div>
+    <div class="price feat"><div class="price-badge">الأكثر طلبًا</div><div class="ico">👥</div><h3>مجموعة صغيرة</h3><div class="who">2 - 3 طلاب</div><div class="lbl">السعر للطالب شهريًا</div><div class="val">يبدأ من 450 ر.س</div><div class="note">خصم 25% عن الفردي</div><ul><li>✓ كل مزايا الفردي</li><li>✓ تجربة جماعية</li><li>✓ خصم مميز</li></ul></div>
+    <div class="price"><div class="ico">👨👩‍‍👦</div><h3>مجموعة</h3><div class="who">4 - 6 طلاب</div><div class="lbl">السعر للطالب شهريًا</div><div class="val">يبدأ من 350 ر.س</div><div class="note">خصم 42% عن الفردي</div><ul><li>✓ كل مزايا الفردي</li><li>✓ بيئة تعلم تعاونية</li><li>✓ خصم أكبر</li></ul></div>
+    <div class="price"><div class="ico">🎓</div><h3>مجموعة موسعة</h3><div class="who">7 طلاب فأكثر</div><div class="lbl">السعر للطالب شهريًا</div><div class="val">يبدأ من 280 ر.س</div><div class="note">خصم 53% عن الفردي</div><ul><li>✓ كل مزايا الفردي</li><li>✓ تجربة تعليمية جماعية</li><li>✓ أفضل سعر</li></ul></div>
+  </div>
+  <div class="price-note reveal">
+    <p><b>ملاحظة:</b> الأسعار تختلف قليلًا حسب المادة وعدد المحاضرات الشهرية.</p>
+    <a class="btn btn-sm" href="https://wa.me/966576073342?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D8%B9%D8%B1%D9%81%D8%A9%20%D8%A7%D9%84%D8%B3%D8%B9%D8%B1%20%D8%A7%D9%84%D9%86%D9%87%D8%A7%D8%A6%D9%8A%20%D9%84%D9%85%D8%A7%D8%AF%D8%A9%20%3A%20______" target="_blank"><span>💬</span>اطلب السعر النهائي لمادتك</a>
+  </div>
+</div>
+
+<!-- ===== FAQ ===== -->
+<div class="block" id="faq" style="padding-top:0">
+  <div class="block-head reveal">
+    <div class="eyebrow">الأسئلة الشائعة</div>
+    <h2 class="fs-h2">إجابات مباشرة تؤثر في قرارك</h2>
+  </div>
+  <div class="faq-wrap reveal">
+    <div class="faq"><button class="faq-q"><span>كم عدد المحاضرات في الشهر؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>عادةً 8 محاضرات شهريًا (محاضرتان أسبوعيًا) مدة كل منها 90 دقيقة، وقد يزيد العدد قبل الاختبار لإضافة جلسات مراجعة.</div></div></div>
+    <div class="faq"><button class="faq-q"><span>هل المحاضرات مباشرة أم مسجلة؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>مباشرة عبر الإنترنت مع تفاعل فوري، ويتم تسجيل كل محاضرة وتتاح لك للمراجعة في أي وقت.</div></div></div>
+    <div class="faq"><button class="faq-q"><span>هل الشرح مناسب للمبتدئ في المادة؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>نعم، نبني المادة من الأساس ولا نفترض معرفة مسبقة، ونتدرج حتى المسائل المتقدمة.</div></div></div>
+    <div class="faq"><button class="faq-q"><span>هل يمكنني التسجيل مع زملائي؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>نعم بل نشجع ذلك؛ تحجزون مقاعدكم في نفس المجموعة وتحصلون على خصم يتناسب مع العدد.</div></div></div>
+    <div class="faq"><button class="faq-q"><span>ماذا يحدث إذا فاتتني محاضرة؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>تُتاح التسجيلات للمشاهدة في أي وقت، ويمكنك طرح أسئلتك في مجموعة الواتساب وسنرد عليك.</div></div></div>
+    <div class="faq"><button class="faq-q"><span>هل تبقى التسجيلات بعد انتهاء البرنامج؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>نعم، تبقى متاحة شهرًا كاملًا بعد انتهاء البرنامج لتتمكن من المراجعة النهائية قبل الاختبار.</div></div></div>
+    <div class="faq"><button class="faq-q"><span>هل تقدمون مراجعة قبل الاختبار؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>نعم، محاضرات مراجعة مركزة على أهم النقاط والمسائل المتوقعة والأخطاء الشائعة — جزء أساسي من خدمتنا.</div></div></div>
+    <div class="faq"><button class="faq-q"><span>كيف يتم الدفع؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>عبر التحويل البنكي المحلي؛ نرسل لك تفاصيل الحساب بعد تأكيد التسجيل، وتبدأ الدراسة فور استلام التحويل.</div></div></div>
+    <div class="faq"><button class="faq-q"><span>ماذا لو لم تعجبني المحاضرة التجريبية؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>التجريبية مجانية وبدون التزام؛ إن لم تعجبك ببساطة لا تسجّل. هدفنا أن تكون واثقًا قبل أن تدفع ريالًا واحدًا.</div></div></div>
+    <div class="faq"><button class="faq-q"><span>هل أستطيع طلب مادة غير موجودة؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>نعم؛ تواصل معنا وسنعمل على توفير المادة عند توفر عدد كافٍ من الطلاب المهتمين.</div></div></div>
+  </div>
+</div>
+
+<!-- ===== Final CTA ===== -->
+<div class="block" style="padding-top:0">
+  <div class="final reveal">
+    <h2 class="fs-h2">جاهز لأن تبدأ <span class="accent">رحلتك الحقيقية</span>؟</h2>
+    <p class="fs-lead">احجز محاضرة تجريبية مجانية الآن، وشاهد بنفسك كيف يغيّر ارتقاء طريقة فهمك لمواد الهندسة المدنية.</p>
+    <div class="final-btns">
+      <a class="btn btn-gold" href="https://wa.me/966576073342?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9%20%D8%AA%D8%AC%D8%B1%D9%8A%D8%A8%D9%8A%D8%A9%20%D9%85%D8%AC%D8%A7%D9%86%D9%8A%D8%A9%20%D9%81%D9%8A%20%D9%85%D8%A7%D8%AF%D8%A9%20%3A%20______" target="_blank"><span>🎬</span>احجز محاضرتك المجانية</a>
+      <a class="btn btn-ghost" href="https://wa.me/966576073342?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D8%B9%D8%B1%D9%81%D8%A9%20%D8%A7%D9%84%D8%B3%D8%B9%D8%B1%20%D8%A7%D9%84%D9%86%D9%87%D8%A7%D8%A6%D9%8A%20%D9%84%D9%85%D8%A7%D8%AF%D8%A9%20%3A%20______" target="_blank"><span>💬</span>اطلب سعر مادتك</a>
+    </div>
+    <div class="hours">🕐 متاحون من السبت إلى الخميس، 9 صباحًا - 10 مساءً</div>
+  </div>
+</div>
+
+<!-- ===== Site Bottom ===== -->
+<div class="bottom">
+  <div class="bottom-grid">
+    <div class="bottom-brand">
+      <div class="b-logo">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5nl7CCqQ-4HI6rT_ed-XnI5XWXXbRzmBLiPM8axh0vQbcXEB45ALFiPEvtU57a-dzBAeBKT2ARZJmigzXBYNgVG-Q0y_oXFp78Quwo561IksZxYkH_kZ5CPiCDcnOXo3Fh_U2ueMnTw3gv5vfgIPnJ8XXMCRBHwcfLpxJJr5O01w_b24wpT7JqTdteaJi/s845/333087.png" alt="شعار ارتقاء">
+        <div><b>ارتقاء</b><span>الهندسة المدنية</span></div>
+      </div>
+      <p>منصة تعليمية متخصصة في الهندسة المدنية، نساعد الطلاب على فهم المواد بعمق، حل المسائل، والاستعداد للاختبارات بثقة.</p>
+      <div class="socials">
+        <a href="https://wa.me/966576073342" target="_blank" aria-label="واتساب">📱</a>
+        <a href="https://t.me/irtiqaa" target="_blank" aria-label="تيليجرام">✈️</a>
+        <a href="https://youtube.com/@irtiqaa" target="_blank" aria-label="يوتيوب">▶️</a>
+        <a href="https://instagram.com/irtiqaa" target="_blank" aria-label="إنستغرام">📷</a>
+      </div>
+    </div>
+    <div>
+      <h4>روابط سريعة</h4>
+      <a href="#problem">لماذا ارتقاء؟</a>
+      <a href="#subjects">المواد</a>
+      <a href="#samples">نماذج الشرح</a>
+      <a href="#pricing">الأسعار</a>
+      <a href="#trial">محاضرة تجريبية</a>
+    </div>
+    <div>
+      <h4>المعلومات</h4>
+      <a href="https://irtiqaa-ksa.github.io/.com/about/" target="_blank">من نحن</a>
+      <a href="#faq">الأسئلة الشائعة</a>
+      <a href="https://irtiqaa-ksa.github.io/.com/contact/" target="_blank">تواصل معنا</a>
+      <a href="https://irtiqaa-ksa.github.io/.com/blog/" target="_blank">المدونة</a>
+    </div>
+    <div>
+      <h4>قانوني</h4>
+      <a href="https://irtiqaa-ksa.github.io/.com/privacy/" target="_blank">سياسة الخصوصية</a>
+      <a href="https://irtiqaa-ksa.github.io/.com/terms/" target="_blank">الشروط والأحكام</a>
+      <a href="https://irtiqaa-ksa.github.io/.com/refund/" target="_blank">سياسة الاسترجاع</a>
+    </div>
+  </div>
+  <div class="bottom-line">© 2026 ارتقاء — منصة تعليمية متخصصة في الهندسة المدنية. جميع الحقوق محفوظة.</div>
+</div>
+
+<!-- WhatsApp Float -->
+<a class="wa-float" href="https://wa.me/966576073342?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D9%84%D8%AF%D9%8A%20%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%85%D9%86%D8%B5%D8%A9%20%D8%A7%D8%B1%D8%AA%D9%82%D8%A7%D8%A1" target="_blank" aria-label="تواصل عبر واتساب">
+  <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5c-1.5 0-3-.4-4.2-1.1L3 20l1.1-5.3A8.5 8.5 0 1 1 21 11.5z"/></svg>
+</a>
+
 <script>
-  // ===== Toggle Mobile Menu =====
-  function toggleMenu() {
-    var menu = document.getElementById('mobileMenu');
-    var overlay = document.getElementById('menuOverlay');
-    var isOpen = menu.style.left === '0px';
-    
-    if (isOpen) {
-      menu.style.left = '-100%';
-      overlay.style.opacity = '0';
-      overlay.style.visibility = 'hidden';
-      document.body.style.overflow = '';
-    } else {
-      menu.style.left = '0';
-      overlay.style.opacity = '1';
-      overlay.style.visibility = 'visible';
-      document.body.style.overflow = 'hidden';
-    }
-  }
+function toggleMenu(){
+  var m=document.getElementById('mobileMenu'),o=document.getElementById('menuOverlay');
+  var open=m.classList.contains('open');
+  m.classList.toggle('open',!open);
+  o.classList.toggle('open',!open);
+  document.body.style.overflow=open?'':'hidden';
+}
 
-  // ===== Subjects Data =====
-  var subjects = [
-    { 
-      name: "التحليل الإنشائي", 
-      category: "structural", 
-      description: "من الكمرة البسيطة إلى الكمرة المستمرة",
-      sessions: "8 محاضرات",
-      level: "مستوى متوسط",
-      url: "https://irtiqaa.com/courses/structural-analysis/" 
-    },
-    { 
-      name: "التصميم الإنشائي", 
-      category: "structural", 
-      description: "تصميم العناصر الإنشائية حسب الكود",
-      sessions: "10 محاضرات",
-      level: "مستوى متقدم",
-      url: "https://irtiqaa.com/courses/structural-design/" 
-    },
-    { 
-      name: "الخرسانة المسلحة", 
-      category: "structural", 
-      description: "تصميم القطاعات وحساب حديد التسليح",
-      sessions: "10 محاضرات",
-      level: "مستوى متوسط/متقدم",
-      url: "https://irtiqaa.com/courses/reinforced-concrete/" 
-    },
-    { 
-      name: "الخرسانة مسبقة الإجهاد", 
-      category: "structural", 
-      description: "مبادئ وتقنيات الإجهاد المسبق",
-      sessions: "8 محاضرات",
-      level: "مستوى متقدم",
-      url: "https://irtiqaa.com/courses/prestressed-concrete/" 
-    },
-    { 
-      name: "ميكانيكا المواد", 
-      category: "structural", 
-      description: "الإجهاد والانفعال وتحليل القطاعات",
-      sessions: "8 محاضرات",
-      level: "مستوى مبتدئ/متوسط",
-      url: "https://irtiqaa.com/courses/mechanics-of-materials/" 
-    },
-    { 
-      name: "ميكانيكا الموائع", 
-      category: "fluids", 
-      description: "الموائع الساكنة والمتحركة",
-      sessions: "8 محاضرات",
-      level: "مستوى مبتدئ/متوسط",
-      url: "https://irtiqaa.com/courses/fluid-mechanics/" 
-    },
-    { 
-      name: "الهيدروليكا", 
-      category: "fluids", 
-      description: "الأنابيب والقنوات المفتوحة",
-      sessions: "8 محاضرات",
-      level: "مستوى متوسط",
-      url: "https://irtiqaa.com/courses/hydraulics/" 
-    },
-    { 
-      name: "هندسة التربة", 
-      category: "geotechnical", 
-      description: "خصائص التربة وتصنيفها",
-      sessions: "8 محاضرات",
-      level: "مستوى متوسط",
-      url: "https://irtiqaa.com/courses/soil-engineering/" 
-    },
-    { 
-      name: "هندسة الأساسات", 
-      category: "geotechnical", 
-      description: "تصميم الأساسات السطحية والعميقة",
-      sessions: "10 محاضرات",
-      level: "مستوى متقدم",
-      url: "https://irtiqaa.com/courses/foundation-engineering/" 
-    },
-    { 
-      name: "المساحة", 
-      category: "other", 
-      description: "أساسيات المساحة الأرضية",
-      sessions: "6 محاضرات",
-      level: "مستوى مبتدئ",
-      url: "https://irtiqaa.com/courses/surveying/" 
-    }
-  ];
+var subjects=[
+ {name:"التحليل الإنشائي",category:"structural",desc:"من الكمرة البسيطة إلى المستمرة",s:"8 محاضرات",l:"متوسط",url:"https://irtiqaa-ksa.github.io/.com/courses/structural-analysis/"},
+ {name:"التصميم الإنشائي",category:"structural",desc:"تصميم العناصر حسب الكود",s:"10 محاضرات",l:"متقدم",url:"https://irtiqaa-ksa.github.io/.com/courses/structural-design/"},
+ {name:"الخرسانة المسلحة",category:"structural",desc:"تصميم القطاعات وحساب التسليح",s:"10 محاضرات",l:"متوسط/متقدم",url:"https://irtiqaa-ksa.github.io/.com/courses/reinforced-concrete/"},
+ {name:"الخرسانة مسبقة الإجهاد",category:"structural",desc:"مبادئ وتقنيات الإجهاد المسبق",s:"8 محاضرات",l:"متقدم",url:"https://irtiqaa-ksa.github.io/.com/courses/prestressed-concrete/"},
+ {name:"ميكانيكا المواد",category:"structural",desc:"الإجهاد والانفعال وتحليل القطاعات",s:"8 محاضرات",l:"مبتدئ/متوسط",url:"https://irtiqaa-ksa.github.io/.com/courses/mechanics-of-materials/"},
+ {name:"ميكانيكا الموائع",category:"fluids",desc:"الموائع الساكنة والمتحركة",s:"8 محاضرات",l:"مبتدئ/متوسط",url:"https://irtiqaa-ksa.github.io/.com/courses/fluid-mechanics/"},
+ {name:"الهيدروليكا",category:"fluids",desc:"الأنابيب والقنوات المفتوحة",s:"8 محاضرات",l:"متوسط",url:"https://irtiqaa-ksa.github.io/.com/courses/hydraulics/"},
+ {name:"هندسة التربة",category:"geotechnical",desc:"خصائص التربة وتصنيفها",s:"8 محاضرات",l:"متوسط",url:"https://irtiqaa-ksa.github.io/.com/courses/soil-engineering/"},
+ {name:"هندسة الأساسات",category:"geotechnical",desc:"الأساسات السطحية والعميقة",s:"10 محاضرات",l:"متقدم",url:"https://irtiqaa-ksa.github.io/.com/courses/foundation-engineering/"},
+ {name:"المساحة",category:"other",desc:"أساسيات المساحة الأرضية",s:"6 محاضرات",l:"مبتدئ",url:"https://irtiqaa-ksa.github.io/.com/courses/surveying/"}
+];
 
-  // ===== Render Subjects =====
-  function renderSubjects(category) {
-    category = category || 'all';
-    var grid = document.getElementById('subjectsGrid');
-    var filtered = category === 'all' ? subjects : subjects.filter(function(s) { return s.category === category; });
-    
-    var html = '';
-    filtered.forEach(function(s) {
-      html += '<div style="background:white; border:2px solid #e2e5e8; border-radius:16px; padding:20px; transition:all 0.3s; display:flex; flex-direction:column;">';
-      html += '  <div style="display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:12px;">';
-      html += '    <div style="flex:1;">';
-      html += '      <h3 style="font-size:16px; margin:0 0 4px 0; font-weight:800; color:#172b4d;">' + s.name + '</h3>';
-      html += '      <p style="font-size:12px; color:#66717d; margin:0;">' + s.description + '</p>';
-      html += '    </div>';
-      html += '    <span style="width:32px; height:32px; background:#d5a73a; color:#061d34; border-radius:8px; display:flex; align-items:center; justify-content:center; font-weight:900; flex-shrink:0; margin-right:8px;">✓</span>';
-      html += '  </div>';
-      html += '  <div style="display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;">';
-      html += '    <span style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:50px; padding:4px 12px; font-size:11px; color:#172b4d; font-weight:700;">' + s.sessions + '</span>';
-      html += '    <span style="background:#f5f7f9; border:1px solid #e2e5e8; border-radius:50px; padding:4px 12px; font-size:11px; color:#172b4d; font-weight:700;">' + s.level + '</span>';
-      html += '  </div>';
-      html += '  <div style="margin-top:auto; display:flex; gap:8px;">';
-      html += '    <a href="' + s.url + '" target="_blank" style="flex:1; text-align:center; background:#082847; color:#e1b94f; padding:10px 14px; border-radius:10px; font-weight:700; text-decoration:none; font-size:13px; transition:0.25s;">تفاصيل المادة</a>';
-      html += '    <a href="https://wa.me/966576073342?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%20%D9%81%D9%8A%20%D9%85%D8%A7%D8%AF%D8%A9%20%3A%20' + encodeURIComponent(s.name) + '" target="_blank" style="background:#d5a73a; color:#061d34; padding:10px 14px; border-radius:10px; font-weight:700; text-decoration:none; font-size:13px; transition:0.25s;">سجّل</a>';
-      html += '  </div>';
-      html += '</div>';
-    });
-    
-    grid.innerHTML = html;
-  }
+function renderSubjects(cat){
+  cat=cat||'all';
+  var g=document.getElementById('subjectsGrid');
+  var f=cat==='all'?subjects:subjects.filter(function(x){return x.category===cat});
+  g.innerHTML=f.map(function(s){
+    return '<div class="subj">'
+      +'<div class="subj-top"><div><h3>'+s.name+'</h3><div class="desc">'+s.desc+'</div></div><span class="tick">✓</span></div>'
+      +'<div class="chips"><span class="chip">'+s.s+'</span><span class="chip">مستوى '+s.l+'</span><span class="chip">مباشر + تسجيلات</span></div>'
+      +'<div class="subj-actions"><a class="a-detail" href="'+s.url+'" target="_blank">التفاصيل</a><a class="a-join" href="https://wa.me/966576073342?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%20%D9%81%D9%8A%20'+encodeURIComponent(s.name)+'" target="_blank">سجّل</a></div>'
+      +'</div>';
+  }).join('');
+}
 
-  // ===== Tab Click Handlers =====
-  document.querySelectorAll('.tab-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      document.querySelectorAll('.tab-btn').forEach(function(b) {
-        b.style.background = 'white';
-        b.style.color = '#173452';
-        b.style.borderColor = '#e3e7eb';
-        b.classList.remove('active');
-      });
-      this.style.background = '#082847';
-      this.style.color = '#e1b94f';
-      this.style.borderColor = '#082847';
-      this.classList.add('active');
-      renderSubjects(this.dataset.category);
-    });
+document.querySelectorAll('.tab').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active')});
+    this.classList.add('active');
+    renderSubjects(this.dataset.category);
   });
+});
 
-  // ===== Navbar Scroll Effect =====
-  window.addEventListener('scroll', function() {
-    var topbar = document.getElementById('topbar');
-    if (window.scrollY > 30) {
-      topbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.4)';
-    } else {
-      topbar.style.boxShadow = 'none';
-    }
+window.addEventListener('scroll',function(){
+  document.getElementById('topbar').classList.toggle('solid',window.scrollY>24);
+},{passive:true});
+
+document.querySelectorAll('.faq-q').forEach(function(b){
+  b.addEventListener('click',function(){
+    var item=this.parentElement,a=item.querySelector('.faq-a');
+    var was=item.classList.contains('open');
+    document.querySelectorAll('.faq').forEach(function(f){f.classList.remove('open');f.querySelector('.faq-a').style.maxHeight=null});
+    if(!was){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}
   });
+});
 
-  // ===== FAQ Accordion =====
-  document.querySelectorAll('.faq-question').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var item = this.parentElement;
-      var answer = item.querySelector('.faq-answer');
-      var icon = this.querySelector('span:last-child');
-      var wasActive = item.classList.contains('active');
-      
-      document.querySelectorAll('.faq-item').forEach(function(i) {
-        i.classList.remove('active');
-        i.querySelector('.faq-answer').style.maxHeight = '0';
-        i.querySelector('.faq-question span:last-child').style.transform = 'rotate(0deg)';
-        i.querySelector('.faq-question span:last-child').style.background = '#e2e5e8';
-        i.querySelector('.faq-question span:last-child').style.color = '#082847';
-      });
-      
-      if (!wasActive) {
-        item.classList.add('active');
-        answer.style.maxHeight = answer.scrollHeight + 'px';
-        icon.style.transform = 'rotate(45deg)';
-        icon.style.background = '#d5a73a';
-        icon.style.color = '#061d34';
-      }
-    });
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var t=document.querySelector(this.getAttribute('href'));
+    if(t){e.preventDefault();var h=parseInt(getComputedStyle(document.documentElement).getPropertyValue('--tb-h'))||70;window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-h-10,behavior:'smooth'})}
   });
+});
 
-  // ===== Smooth Scroll =====
-  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-    anchor.addEventListener('click', function(e) {
-      var href = this.getAttribute('href');
-      if (href === '#' || href.length < 2) return;
-      
-      var target = document.querySelector(href);
-      if (target) {
-        e.preventDefault();
-        var offset = 90;
-        var targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
-        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-      }
-    });
-  });
+var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 
-  // ===== Initialize =====
-  renderSubjects();
+renderSubjects();
 </script>
-
 </body>
 </html>
