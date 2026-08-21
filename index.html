@@ -32,68 +32,35 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 
 <style>
-/* ============================================================
-   نظام التصميم — Design Tokens
-============================================================ */
 :root{
-  --ink:#0a1424;
-  --navy:#0e1c30;
-  --navy-2:#133156;
-  --navy-3:#1b4066;
-  --gold:#d5a73a;
-  --gold-2:#e9c86b;
-  --gold-deep:#a97f22;
-  --paper:#ffffff;
-  --mist:#f4f6fa;
-  --line:#e4e9f0;
-  --text:#182a44;
-  --muted:#5d6c85;
-  --wa:#159447;
-  --r-lg:22px;
-  --r-md:16px;
-  --r-sm:12px;
+  --ink:#0a1424;--navy:#0e1c30;--navy-2:#133156;--navy-3:#1b4066;
+  --gold:#d5a73a;--gold-2:#e9c86b;--gold-deep:#a97f22;
+  --paper:#fff;--mist:#f4f6fa;--line:#e4e9f0;
+  --text:#182a44;--muted:#5d6c85;--wa:#159447;
+  --danger:#d04438;--success:#159447;
+  --r-lg:22px;--r-md:16px;--r-sm:12px;
   --sh-1:0 2px 10px rgba(10,20,36,.06);
   --sh-2:0 12px 32px rgba(10,20,36,.12);
-  --sh-3:0 24px 60px rgba(10,20,36,.20);
+  --sh-3:0 24px 60px rgba(10,20,36,.22);
   --tb-h:72px;
   --font-head:'Cairo',sans-serif;
   --font-body:'Tajawal',sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-  font-family:var(--font-body);
-  background:var(--mist);
-  color:var(--text);
-  line-height:1.75;
-  overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-}
+body{font-family:var(--font-body);background:var(--mist);color:var(--text);line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{-webkit-tap-highlight-color:transparent}
 :focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:6px}
 ::selection{background:var(--gold);color:var(--ink)}
 
-/* مقاسات خط سائلة */
-.fs-hero{font-size:clamp(1.7rem, 4.6vw + .6rem, 3.4rem)}
-.fs-h2{font-size:clamp(1.35rem, 2.6vw + .4rem, 2.1rem)}
-.fs-h3{font-size:clamp(1.02rem, 1.4vw + .5rem, 1.25rem)}
-.fs-lead{font-size:clamp(.95rem, 1.2vw + .5rem, 1.15rem)}
+.fs-hero{font-size:clamp(1.7rem,4.6vw + .6rem,3.4rem)}
+.fs-h2{font-size:clamp(1.35rem,2.6vw + .4rem,2.1rem)}
+.fs-h3{font-size:clamp(1.02rem,1.4vw + .5rem,1.25rem)}
+.fs-lead{font-size:clamp(.95rem,1.2vw + .5rem,1.15rem)}
 
-/* ============================================================
-   Topbar
-============================================================ */
-.topbar{
-  position:fixed;inset:0 0 auto 0;height:var(--tb-h);z-index:1000;
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  padding:0 clamp(12px,3vw,32px);
-  background:transparent;border-bottom:1px solid transparent;
-  transition:background .35s ease, box-shadow .35s ease, border-color .35s ease;
-}
-.topbar::before{
-  content:"";position:absolute;inset:0 0 auto 0;height:3px;
-  background:linear-gradient(90deg,var(--gold-deep),var(--gold-2),var(--gold-deep));
-}
+.topbar{position:fixed;inset:0 0 auto 0;height:var(--tb-h);z-index:1000;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 clamp(12px,3vw,32px);background:transparent;border-bottom:1px solid transparent;transition:background .35s,box-shadow .35s}
+.topbar::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--gold-deep),var(--gold-2),var(--gold-deep))}
 .topbar.solid{background:rgba(14,28,48,.96);backdrop-filter:blur(12px);box-shadow:var(--sh-2)}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;min-width:0}
 .brand-txt{display:flex;flex-direction:column;line-height:1.2}
@@ -106,29 +73,13 @@ a{-webkit-tap-highlight-color:transparent}
 .nav-desktop a:hover{color:var(--gold-2)}
 .nav-desktop a:hover::after{width:100%}
 .top-actions{display:flex;align-items:center;gap:10px}
-.cta-top{
-  background:var(--gold);color:var(--ink);text-decoration:none;font-weight:800;
-  font-size:.85rem;padding:9px 18px;border-radius:10px;display:inline-flex;gap:6px;align-items:center;
-  box-shadow:0 6px 18px rgba(213,167,58,.35);transition:transform .2s,background .2s;white-space:nowrap;
-}
-.cta-top:hover{background:var(--gold-2);transform:translateY(-2px)}
-.hamburger{
-  width:42px;height:42px;border-radius:10px;cursor:pointer;
-  background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.22);
-  display:none;align-items:center;justify-content:center;transition:background .2s;
-}
+.cta-top{background:var(--gold);color:var(--ink);text-decoration:none;font-weight:800;font-size:.85rem;padding:9px 18px;border-radius:10px;display:inline-flex;gap:6px;align-items:center;box-shadow:0 6px 18px rgba(213,167,58,.35);transition:transform .2s;white-space:nowrap;border:none;cursor:pointer;font-family:var(--font-body)}
+.cta-top:hover{transform:translateY(-2px)}
+.hamburger{width:42px;height:42px;border-radius:10px;cursor:pointer;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.22);display:none;align-items:center;justify-content:center}
 .hamburger:hover{background:rgba(255,255,255,.16)}
 
-/* ============================================================
-   Mobile Menu
-============================================================ */
 .m-overlay{position:fixed;inset:0;background:rgba(6,12,24,.62);backdrop-filter:blur(3px);z-index:1100;display:none}
-.m-menu{
-  position:fixed;top:0;bottom:0;right:auto;left:0;width:min(340px,88vw);z-index:1200;
-  background:linear-gradient(180deg,#0c2138,#081525);display:none;flex-direction:column;
-  padding:calc(20px + env(safe-area-inset-top)) 22px calc(24px + env(safe-area-inset-bottom));
-  overflow-y:auto;box-shadow:var(--sh-3);
-}
+.m-menu{position:fixed;top:0;bottom:0;right:auto;left:0;width:min(340px,88vw);z-index:1200;background:linear-gradient(180deg,#0c2138,#081525);display:none;flex-direction:column;padding:calc(20px + env(safe-area-inset-top)) 22px calc(24px + env(safe-area-inset-bottom));overflow-y:auto;box-shadow:var(--sh-3)}
 .m-menu.open,.m-overlay.open{display:flex}
 .m-menu.open{animation:mSlide .35s cubic-bezier(.2,.8,.3,1)}
 .m-overlay.open{animation:mFade .3s ease}
@@ -137,51 +88,29 @@ a{-webkit-tap-highlight-color:transparent}
 .m-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:14px}
 .m-close{background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;padding:6px 10px;border-radius:8px}
 .m-close:hover{background:rgba(255,255,255,.1)}
-.m-link{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.92);text-decoration:none;padding:13px 14px;border-radius:12px;font-weight:500;font-size:.98rem;margin-bottom:4px;transition:background .2s}
+.m-link{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.92);text-decoration:none;padding:13px 14px;border-radius:12px;font-weight:500;font-size:.98rem;margin-bottom:4px;transition:background .2s;border:none;background:none;width:100%;text-align:right;font-family:var(--font-body);cursor:pointer}
 .m-link:hover{background:rgba(213,167,58,.14);color:var(--gold-2)}
 .m-ico{width:26px;text-align:center;font-size:1.05rem}
 .m-cta{margin-top:auto;padding-top:18px;border-top:1px solid rgba(255,255,255,.1)}
-.m-cta a{display:flex;justify-content:center;align-items:center;gap:8px;background:var(--gold);color:var(--ink);font-weight:800;text-decoration:none;padding:14px;border-radius:12px;font-size:1rem}
+.m-cta .btn-form{display:flex;justify-content:center;align-items:center;gap:8px;background:var(--gold);color:var(--ink);font-weight:800;padding:14px;border-radius:12px;font-size:1rem;border:none;cursor:pointer;width:100%;font-family:var(--font-body)}
 .m-hours{color:#9fb0c6;font-size:.8rem;text-align:center;margin-top:12px}
 
-/* ============================================================
-   Hero
-============================================================ */
-.hero{
-  background:
-    radial-gradient(1100px 500px at 85% -10%, rgba(213,167,58,.16), transparent 60%),
-    radial-gradient(900px 480px at 10% 110%, rgba(27,64,102,.5), transparent 60%),
-    linear-gradient(180deg,#0c1a2e 0%, #0e1c30 55%, #10233c 100%);
-  color:#fff;
-  padding:calc(var(--tb-h) + clamp(36px,7vh,80px)) clamp(14px,4vw,40px) clamp(48px,8vh,90px);
-  position:relative;overflow:hidden;
-}
-.hero::after{
-  content:"";position:absolute;inset:auto 0 0 0;height:120px;
-  background:linear-gradient(180deg,transparent,var(--mist));pointer-events:none;
-}
+.hero{background:radial-gradient(1100px 500px at 85% -10%,rgba(213,167,58,.16),transparent 60%),radial-gradient(900px 480px at 10% 110%,rgba(27,64,102,.5),transparent 60%),linear-gradient(180deg,#0c1a2e 0%,#0e1c30 55%,#10233c 100%);color:#fff;padding:calc(var(--tb-h) + clamp(36px,7vh,80px)) clamp(14px,4vw,40px) clamp(48px,8vh,90px);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:120px;background:linear-gradient(180deg,transparent,var(--mist));pointer-events:none}
 .hero-inner{max-width:1160px;margin:auto;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,64px);align-items:center;position:relative;z-index:1}
-.eyebrow{
-  display:inline-flex;align-items:center;gap:8px;background:rgba(213,167,58,.14);
-  border:1px solid rgba(213,167,58,.45);color:var(--gold-2);
-  padding:6px 16px;border-radius:999px;font-size:.78rem;font-weight:700;margin-bottom:18px;
-}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(213,167,58,.14);border:1px solid rgba(213,167,58,.45);color:var(--gold-2);padding:6px 16px;border-radius:999px;font-size:.78rem;font-weight:700;margin-bottom:18px}
 .hero h1{font-family:var(--font-head);font-weight:900;line-height:1.35;margin-bottom:16px}
 .hero h1 .accent{color:var(--gold-2)}
 .hero .lead{color:#c6d2e2;max-width:56ch;margin-bottom:28px}
 .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;font-weight:800;border-radius:12px;transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer;border:none;font-family:var(--font-body)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;font-weight:800;border-radius:12px;transition:transform .2s,box-shadow .2s;cursor:pointer;border:none;font-family:var(--font-body)}
 .btn-gold{background:var(--gold);color:var(--ink);padding:15px 30px;font-size:1.02rem;box-shadow:0 10px 26px rgba(213,167,58,.38)}
-.btn-gold:hover{background:var(--gold-2);transform:translateY(-2px)}
+.btn-gold:hover{transform:translateY(-2px)}
 .btn-ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35);padding:13px 28px;font-size:1.02rem}
 .btn-ghost:hover{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.07)}
 
-/* بطاقة المحاضرة (Hero Visual) */
 .hero-visual{position:relative}
-.mock{
-  background:#fff;color:var(--text);border-radius:var(--r-lg);box-shadow:var(--sh-3);
-  overflow:hidden;max-width:430px;margin-inline-start:auto;
-}
+.mock{background:#fff;color:var(--text);border-radius:var(--r-lg);box-shadow:var(--sh-3);overflow:hidden;max-width:430px;margin-inline-start:auto}
 .mock-top{display:flex;align-items:center;gap:6px;background:#0b1526;padding:12px 16px}
 .dot{width:10px;height:10px;border-radius:50%}
 .dot.r{background:#ff5f57}.dot.y{background:#febc2e}.dot.g{background:#28c840}
@@ -195,51 +124,35 @@ a{-webkit-tap-highlight-color:transparent}
 .mock-bar{height:8px;background:var(--line);border-radius:99px;margin-top:14px;overflow:hidden}
 .mock-bar i{display:block;height:100%;width:78%;background:linear-gradient(90deg,var(--gold-deep),var(--gold-2));border-radius:99px}
 .mock-meta{font-size:.72rem;color:var(--muted);margin-top:8px}
-.mock-float{
-  position:absolute;background:#fff;color:var(--text);border-radius:12px;box-shadow:var(--sh-2);
-  padding:9px 14px;font-size:.78rem;font-weight:700;display:flex;gap:8px;align-items:center;
-}
+.mock-float{position:absolute;background:#fff;color:var(--text);border-radius:12px;box-shadow:var(--sh-2);padding:9px 14px;font-size:.78rem;font-weight:700;display:flex;gap:8px;align-items:center}
 .mf-1{top:-16px;inset-inline-start:-8px}
 .mf-2{bottom:-16px;inset-inline-end:-8px}
 
-/* Stats */
-.stats{
-  max-width:1160px;margin:clamp(28px,5vh,52px) auto 0;position:relative;z-index:1;
-  display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,2vw,20px);
-  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);
-  border-radius:var(--r-lg);padding:clamp(16px,3vw,28px);backdrop-filter:blur(6px);
-}
+.stats{max-width:1160px;margin:clamp(28px,5vh,52px) auto 0;position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,2vw,20px);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-lg);padding:clamp(16px,3vw,28px);backdrop-filter:blur(6px)}
 .stat{text-align:center}
 .stat b{display:block;font-family:var(--font-head);font-weight:900;color:var(--gold-2);font-size:clamp(1.3rem,3vw,2rem)}
 .stat span{color:#c6d2e2;font-size:clamp(.68rem,1.6vw,.82rem);font-weight:500}
 
-/* ============================================================
-   Blocks عامة
-============================================================ */
 .block{max-width:1160px;margin:auto;padding:clamp(44px,8vh,88px) clamp(14px,4vw,40px)}
 .block-head{text-align:center;max-width:720px;margin:0 auto clamp(26px,5vh,48px)}
 .block-head .eyebrow{background:rgba(19,49,86,.08);border-color:rgba(19,49,86,.25);color:var(--navy-2)}
 .block-head h2{font-family:var(--font-head);font-weight:900;color:var(--ink);line-height:1.4}
 .block-head p{color:var(--muted);margin-top:10px}
-.card{background:#fff;border-radius:var(--r-lg);box-shadow:var(--sh-1);border:1px solid var(--line)}
 
-/* Problems */
 .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(12px,2vw,20px)}
-.p-card{display:flex;gap:14px;background:#fff;border:1px solid #f0e4c8;background:linear-gradient(180deg,#fffdf8,#fff);border-radius:var(--r-md);padding:clamp(16px,2.4vw,24px);box-shadow:var(--sh-1)}
+.p-card{display:flex;gap:14px;background:linear-gradient(180deg,#fffdf8,#fff);border:1px solid #f0e4c8;border-radius:var(--r-md);padding:clamp(16px,2.4vw,24px);box-shadow:var(--sh-1)}
 .p-ico{width:44px;height:44px;border-radius:12px;background:var(--gold);color:var(--ink);font-weight:900;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
 .p-card h3{font-family:var(--font-head);font-weight:800;font-size:1rem;color:var(--ink);margin-bottom:6px}
 .p-card p{font-size:.88rem;color:var(--muted)}
 .callout{margin-top:clamp(18px,3vh,28px);background:var(--navy);color:#e8eef6;border-radius:var(--r-md);padding:clamp(18px,3vw,26px);text-align:center}
 .callout b{color:var(--gold-2)}
 
-/* Solution */
 .s-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:clamp(18px,2.6vw,28px);box-shadow:var(--sh-1);transition:transform .25s,box-shadow .25s}
 .s-card:hover{transform:translateY(-4px);box-shadow:var(--sh-2)}
 .s-num{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--navy),var(--navy-3));color:var(--gold-2);font-family:var(--font-head);font-weight:900;font-size:1.4rem;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
 .s-card h3{font-family:var(--font-head);font-weight:800;font-size:1.02rem;color:var(--ink);margin-bottom:8px}
 .s-card p{font-size:.88rem;color:var(--muted)}
 
-/* Subjects */
 .subj-wrap{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(18px,3vw,32px);box-shadow:var(--sh-1)}
 .tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:22px}
 .tab{padding:9px 18px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--navy-2);font-weight:700;font-size:.85rem;cursor:pointer;font-family:var(--font-body);transition:all .2s}
@@ -254,13 +167,14 @@ a{-webkit-tap-highlight-color:transparent}
 .chips{display:flex;gap:6px;flex-wrap:wrap}
 .chip{background:var(--mist);border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:.7rem;font-weight:700;color:var(--navy-2)}
 .subj-actions{margin-top:auto;display:flex;gap:8px}
-.subj-actions a{flex:1;text-align:center;text-decoration:none;font-weight:700;font-size:.8rem;padding:9px 10px;border-radius:10px}
+.subj-actions button,.subj-actions a{flex:1;text-align:center;text-decoration:none;font-weight:700;font-size:.8rem;padding:9px 10px;border-radius:10px;border:none;cursor:pointer;font-family:var(--font-body);transition:transform .2s}
 .a-detail{background:var(--navy);color:var(--gold-2)}
 .a-join{background:var(--gold);color:var(--ink)}
+.subj-actions button:hover{transform:translateY(-2px)}
 .subj-note{text-align:center;font-size:.82rem;color:var(--muted);margin-top:18px}
 .subj-note a{color:var(--gold-deep);font-weight:800}
 
-/* Samples */
+.tst-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
 .smp{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;box-shadow:var(--sh-1);transition:transform .25s,box-shadow .25s}
 .smp:hover{transform:translateY(-4px);box-shadow:var(--sh-2)}
 .smp-img{height:170px;display:flex;align-items:center;justify-content:center;position:relative;font-size:3.4rem}
@@ -273,7 +187,6 @@ a{-webkit-tap-highlight-color:transparent}
 .smp-body p{font-size:.82rem;color:var(--muted);margin-bottom:12px}
 .smp-body a{font-size:.82rem;font-weight:800;color:var(--gold-deep);text-decoration:none}
 
-/* Journey */
 .journey{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;position:relative;counter-reset:step}
 .journey::before{content:"";position:absolute;top:27px;right:8%;left:8%;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);z-index:0}
 .j-step{text-align:center;position:relative;z-index:1}
@@ -281,8 +194,7 @@ a{-webkit-tap-highlight-color:transparent}
 .j-step h4{font-family:var(--font-head);font-weight:800;font-size:.95rem;color:var(--ink);margin-bottom:4px}
 .j-step p{font-size:.78rem;color:var(--muted)}
 
-/* Trial */
-.trial{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-3) 100%);border-radius:var(--r-lg);color:#fff;text-align:center;padding:clamp(32px,6vw,64px) clamp(18px,4vw,48px);position:relative;overflow:hidden;box-shadow:var(--sh-3)}
+.trial{background:linear-gradient(135deg,var(--navy),var(--navy-3));border-radius:var(--r-lg);color:#fff;text-align:center;padding:clamp(32px,6vw,64px) clamp(18px,4vw,48px);position:relative;overflow:hidden;box-shadow:var(--sh-3)}
 .trial::before,.trial::after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;pointer-events:none}
 .trial::before{top:-40%;inset-inline-end:-15%;background:radial-gradient(circle,rgba(213,167,58,.16),transparent 70%)}
 .trial::after{bottom:-40%;inset-inline-start:-15%;background:radial-gradient(circle,rgba(213,167,58,.1),transparent 70%)}
@@ -294,19 +206,16 @@ a{-webkit-tap-highlight-color:transparent}
 .t-feat{display:flex;gap:8px;align-items:center;font-size:.88rem;font-weight:700;color:#e8eef6}
 .t-check{width:22px;height:22px;border-radius:50%;background:var(--gold);color:var(--ink);font-size:.7rem;font-weight:900;display:inline-flex;align-items:center;justify-content:center}
 
-/* Why */
 .w-card{display:flex;gap:14px;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:clamp(16px,2.4vw,24px);box-shadow:var(--sh-1)}
 .w-ico{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--navy-3));color:var(--gold-2);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
 .w-card h3{font-family:var(--font-head);font-weight:800;font-size:.98rem;color:var(--ink);margin-bottom:6px}
 .w-card p{font-size:.86rem;color:var(--muted)}
 .w-full{grid-column:1/-1}
 
-/* Trust */
 .uni-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:clamp(26px,5vh,40px)}
 .uni{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:18px 10px;text-align:center;box-shadow:var(--sh-1)}
 .uni .ico{font-size:1.7rem;margin-bottom:6px}
 .uni div:last-child{font-size:.8rem;font-weight:700;color:var(--navy-2)}
-.tst-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
 .tst{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:22px;box-shadow:var(--sh-1)}
 .stars{color:var(--gold);letter-spacing:2px;margin-bottom:10px}
 .tst q{display:block;font-size:.88rem;color:var(--text);line-height:1.9;margin-bottom:16px;quotes:"\201C" "\201D"}
@@ -315,7 +224,6 @@ a{-webkit-tap-highlight-color:transparent}
 .tst-who b{display:block;font-size:.88rem;color:var(--ink)}
 .tst-who span{font-size:.74rem;color:var(--muted)}
 
-/* Pricing */
 .price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;align-items:stretch}
 .price{background:#fff;border:1.5px solid var(--line);border-radius:var(--r-md);padding:26px 20px;text-align:center;display:flex;flex-direction:column;position:relative;box-shadow:var(--sh-1)}
 .price.feat{background:linear-gradient(160deg,var(--navy),var(--navy-3));border-color:var(--gold);color:#fff;box-shadow:var(--sh-3)}
@@ -338,7 +246,6 @@ a{-webkit-tap-highlight-color:transparent}
 .price-note p{font-size:.88rem;color:var(--text);margin-bottom:12px}
 .btn-sm{background:var(--gold);color:var(--ink);padding:10px 22px;font-size:.88rem;border-radius:10px}
 
-/* FAQ */
 .faq-wrap{max-width:820px;margin:auto}
 .faq{background:#fff;border:1px solid var(--line);border-radius:var(--r-sm);margin-bottom:10px;overflow:hidden}
 .faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;background:none;border:none;cursor:pointer;font-family:var(--font-body);font-weight:700;font-size:.95rem;color:var(--ink);padding:16px 18px;text-align:right}
@@ -348,7 +255,6 @@ a{-webkit-tap-highlight-color:transparent}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
 .faq-a > div{padding:0 18px 16px;font-size:.88rem;color:var(--muted);line-height:1.9}
 
-/* Final CTA */
 .final{background:linear-gradient(135deg,var(--navy),var(--navy-3));border-radius:var(--r-lg);color:#fff;text-align:center;padding:clamp(36px,6vw,64px) clamp(18px,4vw,48px);position:relative;overflow:hidden;box-shadow:var(--sh-3)}
 .final h2{font-family:var(--font-head);font-weight:900;margin-bottom:14px}
 .final h2 .accent{color:var(--gold-2)}
@@ -356,7 +262,6 @@ a{-webkit-tap-highlight-color:transparent}
 .final-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .final .hours{margin-top:22px;color:#9fb0c6;font-size:.85rem}
 
-/* Site Bottom */
 .bottom{background:var(--navy);color:#c6d2e2;border-radius:var(--r-lg);padding:clamp(28px,5vw,48px) clamp(18px,4vw,40px) 22px;margin-bottom:14px}
 .bottom-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:clamp(20px,3vw,36px);margin-bottom:28px}
 .bottom h4{color:var(--gold-2);font-family:var(--font-head);font-weight:800;font-size:.95rem;margin-bottom:14px}
@@ -372,25 +277,66 @@ a{-webkit-tap-highlight-color:transparent}
 .socials a:hover{background:var(--gold);transform:translateY(-2px)}
 .bottom-line{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;text-align:center;font-size:.75rem;color:#8fa0b8}
 
-/* WhatsApp Float */
-.wa-float{
-  position:fixed;bottom:calc(16px + env(safe-area-inset-bottom));left:16px;z-index:900;
-  width:54px;height:54px;border-radius:50%;background:var(--wa);color:#fff;
-  display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(21,148,71,.4);
-  transition:transform .2s;
-}
+/* Modal */
+.modal-root{position:fixed;inset:0;z-index:2000;display:none;align-items:center;justify-content:center;padding:16px;opacity:0;transition:opacity .25s}
+.modal-root.open{display:flex;opacity:1}
+.modal-bg{position:absolute;inset:0;background:rgba(5,12,24,.72);backdrop-filter:blur(8px);animation:mFade .3s ease}
+.modal{position:relative;background:#fff;border-radius:var(--r-lg);width:min(520px,100%);max-height:calc(100vh - 32px);overflow-y:auto;box-shadow:0 30px 80px rgba(0,0,0,.4);animation:modalIn .35s cubic-bezier(.2,.8,.3,1)}
+@keyframes modalIn{from{transform:translateY(20px) scale(.98);opacity:0}to{transform:none;opacity:1}}
+.modal-head{background:linear-gradient(135deg,var(--navy),var(--navy-3));color:#fff;padding:22px 24px;border-radius:var(--r-lg) var(--r-lg) 0 0;position:relative;overflow:hidden}
+.modal-head::before{content:"";position:absolute;top:-30%;inset-inline-end:-10%;width:180px;height:180px;background:radial-gradient(circle,rgba(213,167,58,.25),transparent 70%);border-radius:50%}
+.modal-head > *{position:relative;z-index:1}
+.modal-head .eyebrow{background:rgba(213,167,58,.2);border-color:rgba(213,167,58,.5);color:var(--gold-2);padding:4px 12px;font-size:.72rem;margin-bottom:8px}
+.modal-head h2{font-family:var(--font-head);font-weight:900;font-size:1.25rem;margin-bottom:4px}
+.modal-head p{font-size:.82rem;color:#c6d2e2}
+.modal-close{position:absolute;top:14px;inset-inline-end:14px;background:rgba(255,255,255,.1);border:none;color:#fff;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:2}
+.modal-close:hover{background:rgba(255,255,255,.22)}
+
+.modal-body{padding:22px 24px}
+.form-group{margin-bottom:16px}
+.form-label{display:block;font-weight:700;font-size:.88rem;color:var(--ink);margin-bottom:7px}
+.form-label .req{color:var(--danger);margin-inline-start:2px}
+.form-hint{font-size:.72rem;color:var(--muted);font-weight:500;margin-top:4px}
+.form-input,.form-select{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:var(--r-sm);font-family:var(--font-body);font-size:.95rem;color:var(--ink);background:#fff;transition:border-color .2s,box-shadow .2s}
+.form-input:focus,.form-select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 4px rgba(213,167,58,.15)}
+.form-input::placeholder{color:#b5bfcc}
+.form-input.err,.form-select.err{border-color:var(--danger);box-shadow:0 0 0 4px rgba(208,68,56,.12)}
+.form-error{font-size:.76rem;color:var(--danger);font-weight:600;margin-top:5px;display:none}
+.form-error.show{display:block}
+.form-select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%235d6c85' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");background-repeat:no-repeat;background-position:left 14px center;padding-left:36px;cursor:pointer}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-group.full{grid-column:1/-1}
+.subject-preview{background:linear-gradient(135deg,#fdf8ea,#fffdf8);border:1.5px solid #f0e4c8;border-radius:var(--r-sm);padding:12px 14px;display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.subject-preview .sp-ico{width:34px;height:34px;background:var(--gold);color:var(--ink);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;font-weight:900}
+.subject-preview .sp-txt{flex:1;font-size:.85rem;color:var(--ink)}
+.subject-preview .sp-txt b{display:block;font-weight:800;margin-bottom:2px}
+.subject-preview .sp-txt span{color:var(--muted);font-size:.75rem}
+
+.modal-actions{display:flex;gap:10px;padding:18px 24px;border-top:1px solid var(--line);background:var(--mist);border-radius:0 0 var(--r-lg) var(--r-lg)}
+.btn-submit{flex:1;background:var(--gold);color:var(--ink);padding:14px;border-radius:var(--r-sm);font-weight:800;font-size:.98rem;border:none;cursor:pointer;font-family:var(--font-body);display:inline-flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 6px 18px rgba(213,167,58,.3);transition:transform .2s,opacity .2s}
+.btn-submit:hover{transform:translateY(-1px)}
+.btn-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.btn-cancel{background:#fff;color:var(--navy);padding:14px 22px;border-radius:var(--r-sm);font-weight:700;font-size:.95rem;border:1.5px solid var(--line);cursor:pointer;font-family:var(--font-body);transition:background .2s}
+.btn-cancel:hover{background:var(--mist)}
+.spinner{display:inline-block;width:16px;height:16px;border:2.5px solid rgba(10,20,36,.2);border-top-color:var(--ink);border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.modal-success{text-align:center;padding:30px 24px}
+.modal-success .ok-icon{width:72px;height:72px;margin:0 auto 16px;background:var(--success);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.2rem;animation:popIn .5s cubic-bezier(.2,1.4,.4,1)}
+@keyframes popIn{from{transform:scale(0)}to{transform:scale(1)}}
+.modal-success h3{font-family:var(--font-head);font-weight:900;font-size:1.3rem;color:var(--ink);margin-bottom:8px}
+.modal-success p{color:var(--muted);font-size:.9rem;line-height:1.8;margin-bottom:18px}
+.modal-success .wa-backup{background:#eaf7ef;border:1.5px solid #c8e9d0;color:#0e5d2e;padding:14px;border-radius:var(--r-sm);font-size:.84rem;line-height:1.7;margin-bottom:18px}
+.modal-success .wa-backup a{color:#0e5d2e;font-weight:800}
+.modal-success .close-btn{background:var(--navy);color:var(--gold-2);padding:12px 28px;border-radius:var(--r-sm);font-weight:700;font-size:.92rem;border:none;cursor:pointer;font-family:var(--font-body)}
+
+.wa-float{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom));left:16px;z-index:900;width:54px;height:54px;border-radius:50%;background:var(--wa);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(21,148,71,.4);transition:transform .2s}
 .wa-float:hover{transform:scale(1.08)}
 
-/* Reveal on scroll */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
 .reveal.in{opacity:1;transform:none}
 
-/* ============================================================
-   BREAKPOINTS — من 320px حتى الشاشات الكبيرة
-============================================================ */
-@media (min-width:1400px){
-  .block,.hero-inner,.stats{max-width:1240px}
-}
+@media (min-width:1400px){.block,.hero-inner,.stats{max-width:1240px}}
 @media (max-width:960px){
   .nav-desktop{display:none}
   .cta-top{display:none}
@@ -399,8 +345,7 @@ a{-webkit-tap-highlight-color:transparent}
   .hero .lead{margin-inline:auto}
   .hero-ctas{justify-content:center}
   .mock{margin:26px auto 0}
-  .mf-1{inset-inline-start:4%}
-  .mf-2{inset-inline-end:4%}
+  .mf-1{inset-inline-start:4%}.mf-2{inset-inline-end:4%}
   .stats{grid-template-columns:repeat(2,1fr)}
   .journey{grid-template-columns:repeat(2,1fr)}
   .journey::before{display:none}
@@ -413,13 +358,16 @@ a{-webkit-tap-highlight-color:transparent}
   .j-step{display:flex;gap:14px;text-align:right;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:14px}
   .j-num{margin:0;width:46px;height:46px;font-size:1.05rem;flex-shrink:0;border-color:#fff}
   .block{padding-top:44px;padding-bottom:44px}
+  .form-row{grid-template-columns:1fr}
+  .modal-body{padding:18px}
+  .modal-actions{padding:14px}
+  .modal-head{padding:18px}
 }
 @media (max-width:560px){
   .bottom-grid{grid-template-columns:1fr;text-align:center}
   .b-logo{justify-content:center}
   .socials{justify-content:center}
-  .hero-ctas .btn{width:100%}
-  .final-btns .btn{width:100%}
+  .hero-ctas .btn,.final-btns .btn{width:100%}
   .mock-float{display:none}
 }
 @media (max-width:400px){
@@ -429,6 +377,9 @@ a{-webkit-tap-highlight-color:transparent}
   .tabs{gap:6px}
   .tab{padding:8px 13px;font-size:.76rem}
   .faq-q{font-size:.88rem;padding:14px}
+  .modal{border-radius:18px}
+  .modal-head{border-radius:18px 18px 0 0;padding:16px}
+  .modal-head h2{font-size:1.1rem}
 }
 @media (max-width:340px){
   .brand-name{font-size:.95rem}
@@ -444,16 +395,12 @@ a{-webkit-tap-highlight-color:transparent}
 </head>
 <body>
 
-<!-- ===== Topbar ===== -->
+<!-- Topbar -->
 <div class="topbar" id="topbar">
-  <a class="brand" href="https://irtiqaa-ksa.github.io/.com/" target="_blank">
-    <div class="brand-txt">
-      <span class="brand-name">ارتقاء</span>
-      <span class="brand-tag">الهندسة المدنية</span>
-    </div>
-    <img class="brand-logo" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5nl7CCqQ-4HI6rT_ed-XnI5XWXXbRzmBLiPM8axh0vQbcXEB45ALFiPEvtU57a-dzBAeBKT2ARZJmigzXBYNgVG-Q0y_oXFp78Quwo561IksZxYkH_kZ5CPiCDcnOXo3Fh_U2ueMnTw3gv5vfgIPnJ8XXMCRBHwcfLpxJJr5O01w_b24wpT7JqTdteaJi/s845/333087.png" alt="شعار ارتقاء ASCEND">
+  <a class="brand" href="https://irtiqaa-ksa.github.io/.com/">
+    <div class="brand-txt"><span class="brand-name">ارتقاء</span><span class="brand-tag">الهندسة المدنية</span></div>
+    <img class="brand-logo" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5nl7CCqQ-4HI6rT_ed-XnI5XWXXbRzmBLiPM8axh0vQbcXEB45ALFiPEvtU57a-dzBAeBKT2ARZJmigzXBYNgVG-Q0y_oXFp78Quwo561IksZxYkH_kZ5CPiCDcnOXo3Fh_U2ueMnTw3gv5vfgIPnJ8XXMCRBHwcfLpxJJr5O01w_b24wpT7JqTdteaJi/s845/333087.png" alt="شعار ارتقاء">
   </a>
-
   <div class="nav-desktop">
     <a href="#problem">لماذا ارتقاء؟</a>
     <a href="#subjects">المواد</a>
@@ -461,37 +408,36 @@ a{-webkit-tap-highlight-color:transparent}
     <a href="#pricing">الأسعار</a>
     <a href="#trial">جرّب مجانًا</a>
   </div>
-
   <div class="top-actions">
-    <a class="cta-top" href="https://wa.me/966576073342?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%20%D9%81%D9%8A%20%D9%85%D9%86%D8%B5%D8%A9%20%D8%A7%D8%B1%D8%AA%D9%82%D8%A7%D8%A1" target="_blank"><span>📝</span><span>سجّل الآن</span></a>
-    <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" aria-label="فتح القائمة">
+    <button class="cta-top" data-form="open" data-subject="عام"><span>📝</span><span>سجّل الآن</span></button>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="القائمة">
       <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
     </button>
   </div>
 </div>
 
-<!-- ===== Mobile Menu ===== -->
+<!-- Mobile Menu -->
 <div class="m-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
 <div class="m-menu" id="mobileMenu">
   <div class="m-head">
     <div class="b-logo"><b>ارتقاء</b></div>
     <button class="m-close" onclick="toggleMenu()" aria-label="إغلاق">✕</button>
   </div>
-  <a class="m-link" href="#problem" onclick="toggleMenu()"><span class="m-ico">❓</span>لماذا ارتقاء؟</a>
-  <a class="m-link" href="#subjects" onclick="toggleMenu()"><span class="m-ico">📚</span>المواد</a>
-  <a class="m-link" href="#samples" onclick="toggleMenu()"><span class="m-ico">📝</span>نماذج الشرح</a>
-  <a class="m-link" href="#pricing" onclick="toggleMenu()"><span class="m-ico">💰</span>الأسعار</a>
-  <a class="m-link" href="#trial" onclick="toggleMenu()"><span class="m-ico">🎬</span>جرّب مجانًا</a>
-  <a class="m-link" href="#faq" onclick="toggleMenu()"><span class="m-ico">💬</span>الأسئلة الشائعة</a>
-  <a class="m-link" href="https://irtiqaa-ksa.github.io/.com/about/" target="_blank" onclick="toggleMenu()"><span class="m-ico">ℹ️</span>من نحن</a>
-  <a class="m-link" href="https://irtiqaa-ksa.github.io/.com/contact/" target="_blank" onclick="toggleMenu()"><span class="m-ico">📞</span>تواصل معنا</a>
+  <button class="m-link" onclick="scrollTo2('problem');toggleMenu()"><span class="m-ico">❓</span>لماذا ارتقاء؟</button>
+  <button class="m-link" onclick="scrollTo2('subjects');toggleMenu()"><span class="m-ico">📚</span>المواد</button>
+  <button class="m-link" onclick="scrollTo2('samples');toggleMenu()"><span class="m-ico">📝</span>نماذج الشرح</button>
+  <button class="m-link" onclick="scrollTo2('pricing');toggleMenu()"><span class="m-ico">💰</span>الأسعار</button>
+  <button class="m-link" onclick="scrollTo2('trial');toggleMenu()"><span class="m-ico">🎬</span>جرّب مجانًا</button>
+  <button class="m-link" onclick="scrollTo2('faq');toggleMenu()"><span class="m-ico">💬</span>الأسئلة الشائعة</button>
+  <a class="m-link" href="https://irtiqaa-ksa.github.io/.com/about/" target="_blank"><span class="m-ico">ℹ️</span>من نحن</a>
+  <a class="m-link" href="https://irtiqaa-ksa.github.io/.com/contact/" target="_blank"><span class="m-ico">📞</span>تواصل معنا</a>
   <div class="m-cta">
-    <a href="https://wa.me/966576073342?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%20%D9%81%D9%8A%20%D9%85%D9%86%D8%B5%D8%A9%20%D8%A7%D8%B1%D8%AA%D9%82%D8%A7%D8%A1" target="_blank"><span>📝</span>سجّل الآن عبر واتساب</a>
+    <button class="btn-form" data-form="open" data-subject="عام"><span>📝</span>سجّل الآن عبر النموذج</button>
     <div class="m-hours">🕐 السبت - الخميس: 9ص - 10م</div>
   </div>
 </div>
 
-<!-- ===== Hero ===== -->
+<!-- Hero -->
 <div class="hero">
   <div class="hero-inner">
     <div>
@@ -499,23 +445,19 @@ a{-webkit-tap-highlight-color:transparent}
       <h1 class="fs-hero">هل تحفظ المعادلات دون أن تفهمها؟<br><span class="accent">ارتقاء</span> تساعدك على الفهم أولاً</h1>
       <p class="lead fs-lead">منصة تعليمية لطلاب الهندسة المدنية: شرح عميق للمواد الصعبة، حل خطوة بخطوة للمسائل، ومراجعات مركزة قبل الاختبار. نبدأ من الأساس، وننتهي بثقتك بنفسك.</p>
       <div class="hero-ctas">
-        <a class="btn btn-gold" href="https://wa.me/966576073342?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9%20%D8%AA%D8%AC%D8%B1%D9%8A%D8%A8%D9%8A%D8%A9%20%D9%85%D8%AC%D8%A7%D9%86%D9%8A%D8%A9" target="_blank"><span>🎬</span>احجز محاضرة تجريبية مجانية</a>
+        <button class="btn btn-gold" data-form="open" data-subject="محاضرة تجريبية"><span>🎬</span>احجز محاضرة تجريبية مجانية</button>
         <a class="btn btn-ghost" href="#subjects"><span>📚</span>استكشف المواد</a>
       </div>
     </div>
-
     <div class="hero-visual">
       <div class="mock-float mf-1">📄 مذكرة PDF جاهزة</div>
       <div class="mock">
-        <div class="mock-top">
-          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-          <span class="mock-title">محاضرة مباشرة — تحليل إنشائي</span>
-        </div>
+        <div class="mock-top"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="mock-title">محاضرة مباشرة — تحليل إنشائي</span></div>
         <div class="mock-body">
           <div class="mock-q">كمرة مستمرة — 3 بحور</div>
-          <div class="mock-step"><b>1</b> تحديد درجة عدم التحديد</div>
-          <div class="mock-step"><b>2</b> كتابة معادلات التوافق</div>
-          <div class="mock-step done"><b>✓</b> رسم مخطط العزوم</div>
+          <div class="mock-step"><b>1</b>تحديد درجة عدم التحديد</div>
+          <div class="mock-step"><b>2</b>كتابة معادلات التوافق</div>
+          <div class="mock-step done"><b>✓</b>رسم مخطط العزوم</div>
           <div class="mock-bar"><i></i></div>
           <div class="mock-meta">نسبة إتقان الموضوع 78%</div>
         </div>
@@ -523,7 +465,6 @@ a{-webkit-tap-highlight-color:transparent}
       <div class="mock-float mf-2">💬 رد على سؤالك خلال ساعات</div>
     </div>
   </div>
-
   <div class="stats">
     <div class="stat"><b>+200</b><span>طالب وثق في ارتقاء</span></div>
     <div class="stat"><b>10+</b><span>مادة هندسية نغطيها</span></div>
@@ -532,13 +473,9 @@ a{-webkit-tap-highlight-color:transparent}
   </div>
 </div>
 
-<!-- ===== Problem ===== -->
+<!-- Problem -->
 <div class="block" id="problem">
-  <div class="block-head reveal">
-    <div class="eyebrow">المشكلة</div>
-    <h2 class="fs-h2">هل تعاني من هذه المشاكل؟</h2>
-    <p>مشاكل يعرفها كل طالب هندسة مدنية، وربما تواجهها أنت الآن</p>
-  </div>
+  <div class="block-head reveal"><div class="eyebrow">المشكلة</div><h2 class="fs-h2">هل تعاني من هذه المشاكل؟</h2><p>مشاكل يعرفها كل طالب هندسة مدنية، وربما تواجهها أنت الآن</p></div>
   <div class="grid-2 reveal">
     <div class="p-card"><div class="p-ico">!</div><div><h3>تحفظ المعادلات دون فهم</h3><p>تكتب كل المعادلات في المحاضرة، لكن لا تعرف متى تستخدمها أو من أين جاءت.</p></div></div>
     <div class="p-card"><div class="p-ico">!</div><div><h3>مسائل الاختبار مختلفة</h3><p>درست أمثلة الكتاب، لكن الاختبار يأتي بمسائل لم ترها من قبل فتقف عاجزًا.</p></div></div>
@@ -548,13 +485,9 @@ a{-webkit-tap-highlight-color:transparent}
   <div class="callout reveal">إذا كانت أي من هذه المشاكل تصفك فأنت لست وحدك — <b>ارتقاء</b> صُممت خصيصًا لحلها بطريقة منهجية.</div>
 </div>
 
-<!-- ===== Solution ===== -->
+<!-- Solution -->
 <div class="block" style="padding-top:0">
-  <div class="block-head reveal">
-    <div class="eyebrow">الحل</div>
-    <h2 class="fs-h2">كيف نحل هذه المشاكل؟</h2>
-    <p>طريقة ارتقاء مبنية على 4 ركائز أساسية</p>
-  </div>
+  <div class="block-head reveal"><div class="eyebrow">الحل</div><h2 class="fs-h2">كيف نحل هذه المشاكل؟</h2><p>طريقة ارتقاء مبنية على 4 ركائز أساسية</p></div>
   <div class="grid-2 reveal">
     <div class="s-card"><div class="s-num">1</div><h3>شرح يبني الفهم من الأساس</h3><p>نبني المفهوم خطوة بخطوة: لماذا ظهرت المعادلة؟ من أين جاءت؟ ومتى تستخدمها ومتى لا تستخدمها؟</p></div>
     <div class="s-card"><div class="s-num">2</div><h3>حل مسائل حقيقية خطوة بخطوة</h3><p>نحل مسائل متنوعة الصعوبة، نشرح كل خطوة بصوت مسموع، ونوضح لماذا اخترنا هذا الطريق دون غيره.</p></div>
@@ -563,13 +496,9 @@ a{-webkit-tap-highlight-color:transparent}
   </div>
 </div>
 
-<!-- ===== Subjects ===== -->
+<!-- Subjects -->
 <div class="block" id="subjects" style="padding-top:0">
-  <div class="block-head reveal">
-    <div class="eyebrow">المواد</div>
-    <h2 class="fs-h2">المواد التي ندرسها</h2>
-    <p>كل مادة مُعدّة كمنتج تعليمي كامل، وليس مجرد قائمة محاضرات</p>
-  </div>
+  <div class="block-head reveal"><div class="eyebrow">المواد</div><h2 class="fs-h2">المواد التي ندرسها</h2><p>كل مادة مُعدّة كمنتج تعليمي كامل، وليس مجرد قائمة محاضرات</p></div>
   <div class="subj-wrap reveal">
     <div class="tabs">
       <button class="tab active" data-category="all">الكل</button>
@@ -579,50 +508,33 @@ a{-webkit-tap-highlight-color:transparent}
       <button class="tab" data-category="other">أخرى</button>
     </div>
     <div class="subj-grid" id="subjectsGrid"></div>
-    <p class="subj-note">لا ترى مادتك؟ <a href="https://wa.me/966576073342?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%85%D8%A7%D8%AF%D8%A9%20%D8%BA%D9%8A%D8%B1%20%D9%85%D9%88%D8%AC%D9%88%D8%AF%D8%A9" target="_blank">اطلبها عبر واتساب</a> ونعمل على إضافتها.</p>
+    <p class="subj-note">لا ترى مادتك؟ <a href="#" data-form="open" data-subject="مادة غير موجودة">اطلبها عبر نموذج التسجيل</a> ونعمل على إضافتها.</p>
   </div>
 </div>
 
-<!-- ===== Samples ===== -->
+<!-- Samples -->
 <div class="block" id="samples" style="padding-top:0">
-  <div class="block-head reveal">
-    <div class="eyebrow">نماذج حقيقية</div>
-    <h2 class="fs-h2">شاهد أسلوب الشرح بنفسك</h2>
-    <p>نماذج من شروحاتنا ومذكراتنا حتى تتأكد قبل أن تدفع</p>
-  </div>
+  <div class="block-head reveal"><div class="eyebrow">نماذج حقيقية</div><h2 class="fs-h2">شاهد أسلوب الشرح بنفسك</h2><p>نماذج من شروحاتنا ومذكراتنا حتى تتأكد قبل أن تدفع</p></div>
   <div class="tst-grid reveal">
-    <div class="smp">
-      <div class="smp-img g1">📐<span class="smp-tag">تحليل إنشائي</span></div>
-      <div class="smp-body"><h4>حل كمرة مستمرة</h4><p>شرح كامل لطريقة القوى في حل كمرة مستمرة غير محددة ستاتيكيًا مع رسم مخططات العزوم والقص.</p><a href="https://wa.me/966576073342?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D8%B4%D8%A7%D9%87%D8%AF%D8%A9%20%D9%86%D9%85%D9%88%D8%B0%D8%AC%20%D8%B4%D8%B1%D8%AD%20%D9%83%D9%85%D8%B1%D8%A9%20%D9%85%D8%B3%D8%AA%D9%85%D8%B1%D8%A9" target="_blank">اطلب النموذج كاملًا ←</a></div>
-    </div>
-    <div class="smp">
-      <div class="smp-img g2">🏗️<span class="smp-tag">خرسانة مسلحة</span></div>
-      <div class="smp-body"><h4>تصميم قطاع مستطيل</h4><p>تصميم قطاع تحت تأثير عزم انحناء مع حساب حديد التسليح والتأكد من شروط الكود السعودي.</p><a href="https://wa.me/966576073342?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D8%B4%D8%A7%D9%87%D8%AF%D8%A9%20%D9%86%D9%85%D9%88%D8%B0%D8%AC%20%D8%AA%D8%B5%D9%85%D9%8A%D9%85%20%D8%AE%D8%B1%D8%B3%D8%A7%D9%86%D8%A9" target="_blank">اطلب النموذج كاملًا ←</a></div>
-    </div>
-    <div class="smp">
-      <div class="smp-img g3">💧<span class="smp-tag">هيدروليكا</span></div>
-      <div class="smp-body"><h4>تصميم شبكة مواسير</h4><p>حل شبكة مواسير بمعادلات دارسي-فايسباخ وهاردي كروس مع شرح كل تكرار.</p><a href="https://wa.me/966576073342?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D8%B4%D8%A7%D9%87%D8%AF%D8%A9%20%D9%86%D9%85%D9%88%D8%B0%D8%AC%20%D8%B4%D8%A8%D9%83%D8%A9%20%D9%85%D9%88%D8%A7%D8%B3%D9%8A%D8%B1" target="_blank">اطلب النموذج كاملًا ←</a></div>
-    </div>
+    <div class="smp"><div class="smp-img g1">📐<span class="smp-tag">تحليل إنشائي</span></div><div class="smp-body"><h4>حل كمرة مستمرة</h4><p>شرح كامل لطريقة القوى في حل كمرة مستمرة غير محددة ستاتيكيًا.</p><a href="#" data-form="open" data-subject="التحليل الإنشائي">اطلب النموذج كاملًا ←</a></div></div>
+    <div class="smp"><div class="smp-img g2">🏗️<span class="smp-tag">خرسانة مسلحة</span></div><div class="smp-body"><h4>تصميم قطاع مستطيل</h4><p>تصميم قطاع تحت تأثير عزم انحناء مع حساب حديد التسليح.</p><a href="#" data-form="open" data-subject="الخرسانة المسلحة">اطلب النموذج كاملًا ←</a></div></div>
+    <div class="smp"><div class="smp-img g3">💧<span class="smp-tag">هيدروليكا</span></div><div class="smp-body"><h4>تصميم شبكة مواسير</h4><p>حل شبكة مواسير بمعادلات دارسي-فايسباخ وهاردي كروس.</p><a href="#" data-form="open" data-subject="الهيدروليكا">اطلب النموذج كاملًا ←</a></div></div>
   </div>
 </div>
 
-<!-- ===== Journey ===== -->
+<!-- Journey -->
 <div class="block" style="padding-top:0">
-  <div class="block-head reveal">
-    <div class="eyebrow">رحلة التسجيل</div>
-    <h2 class="fs-h2">5 خطوات فقط وتبدأ الدراسة</h2>
-    <p>عملية بسيطة وواضحة بدون أي تعقيد</p>
-  </div>
+  <div class="block-head reveal"><div class="eyebrow">رحلة التسجيل</div><h2 class="fs-h2">5 خطوات فقط وتبدأ الدراسة</h2><p>عملية بسيطة وواضحة بدون أي تعقيد</p></div>
   <div class="journey reveal">
     <div class="j-step"><div class="j-num">1</div><div><h4>اختر مادتك</h4><p>تصفح المواد واختر ما تحتاج دراسته</p></div></div>
-    <div class="j-step"><div class="j-num">2</div><div><h4>تواصل معنا</h4><p>أرسل رسالة واتساب ونؤكد التفاصيل</p></div></div>
-    <div class="j-step"><div class="j-num">3</div><div><h4>أكمل الدفع</h4><p>تحويل بنكي محلي وتأكيد فوري</p></div></div>
-    <div class="j-step"><div class="j-num">4</div><div><h4>انضم للمجموعة</h4><p>مجموعة واتساب خاصة بالمادة</p></div></div>
+    <div class="j-step"><div class="j-num">2</div><div><h4>املأ النموذج</h4><p>أدخل بياناتك البسيطة في دقيقة واحدة</p></div></div>
+    <div class="j-step"><div class="j-num">3</div><div><h4>تأكيد التفاصيل</h4><p>نتواصل معك لتأكيد الموعد والسعر</p></div></div>
+    <div class="j-step"><div class="j-num">4</div><div><h4>أكمل الدفع</h4><p>تحويل بنكي محلي وتأكيد فوري</p></div></div>
     <div class="j-step"><div class="j-num">5</div><div><h4>ابدأ الدراسة</h4><p>محاضرات مباشرة وتسجيلات للمراجعة</p></div></div>
   </div>
 </div>
 
-<!-- ===== Trial ===== -->
+<!-- Trial -->
 <div class="block" id="trial" style="padding-top:0">
   <div class="trial reveal">
     <div class="eyebrow" style="background:rgba(213,167,58,.2);border-color:rgba(213,167,58,.5)">⭐ الأهم قبل أن تدفع</div>
@@ -633,32 +545,25 @@ a{-webkit-tap-highlight-color:transparent}
       <div class="t-feat"><span class="t-check">✓</span>بدون التزام</div>
       <div class="t-feat"><span class="t-check">✓</span>تقرير بعد الجلسة</div>
     </div>
-    <a class="btn btn-gold" href="https://wa.me/966576073342?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9%20%D8%AA%D8%AC%D8%B1%D9%8A%D8%A8%D9%8A%D8%A9%20%D9%85%D8%AC%D8%A7%D9%86%D9%8A%D8%A9%20%D9%81%D9%8A%20%D9%85%D8%A7%D8%AF%D8%A9%20%3A%20______" target="_blank"><span>🎬</span>احجز محاضرتك التجريبية الآن</a>
+    <button class="btn btn-gold" data-form="open" data-subject="محاضرة تجريبية"><span>🎬</span>احجز محاضرتك التجريبية الآن</button>
   </div>
 </div>
 
-<!-- ===== Why ===== -->
+<!-- Why -->
 <div class="block" style="padding-top:0">
-  <div class="block-head reveal">
-    <div class="eyebrow">لماذا نحن</div>
-    <h2 class="fs-h2">لماذا يختار الطلاب ارتقاء؟</h2>
-    <p>5 أسباب ملموسة تجعلنا الخيار الأفضل</p>
-  </div>
+  <div class="block-head reveal"><div class="eyebrow">لماذا نحن</div><h2 class="fs-h2">لماذا يختار الطلاب ارتقاء؟</h2><p>5 أسباب ملموسة تجعلنا الخيار الأفضل</p></div>
   <div class="grid-2 reveal">
-    <div class="w-card"><div class="w-ico">🔍</div><div><h3>نحلل كل مسألة بدل أن نعطي الحل</h3><p>نفكك المسألة خطوة بخطوة حتى تعرف من أين جاءت المعادلة ومتى تستخدمها، لتصبح قادرًا على حل أي مسألة مشابهة بنفسك.</p></div></div>
-    <div class="w-card"><div class="w-ico">🎯</div><div><h3>متخصصون في الهندسة المدنية فقط</h3><p>لسنا منصة عامة؛ تركيزنا يعني فهمًا أعمق للتخصص ومعرفة دقيقة بمناهج الجامعات السعودية.</p></div></div>
-    <div class="w-card"><div class="w-ico">💬</div><div><h3>مجموعة واتساب نشطة لكل مادة</h3><p>تطرح سؤالك في أي وقت ويصلك الرد خلال ساعات. المدرس والزملاء متاحون لمساعدتك.</p></div></div>
-    <div class="w-card"><div class="w-ico">📚</div><div><h3>مذكرات وملخصات جاهزة</h3><p>كل محاضرة تأتي مع مذكرة منظمة وملخص PDF جاهز للمراجعة قبل الاختبار.</p></div></div>
-    <div class="w-card w-full"><div class="w-ico">🏆</div><div><h3>مدرسون بخبرة أكاديمية وعملية</h3><p>مدرسونا يحملون شهادات ماجستير ودكتوراه في تخصصات الهندسة المدنية مع خبرة عملية في المكاتب الاستشارية — يعرفون ما يحتاجه الطالب في الجامعة والمهندس في سوق العمل.</p></div></div>
+    <div class="w-card"><div class="w-ico">🔍</div><div><h3>نحلل كل مسألة بدل أن نعطي الحل</h3><p>نفكك المسألة خطوة بخطوة حتى تعرف من أين جاءت المعادلة ومتى تستخدمها.</p></div></div>
+    <div class="w-card"><div class="w-ico">🎯</div><div><h3>متخصصون في الهندسة المدنية فقط</h3><p>تركيزنا يعني فهمًا أعمق للتخصص ومعرفة دقيقة بمناهج الجامعات السعودية.</p></div></div>
+    <div class="w-card"><div class="w-ico">💬</div><div><h3>مجموعة واتساب نشطة لكل مادة</h3><p>تطرح سؤالك في أي وقت ويصلك الرد خلال ساعات.</p></div></div>
+    <div class="w-card"><div class="w-ico">📚</div><div><h3>مذكرات وملخصات جاهزة</h3><p>كل محاضرة تأتي مع مذكرة منظمة وملخص PDF جاهز للمراجعة.</p></div></div>
+    <div class="w-card w-full"><div class="w-ico">🏆</div><div><h3>مدرسون بخبرة أكاديمية وعملية</h3><p>مدرسونا يحملون شهادات ماجستير ودكتوراه مع خبرة عملية في المكاتب الاستشارية.</p></div></div>
   </div>
 </div>
 
-<!-- ===== Trust ===== -->
+<!-- Trust -->
 <div class="block" style="padding-top:0">
-  <div class="block-head reveal">
-    <div class="eyebrow">الثقة</div>
-    <h2 class="fs-h2">طلاب من أكثر من 8 جامعات سعودية</h2>
-  </div>
+  <div class="block-head reveal"><div class="eyebrow">الثقة</div><h2 class="fs-h2">طلاب من أكثر من 8 جامعات سعودية</h2></div>
   <div class="uni-grid reveal">
     <div class="uni"><div class="ico">🏛️</div><div>جامعة الملك سعود</div></div>
     <div class="uni"><div class="ico">🏛️</div><div>جامعة الملك عبدالعزيز</div></div>
@@ -667,18 +572,14 @@ a{-webkit-tap-highlight-color:transparent}
   </div>
   <div class="tst-grid reveal">
     <div class="tst"><div class="stars">★★★★★</div><q>كنت أذاكر التحليل الإنشائي بالحفظ وجبت نص الدرجة. بعد ارتقاء فهمت كل معادلة من أين جاءت وجبت A في المادة.</q><div class="tst-who"><div class="avatar">ع</div><div><b>عبدالرحمن</b><span>طالب هندسة مدنية — الرياض</span></div></div></div>
-    <div class="tst"><div class="stars">★★★★★</div><q>أحسن قرار أخذته. مجموعة الواتساب ساعدتني كثيرًا، وأي سؤال أطرحه أحصل على إجابة سريعة. المدرس صبور جدًا.</q><div class="tst-who"><div class="avatar">م</div><div><b>محمد</b><span>طالب هندسة مدنية — جدة</span></div></div></div>
-    <div class="tst"><div class="stars">★★★★★</div><q>المذكرات المنظمة وفّرت عليّ ساعات في المذاكرة، وشرح الخرسانة المسلحة كان أفضل بكثير من شرح الجامعة.</q><div class="tst-who"><div class="avatar">خ</div><div><b>خالد</b><span>طالب هندسة مدنية — الدمام</span></div></div></div>
+    <div class="tst"><div class="stars">★★★★★</div><q>أحسن قرار أخذته. مجموعة الواتساب ساعدتني كثيرًا، وأي سؤال أطرحه أحصل على إجابة سريعة.</q><div class="tst-who"><div class="avatar">م</div><div><b>محمد</b><span>طالب هندسة مدنية — جدة</span></div></div></div>
+    <div class="tst"><div class="stars">★★★★★</div><q>المذكرات المنظمة وفّرت عليّ ساعات في المذاكرة، وشرح الخرسانة كان أفضل بكثير من شرح الجامعة.</q><div class="tst-who"><div class="avatar">خ</div><div><b>خالد</b><span>طالب هندسة مدنية — الدمام</span></div></div></div>
   </div>
 </div>
 
-<!-- ===== Pricing ===== -->
+<!-- Pricing -->
 <div class="block" id="pricing" style="padding-top:0">
-  <div class="block-head reveal">
-    <div class="eyebrow">الأسعار</div>
-    <h2 class="fs-h2">أسعار واضحة بدون مفاجآت</h2>
-    <p>كلما زاد عدد المجموعة قلّ السعر على كل طالب</p>
-  </div>
+  <div class="block-head reveal"><div class="eyebrow">الأسعار</div><h2 class="fs-h2">أسعار واضحة بدون مفاجآت</h2><p>كلما زاد عدد المجموعة قلّ السعر على كل طالب</p></div>
   <div class="price-grid reveal">
     <div class="price"><div class="ico">👤</div><h3>اشتراك فردي</h3><div class="who">طالب واحد</div><div class="lbl">السعر الشهري</div><div class="val">يبدأ من 600 ر.س</div><div class="note">حسب المادة وعدد المحاضرات</div><ul><li>✓ محاضرات مباشرة</li><li>✓ تسجيلات للمراجعة</li><li>✓ مذكرة منظمة</li><li>✓ مجموعة واتساب</li></ul></div>
     <div class="price feat"><div class="price-badge">الأكثر طلبًا</div><div class="ico">👥</div><h3>مجموعة صغيرة</h3><div class="who">2 - 3 طلاب</div><div class="lbl">السعر للطالب شهريًا</div><div class="val">يبدأ من 450 ر.س</div><div class="note">خصم 25% عن الفردي</div><ul><li>✓ كل مزايا الفردي</li><li>✓ تجربة جماعية</li><li>✓ خصم مميز</li></ul></div>
@@ -687,51 +588,44 @@ a{-webkit-tap-highlight-color:transparent}
   </div>
   <div class="price-note reveal">
     <p><b>ملاحظة:</b> الأسعار تختلف قليلًا حسب المادة وعدد المحاضرات الشهرية.</p>
-    <a class="btn btn-sm" href="https://wa.me/966576073342?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D8%B9%D8%B1%D9%81%D8%A9%20%D8%A7%D9%84%D8%B3%D8%B9%D8%B1%20%D8%A7%D9%84%D9%86%D9%87%D8%A7%D8%A6%D9%8A%20%D9%84%D9%85%D8%A7%D8%AF%D8%A9%20%3A%20______" target="_blank"><span>💬</span>اطلب السعر النهائي لمادتك</a>
+    <button class="btn btn-sm" data-form="open" data-subject="استفسار عن السعر"><span>💬</span>اطلب السعر النهائي لمادتك</button>
   </div>
 </div>
 
-<!-- ===== FAQ ===== -->
+<!-- FAQ -->
 <div class="block" id="faq" style="padding-top:0">
-  <div class="block-head reveal">
-    <div class="eyebrow">الأسئلة الشائعة</div>
-    <h2 class="fs-h2">إجابات مباشرة تؤثر في قرارك</h2>
-  </div>
+  <div class="block-head reveal"><div class="eyebrow">الأسئلة الشائعة</div><h2 class="fs-h2">إجابات مباشرة تؤثر في قرارك</h2></div>
   <div class="faq-wrap reveal">
-    <div class="faq"><button class="faq-q"><span>كم عدد المحاضرات في الشهر؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>عادةً 8 محاضرات شهريًا (محاضرتان أسبوعيًا) مدة كل منها 90 دقيقة، وقد يزيد العدد قبل الاختبار لإضافة جلسات مراجعة.</div></div></div>
-    <div class="faq"><button class="faq-q"><span>هل المحاضرات مباشرة أم مسجلة؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>مباشرة عبر الإنترنت مع تفاعل فوري، ويتم تسجيل كل محاضرة وتتاح لك للمراجعة في أي وقت.</div></div></div>
-    <div class="faq"><button class="faq-q"><span>هل الشرح مناسب للمبتدئ في المادة؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>نعم، نبني المادة من الأساس ولا نفترض معرفة مسبقة، ونتدرج حتى المسائل المتقدمة.</div></div></div>
-    <div class="faq"><button class="faq-q"><span>هل يمكنني التسجيل مع زملائي؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>نعم بل نشجع ذلك؛ تحجزون مقاعدكم في نفس المجموعة وتحصلون على خصم يتناسب مع العدد.</div></div></div>
-    <div class="faq"><button class="faq-q"><span>ماذا يحدث إذا فاتتني محاضرة؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>تُتاح التسجيلات للمشاهدة في أي وقت، ويمكنك طرح أسئلتك في مجموعة الواتساب وسنرد عليك.</div></div></div>
-    <div class="faq"><button class="faq-q"><span>هل تبقى التسجيلات بعد انتهاء البرنامج؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>نعم، تبقى متاحة شهرًا كاملًا بعد انتهاء البرنامج لتتمكن من المراجعة النهائية قبل الاختبار.</div></div></div>
-    <div class="faq"><button class="faq-q"><span>هل تقدمون مراجعة قبل الاختبار؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>نعم، محاضرات مراجعة مركزة على أهم النقاط والمسائل المتوقعة والأخطاء الشائعة — جزء أساسي من خدمتنا.</div></div></div>
-    <div class="faq"><button class="faq-q"><span>كيف يتم الدفع؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>عبر التحويل البنكي المحلي؛ نرسل لك تفاصيل الحساب بعد تأكيد التسجيل، وتبدأ الدراسة فور استلام التحويل.</div></div></div>
-    <div class="faq"><button class="faq-q"><span>ماذا لو لم تعجبني المحاضرة التجريبية؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>التجريبية مجانية وبدون التزام؛ إن لم تعجبك ببساطة لا تسجّل. هدفنا أن تكون واثقًا قبل أن تدفع ريالًا واحدًا.</div></div></div>
-    <div class="faq"><button class="faq-q"><span>هل أستطيع طلب مادة غير موجودة؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>نعم؛ تواصل معنا وسنعمل على توفير المادة عند توفر عدد كافٍ من الطلاب المهتمين.</div></div></div>
+    <div class="faq"><button class="faq-q"><span>كم عدد المحاضرات في الشهر؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>عادةً 8 محاضرات شهريًا (محاضرتان أسبوعيًا) مدة كل منها 90 دقيقة.</div></div></div>
+    <div class="faq"><button class="faq-q"><span>هل المحاضرات مباشرة أم مسجلة؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>مباشرة عبر الإنترنت مع تفاعل فوري، ويتم تسجيل كل محاضرة للمراجعة.</div></div></div>
+    <div class="faq"><button class="faq-q"><span>هل الشرح مناسب للمبتدئ في المادة؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>نعم، نبني المادة من الأساس ونتدرج حتى المسائل المتقدمة.</div></div></div>
+    <div class="faq"><button class="faq-q"><span>هل يمكنني التسجيل مع زملائي؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>نعم بل نشجع ذلك؛ تحصلون على خصم يتناسب مع عدد المجموعة.</div></div></div>
+    <div class="faq"><button class="faq-q"><span>ماذا يحدث إذا فاتتني محاضرة؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>تُتاح التسجيلات للمشاهدة في أي وقت، ويمكنك طرح أسئلتك في الواتساب.</div></div></div>
+    <div class="faq"><button class="faq-q"><span>هل تبقى التسجيلات بعد البرنامج؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>نعم، تبقى متاحة شهرًا كاملًا بعد الانتهاء للمراجعة قبل الاختبار.</div></div></div>
+    <div class="faq"><button class="faq-q"><span>كيف يتم الدفع؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>عبر التحويل البنكي المحلي؛ نرسل لك التفاصيل بعد تأكيد التسجيل.</div></div></div>
+    <div class="faq"><button class="faq-q"><span>ماذا لو لم تعجبني التجربة المجانية؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>التجريبية مجانية وبدون التزام؛ إن لم تعجبك ببساطة لا تسجّل.</div></div></div>
+    <div class="faq"><button class="faq-q"><span>هل أستطيع طلب مادة غير موجودة؟</span><span class="faq-ico">+</span></button><div class="faq-a"><div>نعم؛ تواصل معنا وسنعمل على توفير المادة عند توفر عدد كافٍ من المهتمين.</div></div></div>
   </div>
 </div>
 
-<!-- ===== Final CTA ===== -->
+<!-- Final CTA -->
 <div class="block" style="padding-top:0">
   <div class="final reveal">
     <h2 class="fs-h2">جاهز لأن تبدأ <span class="accent">رحلتك الحقيقية</span>؟</h2>
-    <p class="fs-lead">احجز محاضرة تجريبية مجانية الآن، وشاهد بنفسك كيف يغيّر ارتقاء طريقة فهمك لمواد الهندسة المدنية.</p>
+    <p class="fs-lead">سجّل الآن خلال دقيقة واحدة، وسنتواصل معك لتأكيد جميع التفاصيل.</p>
     <div class="final-btns">
-      <a class="btn btn-gold" href="https://wa.me/966576073342?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9%20%D8%AA%D8%AC%D8%B1%D9%8A%D8%A8%D9%8A%D8%A9%20%D9%85%D8%AC%D8%A7%D9%86%D9%8A%D8%A9%20%D9%81%D9%8A%20%D9%85%D8%A7%D8%AF%D8%A9%20%3A%20______" target="_blank"><span>🎬</span>احجز محاضرتك المجانية</a>
-      <a class="btn btn-ghost" href="https://wa.me/966576073342?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D8%B9%D8%B1%D9%81%D8%A9%20%D8%A7%D9%84%D8%B3%D8%B9%D8%B1%20%D8%A7%D9%84%D9%86%D9%87%D8%A7%D8%A6%D9%8A%20%D9%84%D9%85%D8%A7%D8%AF%D8%A9%20%3A%20______" target="_blank"><span>💬</span>اطلب سعر مادتك</a>
+      <button class="btn btn-gold" data-form="open" data-subject="عام"><span>📝</span>سجّل الآن خلال دقيقة</button>
+      <button class="btn btn-ghost" data-form="open" data-subject="محاضرة تجريبية"><span>🎬</span>احجز محاضرة مجانية</button>
     </div>
     <div class="hours">🕐 متاحون من السبت إلى الخميس، 9 صباحًا - 10 مساءً</div>
   </div>
 </div>
 
-<!-- ===== Site Bottom ===== -->
+<!-- Site Bottom -->
 <div class="bottom">
   <div class="bottom-grid">
     <div class="bottom-brand">
-      <div class="b-logo">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5nl7CCqQ-4HI6rT_ed-XnI5XWXXbRzmBLiPM8axh0vQbcXEB45ALFiPEvtU57a-dzBAeBKT2ARZJmigzXBYNgVG-Q0y_oXFp78Quwo561IksZxYkH_kZ5CPiCDcnOXo3Fh_U2ueMnTw3gv5vfgIPnJ8XXMCRBHwcfLpxJJr5O01w_b24wpT7JqTdteaJi/s845/333087.png" alt="شعار ارتقاء">
-        <div><b>ارتقاء</b><span>الهندسة المدنية</span></div>
-      </div>
+      <div class="b-logo"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5nl7CCqQ-4HI6rT_ed-XnI5XWXXbRzmBLiPM8axh0vQbcXEB45ALFiPEvtU57a-dzBAeBKT2ARZJmigzXBYNgVG-Q0y_oXFp78Quwo561IksZxYkH_kZ5CPiCDcnOXo3Fh_U2ueMnTw3gv5vfgIPnJ8XXMCRBHwcfLpxJJr5O01w_b24wpT7JqTdteaJi/s845/333087.png" alt="شعار ارتقاء"><div><b>ارتقاء</b><span>الهندسة المدنية</span></div></div>
       <p>منصة تعليمية متخصصة في الهندسة المدنية، نساعد الطلاب على فهم المواد بعمق، حل المسائل، والاستعداد للاختبارات بثقة.</p>
       <div class="socials">
         <a href="https://wa.me/966576073342" target="_blank" aria-label="واتساب">📱</a>
@@ -740,37 +634,132 @@ a{-webkit-tap-highlight-color:transparent}
         <a href="https://instagram.com/irtiqaa" target="_blank" aria-label="إنستغرام">📷</a>
       </div>
     </div>
-    <div>
-      <h4>روابط سريعة</h4>
-      <a href="#problem">لماذا ارتقاء؟</a>
-      <a href="#subjects">المواد</a>
-      <a href="#samples">نماذج الشرح</a>
-      <a href="#pricing">الأسعار</a>
-      <a href="#trial">محاضرة تجريبية</a>
-    </div>
-    <div>
-      <h4>المعلومات</h4>
-      <a href="https://irtiqaa-ksa.github.io/.com/about/" target="_blank">من نحن</a>
-      <a href="#faq">الأسئلة الشائعة</a>
-      <a href="https://irtiqaa-ksa.github.io/.com/contact/" target="_blank">تواصل معنا</a>
-      <a href="https://irtiqaa-ksa.github.io/.com/blog/" target="_blank">المدونة</a>
-    </div>
-    <div>
-      <h4>قانوني</h4>
-      <a href="https://irtiqaa-ksa.github.io/.com/privacy/" target="_blank">سياسة الخصوصية</a>
-      <a href="https://irtiqaa-ksa.github.io/.com/terms/" target="_blank">الشروط والأحكام</a>
-      <a href="https://irtiqaa-ksa.github.io/.com/refund/" target="_blank">سياسة الاسترجاع</a>
-    </div>
+    <div><h4>روابط سريعة</h4><a href="#problem">لماذا ارتقاء؟</a><a href="#subjects">المواد</a><a href="#samples">نماذج الشرح</a><a href="#pricing">الأسعار</a><a href="#trial">محاضرة تجريبية</a></div>
+    <div><h4>المعلومات</h4><a href="https://irtiqaa-ksa.github.io/.com/about/" target="_blank">من نحن</a><a href="#faq">الأسئلة الشائعة</a><a href="https://irtiqaa-ksa.github.io/.com/contact/" target="_blank">تواصل معنا</a><a href="https://irtiqaa-ksa.github.io/.com/blog/" target="_blank">المدونة</a></div>
+    <div><h4>قانوني</h4><a href="https://irtiqaa-ksa.github.io/.com/privacy/" target="_blank">سياسة الخصوصية</a><a href="https://irtiqaa-ksa.github.io/.com/terms/" target="_blank">الشروط والأحكام</a><a href="https://irtiqaa-ksa.github.io/.com/refund/" target="_blank">سياسة الاسترجاع</a></div>
   </div>
   <div class="bottom-line">© 2026 ارتقاء — منصة تعليمية متخصصة في الهندسة المدنية. جميع الحقوق محفوظة.</div>
 </div>
 
-<!-- WhatsApp Float -->
-<a class="wa-float" href="https://wa.me/966576073342?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D9%84%D8%AF%D9%8A%20%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%85%D9%86%D8%B5%D8%A9%20%D8%A7%D8%B1%D8%AA%D9%82%D8%A7%D8%A1" target="_blank" aria-label="تواصل عبر واتساب">
+<!-- Modal -->
+<div class="modal-root" id="regModal" aria-hidden="true">
+  <div class="modal-bg" data-close="1"></div>
+  <div class="modal" role="dialog" aria-labelledby="modalTitle">
+    <button class="modal-close" data-close="1" aria-label="إغلاق">✕</button>
+    <div class="modal-head">
+      <div class="eyebrow">⏱️ يستغرق دقيقة واحدة فقط</div>
+      <h2 id="modalTitle">سجّل في ارتقاء الآن</h2>
+      <p>املأ البيانات وسنتواصل معك خلال ساعات لتأكيد جميع التفاصيل</p>
+    </div>
+    <form id="regForm" class="modal-body" novalidate>
+      <div class="form-group full">
+        <div class="subject-preview">
+          <div class="sp-ico">📚</div>
+          <div class="sp-txt">
+            <b id="spName">مادة عامة</b>
+            <span id="spSub">يمكنك تعديل المادة من القائمة أدناه</span>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="fname">الاسم الكامل <span class="req">*</span></label>
+          <input type="text" id="fname" class="form-input" placeholder="مثال: أحمد محمد" autocomplete="name" required>
+          <div class="form-error" id="fnameErr">الرجاء إدخال اسمك الكامل</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="fphone">رقم الجوال <span class="req">*</span></label>
+          <input type="tel" id="fphone" class="form-input" placeholder="05xxxxxxxx" autocomplete="tel" inputmode="numeric" required>
+          <div class="form-error" id="fphoneErr">رقم الجوال غير صحيح (9-15 رقم)</div>
+          <div class="form-hint">سنستخدم هذا الرقم للتواصل معك</div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="fsubject">المادة <span class="req">*</span></label>
+          <select id="fsubject" class="form-select" required>
+            <option value="">اختر المادة</option>
+            <optgroup label="إنشائية">
+              <option value="التحليل الإنشائي">التحليل الإنشائي</option>
+              <option value="التصميم الإنشائي">التصميم الإنشائي</option>
+              <option value="الخرسانة المسلحة">الخرسانة المسلحة</option>
+              <option value="الخرسانة مسبقة الإجهاد">الخرسانة مسبقة الإجهاد</option>
+              <option value="ميكانيكا المواد">ميكانيكا المواد</option>
+            </optgroup>
+            <optgroup label="موائع">
+              <option value="ميكانيكا الموائع">ميكانيكا الموائع</option>
+              <option value="الهيدروليكا">الهيدروليكا</option>
+            </optgroup>
+            <optgroup label="تربة وأساسات">
+              <option value="هندسة التربة">هندسة التربة</option>
+              <option value="هندسة الأساسات">هندسة الأساسات</option>
+            </optgroup>
+            <optgroup label="أخرى">
+              <option value="المساحة">المساحة</option>
+            </optgroup>
+            <optgroup label="خدمات">
+              <option value="محاضرة تجريبية">🎬 محاضرة تجريبية مجانية</option>
+              <option value="استفسار عن السعر">💰 استفسار عن السعر</option>
+              <option value="مادة غير موجودة">❓ مادة غير موجودة في القائمة</option>
+              <option value="عام">📝 تسجيل عام</option>
+            </optgroup>
+          </select>
+          <div class="form-error" id="fsubjectErr">الرجاء اختيار المادة</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="fnotes">ملاحظات (اختياري)</label>
+          <input type="text" id="fnotes" class="form-input" placeholder="مثال: مقيم بالرياض، اختبار بعد شهر">
+        </div>
+      </div>
+    </form>
+    <div class="modal-actions" id="modalActions">
+      <button class="btn-cancel" type="button" data-close="1">إلغاء</button>
+      <button class="btn-submit" id="btnSubmit" type="button"><span id="submitLabel">📝 إرسال التسجيل</span></button>
+    </div>
+    <div class="modal-success" id="modalSuccess" style="display:none">
+      <div class="ok-icon">✓</div>
+      <h3>تم استلام طلبك بنجاح!</h3>
+      <p>سنتواصل معك خلال ساعات قليلة عبر الواتساب لتأكيد جميع التفاصيل (السعر، المواعيد، مجموعة الدراسة).</p>
+      <div class="wa-backup">💡 <b>للطوارئ أو الاستعجال:</b> يمكنك التواصل معنا مباشرة عبر واتساب<br><a href="https://wa.me/966576073342" target="_blank">📱 966576073342</a></div>
+      <button class="close-btn" type="button" data-close="1">حسنًا، شكرًا لكم</button>
+    </div>
+  </div>
+</div>
+
+<a class="wa-float" href="https://wa.me/966576073342?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D9%84%D8%AF%D9%8A%20%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%85%D9%86%D8%B5%D8%A9%20%D8%A7%D8%B1%D8%AA%D9%82%D8%A7%D8%A1" target="_blank" aria-label="واتساب">
   <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5c-1.5 0-3-.4-4.2-1.1L3 20l1.1-5.3A8.5 8.5 0 1 1 21 11.5z"/></svg>
 </a>
 
 <script>
+/* ============================================================
+   Google Form Configuration
+   FORM_ID: 1FAIpQLSePINIzHFMXzq2f5mVA022EPwO5_byKxFb1f2BiPJyMPNigUg
+   ENTRY:   entry.569586052
+============================================================ */
+const FORM_ID = "1FAIpQLSePINIzHFMXzq2f5mVA022EPwO5_byKxFb1f2BiPJyMPNigUg";
+const ENTRY_ID = "entry.569586052";
+const FORM_VIEW_URL = `https://docs.google.com/forms/d/e/${FORM_ID}/viewform`;
+const FORM_RESPONSE_URL = `https://docs.google.com/forms/d/e/${FORM_ID}/formResponse`;
+
+/* ============================================================
+   Subjects List
+============================================================ */
+const SUBJECTS = [
+  {name:"التحليل الإنشائي",cat:"structural",desc:"من الكمرة البسيطة إلى المستمرة",s:"8 محاضرات",l:"متوسط"},
+  {name:"التصميم الإنشائي",cat:"structural",desc:"تصميم العناصر حسب الكود",s:"10 محاضرات",l:"متقدم"},
+  {name:"الخرسانة المسلحة",cat:"structural",desc:"تصميم القطاعات وحساب التسليح",s:"10 محاضرات",l:"متوسط/متقدم"},
+  {name:"الخرسانة مسبقة الإجهاد",cat:"structural",desc:"مبادئ وتقنيات الإجهاد المسبق",s:"8 محاضرات",l:"متقدم"},
+  {name:"ميكانيكا المواد",cat:"structural",desc:"الإجهاد والانفعال",s:"8 محاضرات",l:"مبتدئ/متوسط"},
+  {name:"ميكانيكا الموائع",cat:"fluids",desc:"الموائع الساكنة والمتحركة",s:"8 محاضرات",l:"مبتدئ/متوسط"},
+  {name:"الهيدروليكا",cat:"fluids",desc:"الأنابيب والقنوات المفتوحة",s:"8 محاضرات",l:"متوسط"},
+  {name:"هندسة التربة",cat:"geotechnical",desc:"خصائص التربة وتصنيفها",s:"8 محاضرات",l:"متوسط"},
+  {name:"هندسة الأساسات",cat:"geotechnical",desc:"الأساسات السطحية والعميقة",s:"10 محاضرات",l:"متقدم"},
+  {name:"المساحة",cat:"other",desc:"أساسيات المساحة الأرضية",s:"6 محاضرات",l:"مبتدئ"}
+];
+
+/* ============================================================
+   Navigation
+============================================================ */
 function toggleMenu(){
   var m=document.getElementById('mobileMenu'),o=document.getElementById('menuOverlay');
   var open=m.classList.contains('open');
@@ -778,33 +767,41 @@ function toggleMenu(){
   o.classList.toggle('open',!open);
   document.body.style.overflow=open?'':'hidden';
 }
+function scrollTo2(id){
+  var el=document.getElementById(id);
+  if(!el) return;
+  var h=parseInt(getComputedStyle(document.documentElement).getPropertyValue('--tb-h'))||72;
+  window.scrollTo({top:el.getBoundingClientRect().top+window.pageYOffset-h-10,behavior:'smooth'});
+}
+window.addEventListener('scroll',function(){
+  document.getElementById('topbar').classList.toggle('solid',window.scrollY>24);
+},{passive:true});
 
-var subjects=[
- {name:"التحليل الإنشائي",category:"structural",desc:"من الكمرة البسيطة إلى المستمرة",s:"8 محاضرات",l:"متوسط",url:"https://irtiqaa-ksa.github.io/.com/courses/structural-analysis/"},
- {name:"التصميم الإنشائي",category:"structural",desc:"تصميم العناصر حسب الكود",s:"10 محاضرات",l:"متقدم",url:"https://irtiqaa-ksa.github.io/.com/courses/structural-design/"},
- {name:"الخرسانة المسلحة",category:"structural",desc:"تصميم القطاعات وحساب التسليح",s:"10 محاضرات",l:"متوسط/متقدم",url:"https://irtiqaa-ksa.github.io/.com/courses/reinforced-concrete/"},
- {name:"الخرسانة مسبقة الإجهاد",category:"structural",desc:"مبادئ وتقنيات الإجهاد المسبق",s:"8 محاضرات",l:"متقدم",url:"https://irtiqaa-ksa.github.io/.com/courses/prestressed-concrete/"},
- {name:"ميكانيكا المواد",category:"structural",desc:"الإجهاد والانفعال وتحليل القطاعات",s:"8 محاضرات",l:"مبتدئ/متوسط",url:"https://irtiqaa-ksa.github.io/.com/courses/mechanics-of-materials/"},
- {name:"ميكانيكا الموائع",category:"fluids",desc:"الموائع الساكنة والمتحركة",s:"8 محاضرات",l:"مبتدئ/متوسط",url:"https://irtiqaa-ksa.github.io/.com/courses/fluid-mechanics/"},
- {name:"الهيدروليكا",category:"fluids",desc:"الأنابيب والقنوات المفتوحة",s:"8 محاضرات",l:"متوسط",url:"https://irtiqaa-ksa.github.io/.com/courses/hydraulics/"},
- {name:"هندسة التربة",category:"geotechnical",desc:"خصائص التربة وتصنيفها",s:"8 محاضرات",l:"متوسط",url:"https://irtiqaa-ksa.github.io/.com/courses/soil-engineering/"},
- {name:"هندسة الأساسات",category:"geotechnical",desc:"الأساسات السطحية والعميقة",s:"10 محاضرات",l:"متقدم",url:"https://irtiqaa-ksa.github.io/.com/courses/foundation-engineering/"},
- {name:"المساحة",category:"other",desc:"أساسيات المساحة الأرضية",s:"6 محاضرات",l:"مبتدئ",url:"https://irtiqaa-ksa.github.io/.com/courses/surveying/"}
-];
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var id=this.getAttribute('href').slice(1);
+    if(id && document.getElementById(id)){e.preventDefault();scrollTo2(id)}
+  });
+});
 
+/* ============================================================
+   Tabs + Subjects Render
+============================================================ */
 function renderSubjects(cat){
   cat=cat||'all';
   var g=document.getElementById('subjectsGrid');
-  var f=cat==='all'?subjects:subjects.filter(function(x){return x.category===cat});
+  var f=cat==='all'?SUBJECTS:SUBJECTS.filter(function(x){return x.cat===cat});
   g.innerHTML=f.map(function(s){
     return '<div class="subj">'
       +'<div class="subj-top"><div><h3>'+s.name+'</h3><div class="desc">'+s.desc+'</div></div><span class="tick">✓</span></div>'
       +'<div class="chips"><span class="chip">'+s.s+'</span><span class="chip">مستوى '+s.l+'</span><span class="chip">مباشر + تسجيلات</span></div>'
-      +'<div class="subj-actions"><a class="a-detail" href="'+s.url+'" target="_blank">التفاصيل</a><a class="a-join" href="https://wa.me/966576073342?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%20%D9%81%D9%8A%20'+encodeURIComponent(s.name)+'" target="_blank">سجّل</a></div>'
-      +'</div>';
+      +'<div class="subj-actions">'
+      +'<button type="button" class="a-detail" data-form="open" data-subject="'+s.name+'">التفاصيل</button>'
+      +'<button type="button" class="a-join" data-form="open" data-subject="'+s.name+'">سجّل الآن</button>'
+      +'</div></div>';
   }).join('');
+  attachFormTriggers();
 }
-
 document.querySelectorAll('.tab').forEach(function(b){
   b.addEventListener('click',function(){
     document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active')});
@@ -813,10 +810,9 @@ document.querySelectorAll('.tab').forEach(function(b){
   });
 });
 
-window.addEventListener('scroll',function(){
-  document.getElementById('topbar').classList.toggle('solid',window.scrollY>24);
-},{passive:true});
-
+/* ============================================================
+   FAQ
+============================================================ */
 document.querySelectorAll('.faq-q').forEach(function(b){
   b.addEventListener('click',function(){
     var item=this.parentElement,a=item.querySelector('.faq-a');
@@ -826,17 +822,270 @@ document.querySelectorAll('.faq-q').forEach(function(b){
   });
 });
 
-document.querySelectorAll('a[href^="#"]').forEach(function(a){
-  a.addEventListener('click',function(e){
-    var t=document.querySelector(this.getAttribute('href'));
-    if(t){e.preventDefault();var h=parseInt(getComputedStyle(document.documentElement).getPropertyValue('--tb-h'))||70;window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-h-10,behavior:'smooth'})}
-  });
-});
-
-var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.12});
+/* ============================================================
+   Reveal on Scroll
+============================================================ */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 
+/* ============================================================
+   MODAL Registration Form
+============================================================ */
+const modal = document.getElementById('regModal');
+const form = document.getElementById('regForm');
+const fname = document.getElementById('fname');
+const fphone = document.getElementById('fphone');
+const fsubject = document.getElementById('fsubject');
+const fnotes = document.getElementById('fnotes');
+const spName = document.getElementById('spName');
+const spSub = document.getElementById('spSub');
+const modalActions = document.getElementById('modalActions');
+const modalSuccess = document.getElementById('modalSuccess');
+const btnSubmit = document.getElementById('btnSubmit');
+const submitLabel = document.getElementById('submitLabel');
+
+function openForm(subject){
+  form.style.display='block';
+  modalActions.style.display='flex';
+  modalSuccess.style.display='none';
+  form.reset();
+  clearErrors();
+  
+  var subj = subject || 'عام';
+  var found = false;
+  for(var i=0;i<fsubject.options.length;i++){
+    if(fsubject.options[i].value === subj){
+      fsubject.value = subj;
+      found = true;
+      break;
+    }
+  }
+  if(!found) fsubject.value = 'عام';
+  updatePreview();
+  
+  var saved = loadSaved();
+  if(saved.name) fname.value = saved.name;
+  if(saved.phone) fphone.value = saved.phone;
+  if(saved.notes) fnotes.value = saved.notes;
+  
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+  setTimeout(function(){fname.focus()},100);
+}
+
+function closeForm(){
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+}
+
+function updatePreview(){
+  var val = fsubject.value;
+  if(val){
+    spName.textContent = val;
+    var info = SUBJECTS.find(function(s){return s.name===val});
+    spSub.textContent = info ? (info.s + ' — مستوى ' + info.l) : 'يمكنك تعديل المادة من القائمة أدناه';
+  }
+}
+
+function savePartial(){
+  try{
+    localStorage.setItem('irtiqaa_form',JSON.stringify({
+      name:fname.value,phone:fphone.value,notes:fnotes.value,savedAt:Date.now()
+    }));
+  }catch(e){}
+}
+function loadSaved(){
+  try{
+    var s = JSON.parse(localStorage.getItem('irtiqaa_form')||'{}');
+    if(s.savedAt && Date.now()-s.savedAt > 7*24*60*60*1000){
+      localStorage.removeItem('irtiqaa_form');
+      return {};
+    }
+    return s;
+  }catch(e){return {}}
+}
+[fname,fphone,fnotes].forEach(function(inp){
+  inp.addEventListener('input',function(){
+    savePartial();
+    if(this.classList.contains('err')){
+      this.classList.remove('err');
+      var errEl = this.parentElement.querySelector('.form-error');
+      if(errEl) errEl.classList.remove('show');
+    }
+  });
+});
+fsubject.addEventListener('change',function(){
+  updatePreview();
+  this.classList.remove('err');
+  var errEl = document.getElementById('fsubjectErr');
+  if(errEl) errEl.classList.remove('show');
+});
+
+function showError(inp,errId){
+  inp.classList.add('err');
+  var errEl = document.getElementById(errId);
+  if(errEl) errEl.classList.add('show');
+}
+function clearErrors(){
+  form.querySelectorAll('.err').forEach(function(x){x.classList.remove('err')});
+  form.querySelectorAll('.form-error.show').forEach(function(x){x.classList.remove('show')});
+}
+function validatePhone(v){return /^[0-9+\s]{9,15}$/.test(v.replace(/\s/g,''))}
+function validateName(v){return v.trim().length >= 2}
+
+/* ============================================================
+   Submit to Google Forms (silent submit via hidden iframe)
+   entry.569586052 receives the combined payload
+============================================================ */
+async function submitForm(){
+  clearErrors();
+  var valid = true;
+  
+  if(!validateName(fname.value)){showError(fname,'fnameErr');valid=false}
+  if(!validatePhone(fphone.value)){showError(fphone,'fphoneErr');valid=false}
+  if(!fsubject.value){showError(fsubject,'fsubjectErr');valid=false}
+  
+  if(!valid){
+    var first = form.querySelector('.err');
+    if(first) first.focus();
+    return;
+  }
+  
+  var payload = [
+    '📝 طلب تسجيل جديد من موقع ارتقاء',
+    '━━━━━━━━━━━━━━━━━━━━━',
+    '👤 الاسم: ' + fname.value.trim(),
+    '📱 الجوال: ' + fphone.value.trim(),
+    '📚 المادة: ' + fsubject.value,
+    fnotes.value.trim() ? '📝 ملاحظات: ' + fnotes.value.trim() : null,
+    '━━━━━━━━━━━━━━━━━━━━━',
+    '🕐 وقت الطلب: ' + new Date().toLocaleString('ar-SA',{timeZone:'Asia/Riyadh'}),
+    '🌐 المصدر: irtiqaa-ksa.github.io/.com'
+  ].filter(Boolean).join('\n');
+  
+  btnSubmit.disabled = true;
+  submitLabel.innerHTML = '<span class="spinner"></span> جارٍ الإرسال...';
+  
+  try {
+    // Method 1: Hidden iframe submission (most reliable)
+    await submitViaIframe(payload);
+    
+    // Method 2 (fallback): fetch no-cors
+    // await submitViaFetch(payload);
+    
+    savePartial();
+    fnotes.value = '';
+    
+    form.style.display = 'none';
+    modalActions.style.display = 'none';
+    modalSuccess.style.display = 'block';
+    
+  } catch(err){
+    console.error('Form submission error:', err);
+    // Fallback: open Google Form with pre-filled data
+    var fallbackUrl = FORM_VIEW_URL + '?' + ENTRY_ID + '=' + encodeURIComponent(payload);
+    window.open(fallbackUrl, '_blank', 'noopener');
+    
+    form.style.display = 'none';
+    modalActions.style.display = 'none';
+    modalSuccess.style.display = 'block';
+  } finally {
+    btnSubmit.disabled = false;
+    submitLabel.textContent = '📝 إرسال التسجيل';
+  }
+}
+
+/* Hidden iframe submission (silent, no popup) */
+function submitViaIframe(payload){
+  return new Promise(function(resolve, reject){
+    var iframe = document.createElement('iframe');
+    iframe.name = 'irtiqaa_submit_' + Date.now();
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+    
+    var tempForm = document.createElement('form');
+    tempForm.method = 'POST';
+    tempForm.action = FORM_RESPONSE_URL;
+    tempForm.target = iframe.name;
+    tempForm.acceptCharset = 'UTF-8';
+    
+    var input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = ENTRY_ID;
+    input.value = payload;
+    tempForm.appendChild(input);
+    
+    document.body.appendChild(tempForm);
+    
+    var timeout = setTimeout(function(){
+      cleanup();
+      resolve();
+    }, 3000);
+    
+    iframe.onload = function(){
+      clearTimeout(timeout);
+      setTimeout(function(){cleanup();resolve()}, 800);
+    };
+    iframe.onerror = function(){
+      clearTimeout(timeout);
+      cleanup();
+      reject(new Error('iframe error'));
+    };
+    
+    try { tempForm.submit(); }
+    catch(e){ clearTimeout(timeout); cleanup(); reject(e); }
+    
+    function cleanup(){
+      try{
+        if(tempForm && tempForm.parentNode) tempForm.parentNode.removeChild(tempForm);
+        if(iframe && iframe.parentNode) iframe.parentNode.removeChild(iframe);
+      }catch(e){}
+    }
+  });
+}
+
+/* Alternative fetch method (no-cors) */
+async function submitViaFetch(payload){
+  var params = new URLSearchParams();
+  params.append(ENTRY_ID, payload);
+  await fetch(FORM_RESPONSE_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    body: params.toString()
+  });
+}
+
+btnSubmit.addEventListener('click', submitForm);
+form.addEventListener('keydown',function(e){
+  if(e.key==='Enter'){e.preventDefault();submitForm()}
+});
+document.querySelectorAll('[data-close="1"]').forEach(function(el){
+  el.addEventListener('click',closeForm);
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape' && modal.classList.contains('open')) closeForm();
+});
+
+function attachFormTriggers(){
+  document.querySelectorAll('[data-form="open"]').forEach(function(el){
+    if(!el.dataset.bound){
+      el.addEventListener('click',onFormClick);
+      el.dataset.bound = '1';
+    }
+  });
+}
+function onFormClick(e){
+  e.preventDefault();
+  var subj = this.dataset.subject || 'عام';
+  openForm(subj);
+}
+
+/* Init */
 renderSubjects();
+attachFormTriggers();
 </script>
 </body>
 </html>
