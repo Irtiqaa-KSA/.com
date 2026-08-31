@@ -1,0 +1,95 @@
+{
+  "name": "ارتقاء | منصة الهندسة المدنية",
+  "short_name": "ارتقاء",
+  "description": "منصة تعليمية متخصصة في الهندسة المدنية — افهم المواد بعمق، حل المسائل، واستعد للاختبارات بثقة.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "https://irtiqaa-ksa.github.io/.com/",
+  "scope": "https://irtiqaa-ksa.github.io/.com/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0e1c30",
+  "theme_color": "#0e1c30",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "https://irtiqaa-ksa.github.io/.com/icons/icon-72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://irtiqaa-ksa.github.io/.com/icons/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://irtiqaa-ksa.github.io/.com/icons/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://irtiqaa-ksa.github.io/.com/icons/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://irtiqaa-ksa.github.io/.com/icons/icon-152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://irtiqaa-ksa.github.io/.com/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://irtiqaa-ksa.github.io/.com/icons/icon-384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://irtiqaa-ksa.github.io/.com/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "المواد الدراسية",
+      "short_name": "المواد",
+      "description": "تصفح جميع المواد المتاحة",
+      "url": "/#subjects",
+      "icons": [{ "src": "https://irtiqaa-ksa.github.io/.com/icons/icon-96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "احجز محاضرة تجريبية",
+      "short_name": "تجريبية",
+      "description": "احجز محاضرة مجانية الآن",
+      "url": "/#trial",
+      "icons": [{ "src": "https://irtiqaa-ksa.github.io/.com/icons/icon-96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "الأسعار",
+      "short_name": "الأسعار",
+      "description": "شاهد باقات الاشتراك",
+      "url": "/#pricing",
+      "icons": [{ "src": "https://irtiqaa-ksa.github.io/.com/icons/icon-96.png", "sizes": "96x96" }]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=85",
+      "sizes": "1200x630",
+      "type": "image/jpeg",
+      "form_factor": "wide"
+    }
+  ]
+}
