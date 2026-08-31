@@ -2,6 +2,26 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
+
+
+
+<!-- ══════ PWA Meta Tags ══════ -->
+<link rel="manifest" href="https://irtiqaa-ksa.github.io/.com/manifest.json">
+<meta name="application-name" content="ارتقاء">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ارتقاء">
+<link rel="apple-touch-icon" href="https://irtiqaa-ksa.github.io/.com/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://irtiqaa-ksa.github.io/.com/icons/icon-192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://irtiqaa-ksa.github.io/.com/icons/icon-128.png">
+<link rel="shortcut icon" href="https://irtiqaa-ksa.github.io/.com/favicon.ico">
+
+
+
+
+
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#0e1c30">
 
@@ -1087,5 +1107,82 @@ function onFormClick(e){
 renderSubjects();
 attachFormTriggers();
 </script>
+
+
+
+
+<!-- ══════ زر تثبيت التطبيق PWA ══════ -->
+<div id="pwaInstallBar" style="position:fixed;bottom:calc(80px + env(safe-area-inset-bottom));right:16px;left:16px;z-index:950;background:linear-gradient(135deg,#0e1c30,#1b4066);border:1.5px solid rgba(213,167,58,.4);border-radius:16px;padding:14px 16px;display:none;align-items:center;gap:12px;box-shadow:0 16px 40px rgba(10,20,36,.35);max-width:520px;margin:auto;animation:irtiqaaFade .4s ease;">
+  <img src="https://irtiqaa-ksa.github.io/.com/icons/icon-96.png" alt="أيقونة ارتقاء" style="width:44px;height:44px;border-radius:10px;object-fit:cover;flex-shrink:0;">
+  <div style="flex:1;min-width:0;">
+    <div style="color:#fff;font-weight:800;font-size:14px;">ثبّت ارتقاء على جهازك</div>
+    <div style="color:#c6d2e2;font-size:12px;">افتح المنصة بسرعة — تعمل حتى بدون إنترنت</div>
+  </div>
+  <button id="pwaInstallBtn" style="background:#d5a73a;color:#061d34;padding:9px 16px;border-radius:10px;font-weight:800;font-size:13px;border:none;cursor:pointer;font-family:inherit;flex-shrink:0;box-shadow:0 4px 12px rgba(213,167,58,.35);">تثبيت</button>
+  <button id="pwaDismissBtn" style="background:none;border:none;color:#c6d2e2;font-size:20px;cursor:pointer;padding:4px 8px;line-height:1;">✕</button>
+</div>
+
+<script>
+/* ══════ تسجيل Service Worker ══════ */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('https://irtiqaa-ksa.github.io/.com/sw.js', { scope: 'https://irtiqaa-ksa.github.io/.com/' })
+      .then(reg => console.log('✅ SW registered:', reg.scope))
+      .catch(err => console.warn('⚠️ SW registration failed:', err));
+  });
+}
+
+/* ══════ زر تثبيت التطبيق ══════ */
+let deferredPrompt = null;
+const installBar = document.getElementById('pwaInstallBar');
+const installBtn = document.getElementById('pwaInstallBtn');
+const dismissBtn = document.getElementById('pwaDismissBtn');
+
+// إخفاء الشريط إذا سبق رفضه أو التطبيق مثبت
+const alreadyDismissed = localStorage.getItem('irtiqaa_pwa_dismissed');
+const isInstalled = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  if (!alreadyDismissed && !isInstalled) {
+    setTimeout(() => { installBar.style.display = 'flex'; }, 3000);
+  }
+});
+
+installBtn.addEventListener('click', async () => {
+  if (!deferredPrompt) {
+    // iOS Safari: عرض تعليمات يدوية
+    alert('لتثبيت التطبيق على iOS:\n1. اضغط زر المشاركة ⬆️\n2. اختر "إضافة إلى الشاشة الرئيسية"');
+    return;
+  }
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+  if (outcome === 'accepted') {
+    installBar.style.display = 'none';
+    localStorage.setItem('irtiqaa_pwa_installed', '1');
+  }
+  deferredPrompt = null;
+});
+
+dismissBtn.addEventListener('click', () => {
+  installBar.style.display = 'none';
+  localStorage.setItem('irtiqaa_pwa_dismissed', '1');
+});
+
+window.addEventListener('appinstalled', () => {
+  installBar.style.display = 'none';
+  localStorage.setItem('irtiqaa_pwa_installed', '1');
+  deferredPrompt = null;
+});
+</script>
+
+
+
+
+
 </body>
+
+
+
 </html>
